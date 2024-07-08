@@ -1,0 +1,49 @@
+@import "../abstracts/varible.css";
+
+.breadcrumb2 {
+    height: 5rem;
+    width: 100%;
+    background-color: var(--white-color);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.breadcrumb2__item {
+    height: 100%;
+    align-content: center;
+    padding: 0 2rem;
+    position: relative;
+}
+.breadcrumb2__item--home {
+    color: var(--text-dark-color);
+    font-weight: 500;
+    font-size: 2rem;
+}
+.breadcrumb2__item--link {
+    font-size: 1.6rem;
+    color: var(--text-dark-color);
+    font-weight: 400;
+}
+.breadcrumb2__item--home::before,
+.breadcrumb2__item--link::before {
+    content: "";
+    width: 0.4rem;
+    height: 4rem;
+    background-color: var(--bg-primary);
+    position: absolute;
+    left: 0;
+    transform: rotate(45deg);
+    top: -7px;
+}
+.breadcrumb2__item--home::after,
+.breadcrumb2__item--link::after {
+    content: "";
+    width: 0.4rem;
+    height: 4rem;
+    background-color: var(--bg-primary);
+    position: absolute;
+    left: 0;
+    transform: rotate(135deg);
+    bottom: -11px;
+}

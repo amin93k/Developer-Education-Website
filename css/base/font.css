@@ -1,0 +1,41 @@
+@font-face {
+    font-family: IRANSans;
+    src: url("../../fonts/IRANSans/IRANSans_Light.ttf") format("ttf");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: IRANSans;
+    src: url("../../fonts/IRANSans/IRANSans_Medium.ttf") format("ttf");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: IRANSans;
+    src: url("../../fonts/IRANSans/IRANSans_Bold.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: IRANSans;
+    src: url("../../fonts/IRANSans/IRANSans_Black.ttf") format("ttf");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: IRYekan;
+    src: url("../../fonts/Yekan/IRYekan.ttf") format("ttf");
+    font-style: normal;
+}
+@font-face {
+    font-family: IRYekan;
+    src: url("../../fonts/Yekan/IRYekanBold.ttf") format("ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: Kalmeh;
+    src: url("../../fonts/kalmeh/Kalameh-Bold.ttf") format("ttf");
+    font-weight: 700;
+    font-style: normal;
+}

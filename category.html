@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendor/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/pages/category.css">
+    <title>آموزش برنامه نویسی</title>
+</head>
+<body>
+
+<!--Main Header-->
+<header class="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <!-- Right Section (Menu & Logo) -->
+            <a class="navbar-brand order-lg-0 order-2" href="index.html">
+                <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+                    aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Dropdown Menu-->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvasLg"
+                 aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="navbar-nav justify-content-start flex-grow-1 px-3 gap-3">
+                    <!--DropDown Submenu Item-->
+                    <li class="header__nav--menu nav-item dropdown">
+                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">فرانت اند</a>
+                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                            <li class="my-2 header__nav--submenu--li">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش HTML
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش اصول طراحی قالب
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS Grid
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS Flex Box
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__nav--menu nav-item dropdown">
+                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">امنیت</a>
+                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش هکر قانونمند - CEH V11
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش کالی لینوکس
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش Burp Suite
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Search Box Mobile Version-->
+                    <div class="input-group flex-nowrap d-lg-none">
+                        <input type="text"
+                               class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                               placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                               aria-describedby="addon-wrapping1">
+                        <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0"
+                              id="addon-wrapping1"><i class="fa-regular fa-search"></i></span>
+                    </div>
+                </ul>
+            </div>
+            <!--Left Section (Search & Dark Mode & Registration)-->
+            <div class="d-flex align-items-center justify-content-between order-3">
+                <!--Search Box-->
+                <div class="input-group flex-nowrap d-none d-lg-flex me-3">
+                    <input type="text"
+                           class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                           placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                           aria-describedby="addon-wrapping">
+                    <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0 cursor_pointer"
+                          id="addon-wrapping"><i
+                            class="fa-regular fa-search"></i></span>
+                </div>
+                <!--User Sign In-->
+                <div class="header__user cursor_pointer bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
+                    <i class="fa-regular fa-user mt-1"></i>
+                    <span class="header__search--text mb-2">ورود | عضویت</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container mb-4">
+        <!--Top Bar (Show, Sort, Search)-->
+        <div class="top-bar d-flex align-items-center px-4 my-5">
+            <!--Top Bar Show Section-->
+            <div class="top-bar__show d-flex align-items-center justify-content-center gap-3">
+                <!--Windows Button-->
+                <div class="top-bar__show--btn rounded-circle border border-1 border-secondary-subtle cursor_pointer active" id="show-windows">
+                    <i class="top-bar__show--icons fa-regular fa-border-all"></i>
+                </div>
+                <!--Line Button-->
+                <div class="top-bar__show--btn rounded-circle border border-1 border-secondary-subtle cursor_pointer" id="show-line">
+                    <i class="top-bar__show--icons fa-regular fa-align-right"></i>
+                </div>
+            </div>
+            <!--Top Bar Sort Section-->
+            <div class="top-bar__sort d-flex align-items-center gap-4 h-100">
+                <h3 class="ms-4">مرتب سازی براساس :</h3>
+                <span class="top-bar__sort--type active" id="all">همه دوره ها</span>
+                <span class="top-bar__sort--type" id="popular">محبوب ترین</span>
+                <span class="top-bar__sort--type" id="cheaper">ارزان ترین</span>
+                <span class="top-bar__sort--type" id="expensive">گران ترین</span>
+            </div>
+            <!--Top Bar Search Section-->
+            <div class="top-bar__search">
+                <input class="top-bar__search--input border border-1 border-secondary-subtle" type="search" name="search-course" placeholder="جستجو دوره ...">
+                <label class="top-bar__search--icon cursor_pointer"><i class="fa-regular fa-search"></i></label>
+            </div>
+        </div>
+        <!--Courses Section-->
+        <div class="courses-wrapper row row-gap-3">
+            <!--Course Cards-->
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="course-card">
+                    <div class="course-card__banner">
+                        <a href="#">
+                            <img class="course-card__banner--img"
+                                 src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp" alt="course">
+                        </a>
+                    </div>
+                    <div class="course-card__content">
+                        <div class="course-card__content--title">
+                            <a href="#">آموزش داشبورد حرفه ای با CSS و JS</a>
+                        </div>
+                        <p class="course-card__content--description">این دوره فرصتی فوق‌العاده برای ارتقاء مهارت‌های
+                            فرانت
+                            اند شماست. با یادگیری از جدیدترین تکنیک‌ها، انیمیشن‌ها ، ابزارهای پیشرفته و…</p>
+                    </div>
+                    <div class="course-card__footer">
+                        <div class="course-card__footer--teacher-rating">
+                            <div class="course-card__teacher">
+                                <a href="#">
+                                    <i class="fa-regular fa-chalkboard-teacher"></i>
+                                    <span class="course-card__teacher--name">امین کوشش وطن</span>
+                                </a>
+                            </div>
+                            <div class="course-card__rating">
+                                <span class="card__rating--number">5.0</span>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="course-card__footer--user-price">
+                                <span class="course-card__footer--users">
+                                    <i class="fa-regular fa-user-group"></i>
+                                    500
+                                </span>
+                            <div class="course-card__footer--price">
+                                <span>350,000</span>
+                                <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
+                                    <g transform="translate(-4013.907 176.406)">
+                                        <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                        <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="course-card">
+                    <div class="course-card__banner">
+                        <a href="#">
+                            <img class="course-card__banner--img"
+                                 src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp"
+                                 alt="course">
+                        </a>
+                    </div>
+                    <div class="course-card__content">
+                        <div class="course-card__content--title">
+                            <a href="#">پروژه های تخصصی با جاوا اسکریپت</a>
+                        </div>
+                        <p class="course-card__content--description">هیچ فرقی نمیکنه شما با چه کتابخونه یا فریمورکی
+                            کار
+                            میکنین. تو این دوره یاد میگیری به عنوان یه برنامه نویس فرانت‌اند چطور یه پروژه بزرگ و
+                            واقعی رو منیج کنی. حالا این پروژه میتونه با ویو، ری‌اکت یا حتی جاوا اسکریپت خام
+                            باشه.</p>
+                    </div>
+                    <div class="course-card__footer">
+                        <div class="course-card__footer--teacher-rating">
+                            <div class="course-card__teacher">
+                                <a href="#">
+                                    <i class="fa-regular fa-chalkboard-teacher"></i>
+                                    <span class="course-card__teacher--name">امین کوشش وطن</span>
+                                </a>
+                            </div>
+                            <div class="course-card__rating">
+                                <span class="card__rating--number">5.0</span>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="course-card__footer--user-price">
+                                <span class="course-card__footer--users">
+                                    <i class="fa-regular fa-user-group"></i>
+                                    500
+                                </span>
+                            <div class="course-card__footer--price">
+                                <span>350,000</span>
+                                <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
+                                    <g transform="translate(-4013.907 176.406)">
+                                        <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                        <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="course-card">
+                    <div class="course-card__banner">
+                        <a href="#">
+                            <img class="course-card__banner--img" src="images/courses/csshtml-852-1-768x432.webp"
+                                 alt="course">
+                        </a>
+                    </div>
+                    <div class="course-card__content">
+                        <div class="course-card__content--title">
+                            <a href="#">پروژه های خلاقانه با HTML و CSS</a>
+                        </div>
+                        <p class="course-card__content--description">بعد از یادگیری Html,Css افراد با یک چالش بزرگی
+                            رو به
+                            رو میشن، اونم اینه که نمیتونن توسط دانشی که یادگرفتن یک طرحی رو از صفر به کد تبدیل کنن و
+                            وبسایتی رو پیاده سازی کنن، توی این دوره به شما از صفر اصول طراحی قالب و</p>
+                    </div>
+                    <div class="course-card__footer">
+                        <div class="course-card__footer--teacher-rating">
+                            <div class="course-card__teacher">
+                                <a href="#">
+                                    <i class="fa-regular fa-chalkboard-teacher"></i>
+                                    <span class="course-card__teacher--name">امین کوشش وطن</span>
+                                </a>
+                            </div>
+                            <div class="course-card__rating">
+                                <span class="card__rating--number">5.0</span>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="course-card__footer--user-price">
+                                <span class="course-card__footer--users">
+                                    <i class="fa-regular fa-user-group"></i>
+                                    500
+                                </span>
+                            <div class="course-card__footer--price">
+                                <span>520,000</span>
+                                <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
+                                    <g transform="translate(-4013.907 176.406)">
+                                        <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                        <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="course-card">
+                    <div class="course-card__banner">
+                        <a href="#">
+                            <img class="course-card__banner--img" src="images/courses/Com_vue-1-768x432.webp"
+                                 alt="course">
+                        </a>
+                    </div>
+                    <div class="course-card__content">
+                        <div class="course-card__content--title">
+                            <a href="#">آموزش رایگان ویو جی اس مقدماتی تا پیشرفتهJS</a>
+                        </div>
+                        <p class="course-card__content--description">در این آموزش ویو جی اس مقدماتی تا پیشرفته
+                            میتونی ویو
+                            جی اس رو خیلی راحت با پشتیبانی سریع بصورت رایگان یاد بگیری !</p>
+                    </div>
+                    <div class="course-card__footer">
+                        <div class="course-card__footer--teacher-rating">
+                            <div class="course-card__teacher">
+                                <a href="#">
+                                    <i class="fa-regular fa-chalkboard-teacher"></i>
+                                    <span class="course-card__teacher--name">امین کوشش وطن</span>
+                                </a>
+                            </div>
+                            <div class="course-card__rating">
+                                <span class="card__rating--number">5.0</span>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="course-card__footer--user-price">
+                                <span class="course-card__footer--users">
+                                    <i class="fa-regular fa-user-group"></i>
+                                    500
+                                </span>
+                            <div class="course-card__footer--price">
+                                <span>350,000</span>
+                                <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
+                                    <g transform="translate(-4013.907 176.406)">
+                                        <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                        <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                        <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                        <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Show More Element-->
+        <div class="show-more rounded-pill mx-auto cursor_pointer mt-3">
+            <span class="show-more__text">
+                مشاهده بیشتر
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+        </div>
+    </div>
+</main>
+
+<!--Footer Section-->
+<footer class="footer">
+    <!--Footer Content-->
+    <div class="container">
+        <div class="row row-gap-4 mb-4">
+            <!--About We-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__about">
+                    <h3 class="footer__title">درباره ما</h3>
+                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
+                </div>
+            </div>
+            <!--Quick Access-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__quick-access">
+                    <h3 class="footer__title">دسترسی سریع</h3>
+                    <ul class="footer__quick-access--links" role="list">
+                        <li class="footer__quick-access--policy"><a href="#">قوانین و مقررات</a></li>
+                        <li class="footer__quick-access--question"><a href="#">سوالات</a></li>
+                        <li class="footer__quick-access--courses"><a href="#">همه دوره ها</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Useful Links-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__useful-links">
+                    <h3 class="footer__title">لینک های مفید</h3>
+                    <ul class="footer__useful-links--links" role="list">
+                        <li class="footer__useful-links--js"><a href="#">آموزش جاوااسکریپت</a></li>
+                        <li class="footer__useful-links--python"><a href="#">آموزش پایتون</a></li>
+                        <li class="footer__useful-links--html"><a href="#">آموزش HTML</a></li>
+                        <li class="footer__useful-links--css"><a href="#">آموزش CSS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Social Media-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__socials">
+                    <h3 class="footer__title">شبکه های اجتماعی</h3>
+                    <div>
+                        <a href="#" class="footer__socials--icons" id="instagram" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__socials--icons" id="facebook" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer Copyright-->
+    <div class="footer__copyright mx-4 py-4">
+        <p class="footer__copyright--text">
+            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright  © 2024
+        </p>
+    </div>
+</footer>
+
+<script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

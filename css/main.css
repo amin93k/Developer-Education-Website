@@ -1,0 +1,124 @@
+@import "abstracts/varible.css";
+@import "abstracts/responcive.css";
+@import "base/font.css";
+@import "base/reset.css";
+@import "base/base.css";
+@import "layout/navbar.css";
+@import "layout/footer.css";
+@import "components/course-card.css";
+@import "components/blog-card.css";
+
+/****************Home Section*******************/
+.home__content--title {
+    font-weight: 700;
+    font-size: 4.5rem;
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+}
+
+/******************* NEW COURSES *******************/
+.courses__header--show-courses {
+    display: inline-block;
+    width: 13rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    text-align: center;
+    align-content: center;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.all-courses__link {
+    color: var(--white-color);
+    font-size: 1.4rem;
+}
+
+.all-courses__link:hover {
+    color: var(--white-color);
+}
+
+.all-courses__link--icon {
+    margin-right: 0.3rem;
+    line-height: 0.2rem;
+}
+
+
+/******************* REPEATING ELEMENT STYLE **********************/
+.section-header__title {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 2.6rem;
+    position: relative;
+    border-bottom: 2px solid rgba(22, 163, 74, 0.5);
+    padding-bottom: 0.8rem;
+}
+
+.section-header__title::before {
+    content: "";
+    position: absolute;
+    right: -0.8rem;
+    width: 0.3rem;
+    height: 3.5rem;
+    background-color: var(--primary-color);
+    transform: rotate(20deg);
+}
+
+
+/******************* WE HELP **********************/
+.help-card {
+    background-color: var(--white-color);
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    align-items: center;
+    text-align: center;
+    max-height: 23rem;
+}
+
+.help-card__image {
+    flex: 0 0 7rem;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.help-card__image--book {
+    height: 4rem;
+    width: 4rem;
+    color: var(--secondary-color);
+}
+
+.help-card__image--chat-bubble {
+    height: 4rem;
+    width: 4rem;
+    color: #fbbf24;
+}
+
+.help-card__image--chart-bar {
+    height: 3.8rem;
+    width: 3.8rem;
+    color: var(--primary-color);
+}
+
+.help-card__image-clipboard {
+    height: 4rem;
+    width: 4rem;
+    color: #ef4444;
+}
+
+.help-card__info--title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.help-card__info--description {
+    margin-top: 1rem;
+    opacity: 0.7;
+    letter-spacing: -0.5px;
+}
+
+/******************* POPULAR SLIDER **********************/
+.swiper {
+    width: 100%;
+    height: fit-content;
+}
+
+

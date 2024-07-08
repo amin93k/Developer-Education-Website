@@ -1,0 +1,64 @@
+/*Navigation Style*/
+.header {
+    background-color: var(--white-color);
+}
+
+.navbar {
+    height: 100px;
+}
+
+.navbar__logo {
+    width: 7rem;
+    min-height: 100%;
+}
+
+.header__nav--menu {
+    --bs-nav-link-hover-color: var(--primary-color);
+}
+
+.header__nav__menu--title {
+    font-size: 1.8rem;
+}
+
+.header__nav__menu--title.show {
+    color: var(--primary-color) !important;
+}
+
+.header__nav--submenu--li {
+    --bs-dropdown-link-hover-color: var(--primary-color);
+    --bs-dropdown-link-hover-bg: var(--white-color);
+    --bs-dropdown-link-active-bg: var(--white-color);
+    --bs-dropdown-link-active-color: var(--text-dropdown-nav);
+}
+
+.header__nav--submenu-link {
+    font-size: 1.6rem;
+    color: var(--text-dropdown-nav);
+    font-weight: 400;
+}
+
+.header__search {
+    letter-spacing: .05rem;
+}
+
+.header__search:focus {
+    box-shadow: none;
+    background-color: var(--bg-primary);
+}
+
+.header__user {
+    height: 5rem;
+    width: 15rem;
+    background-color: var(--secondary-color) !important;
+    color: var(--white-color) !important;
+    transition: linear 0.2s;
+}
+
+.header__user:hover {
+    background-color: rgb(9, 113, 158);
+}
+
+.header__search--text {
+    text-wrap: nowrap;
+    font-weight: 500;
+}

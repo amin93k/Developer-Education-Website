@@ -1,0 +1,26 @@
+
+@media screen and (max-width: 991px) {
+    .top-bar__show--btn {
+        width: 2.8rem !important;
+        height: 2.8rem !important;
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    .header__user {
+        height: 3rem !important;
+        width: 11rem !important;
+        font-size: 1.2rem;
+        padding: 0 0.2rem !important;
+    }
+
+}
+@media screen and (max-width: 576px) {
+    .header__user {
+        height: 2.5rem !important;
+        width: 9rem !important;
+        font-size: 1rem;
+    }
+}
+

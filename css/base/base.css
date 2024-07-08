@@ -1,0 +1,28 @@
+/* Default style */
+html {
+    font-size: 62.5%; /*1rem = 16px change to 1rem = 10px*/
+}
+
+body {
+    font-size: 1.6rem; /*fixed to 16px*/
+    font-family: var(--font-family), sans-serif;
+    background-color: var(--bg-primary);
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    color: var(--text-dark-color);
+}
+
+i {
+    user-select: none;
+}
+
+/*Custom BootStarp*/
+.bg_primary {
+    background-color: var(--bg-primary);
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
