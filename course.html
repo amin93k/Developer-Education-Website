@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
-    <link rel="stylesheet" href="css/pages/course.css">
+    <link rel="stylesheet" href="css/pages/course-landing.css">
     <title>دوره جاوااسکریپت</title>
 </head>
 <body>
@@ -23,7 +23,8 @@
             <a class="navbar-brand order-lg-0 order-2" href="index.html">
                 <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
             </a>
-            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasLg"
                     aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -147,44 +148,423 @@
             </div>
         </div>
         <!--Course Header Section-->
-        <section>
+        <section class="mb-7">
             <!--Course Header-->
             <div class="course-header row">
                 <!--Content-->
                 <div class="col-md-6">
                     <div class="course-header__content">
-                        <h3 class="course-header__content--title">پروژه های تخصصی با جاوا اسکریپت برای بازار کار</h3>
-                        <p class="course-header__content--description">هیچ فرقی نمیکنه شما با چه کتابخونه یا فریمورکی کار میکنین. تو این دوره یاد میگیری به عنوان یه برنامه نویس فرانت‌اند چطور یه پروژه بزرگ و واقعی رو منیج کنی. حالا این پروژه میتونه با ویو، ری‌اکت یا حتی جاوا اسکریپت خام باشه.</p>
-                        <div class="course-header__content--user-register">
-                            <div class="content__user-register--text">
-                                <i class="fa-regular fa-user"></i>
-                                <p>شما دانشجوی این دوره هستید</p>
+                        <h1 class="course-header__content--title">پروژه های تخصصی با جاوا اسکریپت برای بازار کار</h1>
+                        <p class="course-header__content--description">هیچ فرقی نمیکنه شما با چه کتابخونه یا فریمورکی
+                            کار میکنین. تو این دوره یاد میگیری به عنوان یه برنامه نویس فرانت‌اند چطور یه پروژه بزرگ و
+                            واقعی رو منیج کنی. حالا این پروژه میتونه با ویو، ری‌اکت یا حتی جاوا اسکریپت خام باشه.</p>
+                        <div class="course-header__register">
+                            <div class="course-header__register--content">
+                                <i class="fa-regular fa-user course-header__register--icon"></i>
+                                <p class="course-header__register--text">شما دانشجوی این دوره هستید</p>
                             </div>
-                            <a href="#" class="content__user-register--link">مشاهده دوره</a>
+                            <a href="#" class="course-header__register--btn">مشاهده دوره</a>
                         </div>
                     </div>
                 </div>
                 <!--Video Banner-->
                 <div class="col-md-6">
                     <div class="courses-header__video">
-                        <img class="courses-header__video--image" src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp" alt="course">
+                        <img class="courses-header__video--image"
+                             src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp" alt="course">
                     </div>
                 </div>
             </div>
         </section>
         <!--Course Body Section-->
         <section class="course-body row">
-            <!--Course Right Section (Info & Description & Nazarat)-->
-            <div class="col-8">
-                <div class="course-infos row">
-
+            <!--Course Right Section (Info & Introduction & Comment)-->
+            <div class="col-8 pe-4">
+                <!--Course Info-->
+                <div class="course-info row row-gap-4 mb-5">
+                    <!--Info Boxes-->
                     <div class="col-4">
-                        <div class="course-infos"></div>
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="information-circle"
+                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                 stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">وضعیت دوره</h3>
+                                <span class="course-info__box--description">وضعیت دوره</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="clock" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">مدت زمان دوره</h3>
+                                <span class="course-info__box--description">50 ساعت</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="calendar-days" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">آخرین بروزرسانی</h3>
+                                <span class="course-info__box--description">1403/04/18</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="users" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">روش پشتیبانی</h3>
+                                <span class="course-info__box--description">آنلاین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="briefcase" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">پیش نیاز</h3>
+                                <span class="course-info__box--description">HTML & CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="course-info__box">
+                            <svg class="course-info__box--icon" id="video-camera" xmlns="http://www.w3.org/2000/svg"
+                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round"
+                                      d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">نوع مشاهده</h3>
+                                <span class="course-info__box--description">دانلودی/آنلاین</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Course Introduction-->
+                <div class="course-introduction mb-5">
+                    <meta charset="utf8">
+                    <div class="course-section__header">
+                        <svg class="course-section__header--icon" id="document-text-fill"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                  d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0016.5 9h-1.875a1.875 1.875 0 01-1.875-1.875V5.25A3.75 3.75 0 009 1.5H5.625zM7.5 15a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5A.75.75 0 017.5 15zm.75 2.25a.75.75 0 000 1.5H12a.75.75 0 000-1.5H8.25z"
+                                  clip-rule="evenodd"></path>
+                            <path d="M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z"></path>
+                        </svg>
+                        <span class="course-section__header--title" id="intro-head">توضیحات</span>
+                    </div>
+                    <div class="accordion-btn accordion-btn--show">
+                        <span class="accordion-btn__text">
+                            مشاهده بیشتر
+                            <i class="fa-solid fa-chevron-down accordion-btn__icon"></i>
+                        </span>
+                        <div class="accordion-btn__shadow"></div>
+                    </div>
+                    <p>قبل از <strong>آموزش ری اکت ReactJS</strong> ابتدای کار به شما بگیم که تکنولوژی ری اکت برگ برنده
+                        برنامه نویسان در دنیای امروز هست اصلا اغراق نکردیم. یه غول به تمام معنا و دنیایی بی انتها از
+                        پروژه هایی که میشه با اون نوشت، اون هم خیلی سریع و راحت! تکنولوژی که دنیای وب رو دگرگون کرد و
+                        دستپخت شرکت فیسبوک هست که اینستاگرام رو هم با اون طراحی کرده!</p>
+                    <p><img decoding="async" loading="lazy" class=""
+                            src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp" alt="آموزش ریکت"
+                            width="1143" height="644"
+                    ></p>
+                    <p>&nbsp;</p>
+                    <p>کامپوننت محور بودن ری اکت باعث میشه شما با کدنویسی یک بخش بتونید بی نهایت بار در بخش های مختلف
+                        پروژه از اون استفاده کنید و از طرفی میتونید پروژه هایی بسازید که بدون نیاز به رفرش، هر دیتا و
+                        بخشی از صفحه رو تغییر بدید اون هم با سرعت نور! برای همین ری اکت، زمان کدنویسی و به اتمام پروژه
+                        رو خیلی کوتاهتر از قبل کرده!</p>
+                    <p>خلاصه به شما تبریک میگیم که خیلی دقیق مطالعه کردید و به این نتیجه رسیدید که الان بهترین زمان برای
+                        یادگیری ری اکت هست. پس از الان با تمام اطمینان خیالتون رو راحت می کنیم :</p>
+                    <blockquote><p>شما با دوره آموزش ری اکت سبزلرن، نه تنها به این تکنولوژی به تسلط 100 درصد می رسید،
+                        بلکه طوری آموزش عملی می بینید و راهنمایی می گیرید که یک راست وارد بازار کار بشید. بی حرف و حدیث.
+                        بی ترس و تردید!</p></blockquote>
+                    <p>اگه به حوزه برنامه نویسی سمت کاربر، طراحی رابط کاربری (UI) و به طور کلی پروژه های تعامل محور و
+                        سریع علاقه دارید، ری اکت یکی از بهترین دستیاران شما برای رسیدن به این هدف خواهد بود و لذت برنامه
+                        نویسی و پیاده سازی ایده هاتون رو چندین برابر میکنه.</p>
+                    <p>وقتی شرکت‌ های معتبری مثل فیسبوک (Facebook)و شرکت بزرگ پرداخت بین المللی یعنی پی پال (PayPal) و
+                        همینطور بزرگترین VOD جهان یعنی نتفلیکس، از ری اکت برای طراحی وب سایت و اپلیکیشن خودشون استفاده
+                        کردن، پس خیالتون راحت باشه با یک تکنولوژی تمام عیار سروکار دارید که می‌تونید برای انجام هر پروژه
+                        ای روی اون حساب کنید و در بازار کار حرفی برای گفتن داشته باشید. در ایران هم دیوار و اسنپ
+                        بزرگترین پلتفرم‌هایی هستن که با ری اکت توسعه داده شدن!</p>
+                    <p>در ادامه به تمام سوالات و دغدغه هایی که ممکنه قبل از شروع دوره در ذهن شما باشه جواب دادیم تا با
+                        خیال راحت و دید باز مسیر آموزشتون رو شروع کنید.</p>
+                    <h2 id="h_1"><span style="font-size: 24pt">تو این دوره قراره چی یاد بگیریم؟</span></h2>
+                    <ul>
+                        <li>خلاصه ای از موارد مهم در جاوا اسکریپت به عنوان پیش نیاز دوره ری اکت</li>
+                        <li>نحوه استفاده از پکیج هایی مانند react bootstrap و mui و react-icons</li>
+                        <li>نحوه کار با api ، متدهای lifecycle و انواع هوک ها</li>
+                        <li>آموزش پکیج react router به همراه کدنویسی یک پروژه داشبورد ادمین به صورت spa و با استفاده از
+                            دیتابیس فایربیس
+                        </li>
+                        <li>آموزش کانسپت های مهمی مانند Context API ، Hoc ، memo ، custom hook و …</li>
+                        <li>تمرین پروژه هایی مثل رستوران و pagination و cms فارسی که از بک اند اختصاصی Node js استفاده
+                            میکنن و همه اونها به صورت spa هستن.
+                        </li>
+                        <li>پیاده سازی عملی پروژه ی سبزلرن به صورت کامل+۳ نوع cms و بک اند اختصاصی Nodejs</li>
+                        <li>آموزش فوت و فن رزومه نویسی به همراه آنالیز رزومه های متفاوت برای افزایش شانس جذب در بازار
+                            کار
+                        </li>
+                    </ul>
+                    <h2 id="h_2"><span style="font-size: 24pt">این دوره برای چه کسانی مناسب هست؟</span></h2>
+                    <p>دوره جامع ری اکت برای دو دسته از دانشجوها خیلی مفید و کاربردی هست.</p>
+                    <p>دسته اول کسانی که آموزش جاوا اسکریپت رو تموم کردن و دنبال یک تکنولوژی مدرن و پولساز بر پایه جاوا
+                        اسکریپت هستن تا از زبانی که یاد گرفتن استفاده کنن.</p>
+                    <p>دسته دوم کسانی که در حال حاضر در هر سطحی با ری اکت کار میکنن</p>
+                    <p>اگر جزو یکی از این دوتا دسته هستید، این دوره جامع برای شما تولید شده و اونقدر به دانش و تجربیات
+                        شما اضافه می کنه که هر ایده و طرحی تو ذهنتون بیاد رو به راحتی بتونید پیاده سازی کنید یا بخش هایی
+                        از پروژه های دیگران رو در پروژه خودتون بسازید.</p>
+                    <h2 id="h_3"><span style="font-size: 24pt">چرا سبزلرن بهترین گزینه برای یادگیری هست ؟</span></h2>
+                    <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-3778"
+                            src="https://sabzlearn.ir/wp-content/uploads/2024/01/%D9%88%DB%8C%DA%98%DA%AF%DB%8C-finish.webp"
+                            alt="" width="1920" height="1080"></p>
+                    <p>ما با سیاست خاصی که در انتخاب استاد، تدوین محتوای آموزشی، قیمت گذاری دوره ها و پشتیبانی موثر در
+                        نظر گرفتیم میتونیم این تضمین رو به شما بدیم که در طول دوره آموزش، هیچ کمبودی در هیچ زمینه ای
+                        احساس نکنید.</p>
+                    <h4><span style="font-size: 18pt">1 – پشتیبانی رایگان و مادام‌العمر</span></h4>
+                    <p>دوره جامع ری‌اکت سبزلرن پشتیبانی رایگان و مادام‌العمر داره. یعنی شما حتی بعد از استخدام می‌تونین
+                        سوالات و ابهاماتی که دارین رو توسط پشتیبانی دوره برطرف کنین.</p>
+                    <h4><span style="font-size: 18pt">2 – پروژه محور بودن دوره</span></h4>
+                    <p>در دوره جامع ری‌اکت سبزلرن علاوه بر چندین مینی پروژه، خود وب‌سایت سبزلرن به عنوان پروژه نهایی
+                        دوره همراه با 3 پنل مدیریت به صورت فول‌استک با بک‌اند آماده و اختصاصی Nodejs پیاده سازی شده.
+                        جالبه بدونید پروژه نهایی دوره دقیقا طبق اصول جاری در شرکت های واقعی توسعه داده شده تا بتونید با
+                        چالش های واقعی بازار کار آشنا شده و بعد از گذرونده دوره با آمادگی بالا وارد بازار کار بشید.</p>
+                    <h4><span style="font-size: 18pt">3 – منتورشیپ بودن دوره</span></h4>
+                    <p>شتیبانی دوره در گروه تلگرامی انجام میشه و علاوه بر مدرس، چند نفر کمک پشتیبان مسلط جهت پاسخگویی و
+                        رفع مشکلات شما نیز حضور دارند. بنابراین برای رفع مشکلات و جواب سوالات درگیر تیکت و انتظار نمیشید
+                        و در سریع ترین زمان ممکن کارتون راه میفته!</p>
+                    <p>صدها برنامه نویس فوق حرفه ای ری اکت که در دانشگاه سبزلرن پرورش پیدا کردن الان تو شرکت های بزرگ
+                        مشغول هستن و نتیجه انتخاب درست منبع آموزشی و تمرینات منظم خودشون رو گرفتن. پس قطعا شما هم
+                        میتونید ردپای اونهارو دنبال کنید و به آرزوتون برسید.</p>
+                    <h2 id="h_4"><span style="font-size: 24pt">بعد از اتمام دوره به چه نتیجه ای می رسیم؟</span></h2>
+                    <p>بعد از سال ها تجربه و پرورش صدها برنامه نویس می تونیم به جرات اعلام کنیم که کامل ترین و بهترین
+                        دوره آموزش ری اکت در اختیار شماست و غیر از اون به هیچ منبع و استاد دیگه ای نیاز نخواهید داشت. با
+                        بهترین کیفیت، بهترین مدرس و بهترین پشتیبانی!</p>
+                    <p>دوره ای که صدها دانشجو داشته و میزان رضایت اون هارو میتونید در قسمت کامنت های صفحه محصول ببینید.
+                        باعث افتخار هست که تونستیم تا این حد نظرات مثبت دانشجویان با شرایط تخصصی و سنی مختلف رو به دست
+                        بیاریم.</p>
+                    <p>یقین بدونید که بلافاصله بعد از دوره به چنان تسلط و آگاهی در تکنولوژی ری اکت می رسید که بتونید در
+                        هر زمینه ای به راحتی کار کنید و پروژه های بزرگی در زمینه وب سایت و اپلیکیشن بسازید. طبیعیه اول
+                        کار ذهنتون مقاومت کنه چون تا الان سبز لرنی آموزش ندیدید اما بعد از پایان آموزش خودتون این حس رو
+                        پیدا خواهید کرد. البته با کمک و همراهی خودتون!</p>
+                    <h2 id="h_5"><span style="font-size: 24pt"><strong>این دوره پیش نیاز خاصی داره که باید قبلش بلد باشم؟</strong></span>
+                    </h2>
+                    <p>یکی از کاربردهای اصلی ری اکت در برنامه نویسی وب هست و میدونید که هرجا صحبت از وب باشه، <a
+                            href="https://sabzlearn.ir/course/html-tutorial/">HTML</a> و <a
+                            href="https://sabzlearn.ir/course/css-tutorial/">CSS</a> هم مثل جاکلیدی به اون وصل میشن. در
+                        کنار این دو، <a href="https://sabzlearn.ir/course/java-script-zero-to-hero/">زبان جاوا
+                            اسکریپت</a> رو به عنوان اصلی ترین زبان محیط وب هم باید خوب یاد بگیرید چون زبان مادر محیط ری
+                        اکت هست و به نوعی الفبای اون محسوب میشه.&nbsp; برای همین قبل از آموزش ری اکت باید به این سه مورد
+                        آشنا باشید یا بهتره بگیم مسلط باشید. در غیر این صورت وسط آموزش ری اکت دچار سردرگمی میشید و نمی
+                        تونید ارتباط خوبی برقرار کنید.</p>
+                    <p>اگه از دانشجوهای قدیمی باشید که میدونید اما اگه جدیدا افتخار میزبانی از شمارو پیدا کردیم، بدونید
+                        که هم HTML و هم CSS و هم جاوا اسکریپت در سبزلرن دوره رایگان دارن و در واقع مهمون ما هستید برای
+                        شروع یک مسیر هیجان انگیز در زندگی حرفه ای خودتون. این هم از دغدغه پیش نیازها!</p>
+                    <h2 id="h_6"><span style="font-size: 24pt">چطور میتونم پروژه دانشجویان قبلیتون رو ببینم ؟</span>
+                    </h2>
+                    <p>مدرس هر دوره معمولا صفحه خودش رو در شبکه اجتماعی با شما به اشتراک میگذاره. شما میتونید با دنبال
+                        کردن اون با کلی دانشجو و پروژه ای که توسط اونها انجام شده آشنا بشید تا ادعای سبزلرن در مورد
+                        کیفیت آموزش ها از جمله<strong> آموزش ری اکت</strong> به شما اثبات بشه.</p>
+                    <p>کسانی که مثل خودتون روز اولی داشتن و کلی تردید و نگرانی تو ذهنشون بود اما الان و با ادامه مسیر
+                        یادگیریشون در بقیه حوزه ها، به برنامه نویس های حرفه ای تبدیل شدن که هر شرکتی آرزوی همکاری با
+                        اون‌هارو داره . چون از دانشگاه شریف برنامه نویسی یعنی سبزلرن فارغ التحصیل شدن</p>
+
+                    <div class="accordion-btn accordion-btn--hide">
+                        <a class="accordion-btn__text" href="#intro-head">
+                            مشاهده کمتر
+                            <i class="fa-solid fa-chevron-up accordion-btn__icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--Course Topics-->
+                <div class="Course-topics mb-5">
+                    <div class="course-section__header">
+                        <svg class="course-section__header--icon topics-header__icon" id="academic-cap-fill"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"></path>
+                            <path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z"></path>
+                            <path d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z"></path>
+                        </svg>
+                        <span class="course-section__header--title">سرفصل ها</span>
+                    </div>
+                    <!--Topics List-->
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse1" aria-expanded="false"
+                                        aria-controls="flush-collapse1">
+                                    <span class="accordion-button__title">سرفصل ها</span>
+                                    <div class="accordion-button__left">
+                                        <span class="accordion-button__left--session-count">8 جلسه </span>
+                                        <span class="accordion-button__left--dot">.</span>
+                                        <span class="accordion-button__left--whole-time">56 دقیقه</span>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse1" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="list-group">
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse2" aria-expanded="false"
+                                        aria-controls="flush-collapse2">
+                                    <span class="accordion-button__title">سرفصل ها</span>
+                                    <div class="accordion-button__left">
+                                        <span class="accordion-button__left--session-count">8 جلسه </span>
+                                        <span class="accordion-button__left--dot">.</span>
+                                        <span class="accordion-button__left--whole-time">56 دقیقه</span>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="flush-collapse2" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="list-group">
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                        <a class="list-group-item lesson" href="#">
+                                            <span class="lesson__number">1</span>
+                                            <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                            <div class="lesson__time">
+                                                <div class="lesson__time--time">10:10</div>
+                                                <i class="fa-regular fa-play-circle lesson__time--icon"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!--Course Left Section (Student & Topic)-->
-            <div class="col-4"></div>
+            <!--Course Left Section (Student & Teacher & Topic)-->
+            <div class="col-4 ps-4">
+                <!-- Students & Rating & Progress -->
+                <div class="course-left-info row row-gap-4">
+                    <!--Student-->
+                    <div class="col-6">
+                        <div class="course-info__box student-rating-box">
+                            <svg class="course-info__box--icon" id="user-group-mini" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z"></path>
+                            </svg>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">1500</h3>
+                                <span class="course-info__box--description">دانشجو</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Rating-->
+                    <div class="col-6">
+                        <div class="course-info__box student-rating-box">
+                            <svg class="course-info__box--icon course-info__box--rating-star" id="star-mini"
+                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                                      clip-rule="evenodd"></path>
+                            </svg>
+                            <div class="course-info__box--content">
+                                <h3 class="course-info__box--title">5.0</h3>
+                                <span class="course-info__box--description">رضایت</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Progress-->
+                    <div class="col-12">
+                        <div class="course-progress">
+                            <div class="course-progress__info">
+                                <span class="course-progress__info--title">درصد تکمیل دوره</span>
+                                <span class="course-progress__info--percent">80%</span>
+                            </div>
+                            <div class="course-progress__line progress" role="progressbar" aria-label="Basic example"
+                                 aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar course-progress__line--color" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Course Teacher-->
+                <div class="course-teacher">
+                    <div class="course-teacher__image">
+                        <img src="images/teacher/online-education-male-teacher-and-books-internet-vector-31732020.jpg"
+                             alt="teacher" class="course-teacher__image--teacher">
+                    </div>
+                    <h3 class="course-teacher__name">امین کوشش وطن | مدرس دوره</h3>
+                    <a href="#" class="course-teacher__profile">
+                        دیدن پروفایل
+                    </a>
+                </div>
+            </div>
         </section>
     </div>
 </main>
@@ -198,7 +578,8 @@
             <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
                 <div class="footer__about">
                     <h3 class="footer__title">درباره ما</h3>
-                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
+                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که
+                        با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
                 </div>
             </div>
             <!--Quick Access-->
@@ -243,12 +624,13 @@
     <!--Footer Copyright-->
     <div class="footer__copyright mx-4 py-4">
         <p class="footer__copyright--text">
-            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright  © 2024
+            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright © 2024
         </p>
     </div>
 </footer>
 
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
 <script src="vendor/SwiperSlider/swiper.js"></script>
+<script src="js/accordion-btn.js"></script>
 </body>
 </html>

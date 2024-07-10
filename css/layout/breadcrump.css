@@ -12,7 +12,7 @@
 .breadcrumb2__item {
     height: 100%;
     align-content: center;
-    padding: 0 2rem;
+    padding: 0 2.4rem;
     position: relative;
 }
 .breadcrumb2__item--home {
@@ -28,22 +28,22 @@
 .breadcrumb2__item--home::before,
 .breadcrumb2__item--link::before {
     content: "";
-    width: 0.4rem;
+    width: 0.5rem;
     height: 4rem;
     background-color: var(--bg-primary);
     position: absolute;
     left: 0;
     transform: rotate(45deg);
-    top: -7px;
+    top: -8px;
 }
 .breadcrumb2__item--home::after,
 .breadcrumb2__item--link::after {
     content: "";
-    width: 0.4rem;
+    width: 0.5rem;
     height: 4rem;
     background-color: var(--bg-primary);
     position: absolute;
     left: 0;
     transform: rotate(135deg);
-    bottom: -11px;
+    bottom: -9px;
 }

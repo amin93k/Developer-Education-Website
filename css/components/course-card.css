@@ -69,7 +69,7 @@
 }
 
 .course-card__rating {
-    color: #F59E0B;
+    color: var(--gold-color);
 }
 
 .card__rating--number {
