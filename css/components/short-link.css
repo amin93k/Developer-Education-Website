@@ -1,0 +1,30 @@
+.short-link {
+    padding: 1.5rem;
+    background-color: var(--white-color);
+    text-align: center;
+    border-radius: 1.5rem;
+}
+
+.short-link__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.short-link__content {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 1.5rem 2rem;
+    background-color: #f0f9ff;
+    border-radius: 1rem;
+    border: 1px dashed var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+.short-link__content--icon {
+    font-size: 2rem;
+}

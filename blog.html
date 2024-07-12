@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendor/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
+    <link rel="stylesheet" href="css/pages/blog.css">
+    <title>دوره جاوااسکریپت</title>
+</head>
+<body>
+<!--Main Header-->
+<header class="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <!-- Right Section (Menu & Logo) -->
+            <a class="navbar-brand order-lg-0 order-2" href="index.html">
+                <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasLg"
+                    aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Dropdown Menu-->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvasLg"
+                 aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="navbar-nav justify-content-start flex-grow-1 px-3 gap-3">
+                    <!--DropDown Submenu Item-->
+                    <li class="header__nav--menu nav-item dropdown">
+                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">فرانت اند</a>
+                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                            <li class="my-2 header__nav--submenu--li">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش HTML
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش اصول طراحی قالب
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS Grid
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش CSS Flex Box
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header__nav--menu nav-item dropdown">
+                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">امنیت</a>
+                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش هکر قانونمند - CEH V11
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش کالی لینوکس
+                                </a>
+                            </li>
+                            <li class="header__nav--submenu--li my-2">
+                                <a class="header__nav--submenu-link dropdown-item" href="#">
+                                    آموزش Burp Suite
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--Search Box Mobile Version-->
+                    <div class="input-group flex-nowrap d-lg-none">
+                        <input type="text"
+                               class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                               placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                               aria-describedby="addon-wrapping1">
+                        <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0"
+                              id="addon-wrapping1"><i class="fa-regular fa-search"></i></span>
+                    </div>
+                </ul>
+            </div>
+            <!--Left Section (Search & Dark Mode & Registration)-->
+            <div class="d-flex align-items-center justify-content-between order-3">
+                <!--Search Box-->
+                <div class="input-group flex-nowrap d-none d-lg-flex me-3">
+                    <input type="text"
+                           class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                           placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                           aria-describedby="addon-wrapping">
+                    <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0 cursor_pointer"
+                          id="addon-wrapping"><i
+                            class="fa-regular fa-search"></i></span>
+                </div>
+                <!--User Sign In-->
+                <div class="header__user cursor_pointer bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
+                    <i class="fa-regular fa-user mt-1"></i>
+                    <span class="header__search--text mb-2">ورود | عضویت</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container-fluid my-4">
+        <!--Top Bar Breadcrumb-->
+        <div class="breadcrumb2">
+            <div class="breadcrumb2__item">
+                <a class="breadcrumb2__item--home" href="index.html"><i class="fa-regular fa-house"></i></a>
+            </div>
+            <div class="breadcrumb2__item">
+                <a href="#" class="breadcrumb2__item--link">
+                    وبلاگ
+                </a>
+            </div>
+            <div class="breadcrumb2__item">
+                <a href="#" class="breadcrumb2__item--link">
+                    پایگاه داده یا دیتابیس چیست؟ از انواع تا کاربرد دیتابیس
+                </a>
+            </div>
+        </div>
+
+        <!--blog Body Section-->
+        <section class="blog row row-gap-4 mb-4">
+
+            <!--Right Side Section (body)-->
+            <div class="col-12 col-lg-8 pe-4">
+                <div class="blog-body mb-5">
+                    <h1 class="blog-body__head--title">پایگاه داده یا دیتابیس چیست؟ از انواع تا کاربرد دیتابیس</h1>
+                    <!--Blog Info (author & date & view )-->
+                    <div class="blog-body__info">
+                        <i class="blog-body__info--icon fa-regular fa-user"></i>
+                        <span class="blog-body__info--author">امین کوشش وطن</span>
+
+                        <i class="blog-body__info--icon fa-regular fa-calendar"></i>
+                        <span class="blog-body__info--date">1403/4/20</span>
+
+                        <i class="blog-body__info--icon fa-regular fa-eye"></i>
+                        <span class="blog-body__info--view">300</span>
+                    </div>
+                    <!--Blog Top Image-->
+                    <img src="images/blog/1.1-1.webp" alt="blog" class="blog-body__image my-5">
+                    <!--Topics Table-->
+                    <div class="blog-body__topics">
+                        <div class="blog-body__topics__header">
+                            <i class="fa fa-bars-staggered blog-body__topics__header--icon"></i>
+                            <span class="blog-body__topics__header--title">سرفصل های این مقاله</span>
+                            <i class="blog-body__topics__header--btn fa fa-chevron-up"></i>
+                        </div>
+                        <div class="blog-body__topics__content">
+                            <a href="#topic-1" class="blog-body__topics__content--link">دیتا بیس یا پایگاه داده
+                                چیست؟</a>
+                            <a href="#topic-2" class="blog-body__topics__content--link">انواع دیتابیس</a>
+                        </div>
+                    </div>
+                    <!--Blog Article-->
+                    <div class="blog-body__article">
+                        <meta charset="utf8">
+                        <p><strong>دیتابیس چیست؟ </strong>دیتابیس، فقط یک سری از جداول و رکوردهای خشک و بی‌روح نیست.
+                            بلکه یک دیدگاه جامع و یک نگرش زنده به مدیریت و ذخیره‌سازی داده‌هاست.</p>
+                        <p>در این مقاله از <a href="https://sabzlearn.ir/">سبزلرن</a>، ما به سراغ جزئیات جالبی که
+                            دیتابیس‌ها در دسترس ما قرار می‌دهند، می‌رویم. از موضوع <strong>دیتابیس چیست؟</strong> و
+                            تکامل دیتابیس‌ها گرفته تا اصول عملکرد آنها، انواع مختلف دیتابیس‌ها و چالش‌ها و راهکارهایی که
+                            در مسیر پیشرفت دیتابیس‌ها با آنها روبرو می‌شویم، با ما در این سفر جذاب به دنیای دیتابیس‌ها
+                            همراه باشید.</p>
+                        <h2 id="topic-1">دیتابیس یا پایگاه داده چیست؟</h2>
+                        <p><strong>دیتابیس به زبان ساده</strong>، یک مجموعه سازمان‌یافته از داده‌ها است که توسط یک سیستم
+                            مدیریت دیتابیس (<a
+                                    href="https://www.techtarget.com/searchdatamanagement/definition/database-management-system#:~:text=A%20database%20management%20system%20(DBMS,delete%20data%20in%20a%20database."
+                                    rel="nofollow noopener" target="_blank">DBMS</a>) مدیریت و دسترسی به آنها امکان‌پذیر
+                            می‌شود. این داده‌ها معمولاً به صورت جداول، رابطه‌ها یا دیگر ساختارهای مشخصی ذخیره می‌شوند و
+                            قابل دسترسی و به روزرسانی هستند.</p>
+                        <p>به عنوان مثال، یک پایگاه داده می‌تواند اطلاعات مشتریان یک شرکت، محصولات و خریداری‌های آنها،
+                            یا اطلاعات مالی شرکت را در خود نگهداری کند. از آنجایی که داده‌ها در یک پایگاه داده به صورت
+                            سازمان‌یافته و منظم ذخیره می‌شوند، امکان جستجو، فیلتر کردن، و به دست آوردن اطلاعات مورد نیاز
+                            با سرعت و کارآمدی بالا فراهم می‌آید.</p>
+                        <p>سیستم مدیریت دیتابیس (DBMS) نقش بسیار مهمی در این فرآیند دارد. این سیستم به کاربران اجازه
+                            می‌دهد تا به داده‌ها دسترسی داشته باشند، آنها را جستجو کنند، آنها را به روز رسانی کنند و
+                            عملیات دیگری را بر روی آنها انجام دهند. همچنین DBMS مسئول مدیریت امنیت داده‌ها، پشتیبان‌گیری
+                            و بازیابی داده‌ها در صورت نیاز و بهینه‌سازی عملکرد پایگاه داده است.</p>
+                        <p>در کل، پایگاه داده یا دیتابیس ابزاری بسیار اساسی و اساسی برای ذخیره، مدیریت و دسترسی به
+                            داده‌ها در هر سازمان یا سیستم اطلاعاتی می‌باشد.</p>
+                        <h2 id="topic-2">انواع دیتابیس</h2>
+                        <p>دیتابیس‌ها به شکل‌ها و ساختارهای مختلفی وجود دارند که هرکدام ویژگی‌ها و کاربردهای خاص خود را
+                            دارند. در زیر به برخی از انواع مهم دیتابیس‌ها اشاره خواهیم کرد:</p>
+                        <h3>دیتابیس‌های رابطه‌ای (Relational Databases):</h3>
+                        <ul>
+                            <li>در این نوع دیتابیس، داده‌ها به صورت جداول و روابط میان آنها توصیف می‌شوند.</li>
+                            <li>این دیتابیس‌ها از زبان SQL (Structured Query Language) برای جستجو و مدیریت داده‌ها
+                                استفاده می‌کنند.
+                            </li>
+                            <li>معروف‌ترین نمونه‌ها شامل MySQL، PostgreSQL، Oracle و Microsoft SQL Server هستند.</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <!--Article Suggest-->
+                <div class="article-suggest-wrapper">
+                    <div class="row row-gap-4">
+                        <!--Article Suggest Cards-->
+                        <div class="col-lg-6">
+                            <div class="article-suggest-card">
+                                <img class="article-suggest-card--image" src="images/blog/vue-768x432.webp" alt="article">
+                                <div class="article-suggest-card__content">
+                                    <a class="article-suggest-card__content--title" href="#">
+                                        Vue JS چیست ؟
+                                    </a>
+                                    <div>
+                                        <i class="article-suggest-card__content--icon fa-regular fa-calendar"></i>
+                                        <span class="article-suggest-card__content--date">1403/4/20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="article-suggest-card">
+                                <img class="article-suggest-card--image" src="images/blog/2.SHAKHES-768x427.webp" alt="article">
+                                <div class="article-suggest-card__content">
+                                    <a class="article-suggest-card__content--title" href="#">
+                                        آموزش کار با API در جاوا اسکریپت
+                                    </a>
+                                    <div>
+                                        <i class="article-suggest-card__content--icon fa-regular fa-calendar"></i>
+                                        <span class="article-suggest-card__content--date">1403/4/20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="article-suggest-card">
+                                <img class="article-suggest-card--image" src="images/blog/what-is-flutter.webp" alt="article">
+                                <div class="article-suggest-card__content">
+                                    <a class="article-suggest-card__content--title" href="#">
+                                        فلاتر چیست؟ کاربرد های فلاتر در 2024
+                                    </a>
+                                    <div>
+                                        <i class="article-suggest-card__content--icon fa-regular fa-calendar"></i>
+                                        <span class="article-suggest-card__content--date">1403/4/20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="article-suggest-card">
+                                <img class="article-suggest-card--image" src="images/blog/آینده-هوش-مصنوعی.webp" alt="article">
+                                <div class="article-suggest-card__content">
+                                    <a class="article-suggest-card__content--title" href="#">
+                                        آینده هوش مصنوعی + چالش ها و مشکلات
+                                    </a>
+                                    <div>
+                                        <i class="article-suggest-card__content--icon fa-regular fa-calendar"></i>
+                                        <span class="article-suggest-card__content--date">1403/4/20</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Left Side Section (share link)-->
+            <div class="col-12 col-lg-4 ps-4">
+
+                <!--Short Link-->
+                <div class="short-link">
+                    <div class="d-flex justify-content-center">
+                        <svg id="share" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="1.5" stroke="currentColor" width=24 height=24>
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"></path>
+                        </svg>
+                        <h3 class="short-link__title ms-3">اشتراک گذاری مطلب</h3>
+                    </div>
+                    <div class="short-link__content">
+                        <i class="short-link__content--icon fa-regular fa-file-clipboard"></i>
+                        <span class="short-link__content--text">webdeveloper.ir/?p=116</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!--Footer Section-->
+<footer class="footer">
+    <!--Footer Content-->
+    <div class="container">
+        <div class="row row-gap-4 mb-4">
+            <!--About We-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__about">
+                    <h3 class="footer__title">درباره ما</h3>
+                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که
+                        با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
+                </div>
+            </div>
+            <!--Quick Access-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__quick-access">
+                    <h3 class="footer__title">دسترسی سریع</h3>
+                    <ul class="footer__quick-access--links" role="list">
+                        <li class="footer__quick-access--policy"><a href="#">قوانین و مقررات</a></li>
+                        <li class="footer__quick-access--question"><a href="#">سوالات</a></li>
+                        <li class="footer__quick-access--courses"><a href="#">همه دوره ها</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Useful Links-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__useful-links">
+                    <h3 class="footer__title">لینک های مفید</h3>
+                    <ul class="footer__useful-links--links" role="list">
+                        <li class="footer__useful-links--js"><a href="#">آموزش جاوااسکریپت</a></li>
+                        <li class="footer__useful-links--python"><a href="#">آموزش پایتون</a></li>
+                        <li class="footer__useful-links--html"><a href="#">آموزش HTML</a></li>
+                        <li class="footer__useful-links--css"><a href="#">آموزش CSS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Social Media-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__socials">
+                    <h3 class="footer__title">شبکه های اجتماعی</h3>
+                    <div>
+                        <a href="#" class="footer__socials--icons" id="instagram" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__socials--icons" id="facebook" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer Copyright-->
+    <div class="footer__copyright mx-4 py-4">
+        <p class="footer__copyright--text">
+            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright © 2024
+        </p>
+    </div>
+</footer>
+
+<script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/SwiperSlider/swiper.js"></script>
+<script src="js/blog.js"></script>
+</body>
+</html>
