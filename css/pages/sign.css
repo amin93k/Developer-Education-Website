@@ -1,0 +1,135 @@
+@import "../abstracts/varible.css";
+@import "../abstracts/responcive.css";
+@import "../base/font.css";
+@import "../base/reset.css";
+@import "../base/base.css";
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+    content: "";
+    width: 50rem;
+    height: 50rem;
+    background: radial-gradient(rgba(14, 165, 233, 0.3), var(--primary-color));
+    position: absolute;
+    top: -20rem;
+    right: -12rem;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(14rem);
+    border-radius: 50%;
+}
+
+main::after{
+    content: "";
+    width: 50rem;
+    height: 50rem;
+    background: radial-gradient(rgba(83, 14, 233, 0.3), #b3d625);
+    position: absolute;
+    bottom: -20rem;
+    left: -12rem;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(14rem);
+    border-radius: 50%;
+}
+
+.home-link {
+    margin: 3rem auto;
+}
+
+.home-link__image {
+    width: 10rem;
+    height: 10rem;
+}
+
+.sign-wrapper {
+    border-radius: 1.5rem;
+    background-color: var(--white-color);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 38rem;
+}
+
+.sign__title {
+    font-size: 2.4rem;
+    font-weight: bolder;
+    color: var(--text-dark-color);
+    margin-bottom: 2rem;
+}
+
+.sign__change-page {
+    color: var(--text-dark-color);
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.sign__change-page--link {
+    color: var(--primary-color);
+    margin-right: .3rem;
+    font-weight: 700;
+}
+.sign__change-page--link:hover {
+    color: var(--primary-color);
+}
+
+.sign__form {
+    width: 100%;
+}
+.sign__input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 1.2rem;
+    background-color: var(--bg-primary);
+    padding: 1.5rem;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+}
+.sign__input--box {
+    width: 100%;
+    border: none;
+    color: var(--text-dark-color);
+    background-color: var(--bg-primary);
+    line-height: 1rem;
+    direction: rtl;
+}
+
+.sign__input--box::placeholder {
+    opacity: 0.7;
+    letter-spacing: -1px;
+}
+
+.sign__input--icon,
+.sign__input--icon {
+    opacity: 0.7;
+}
+
+.sign-in__btn,
+.sign-up__btn{
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 1.2rem;
+    padding: 1.2rem 1rem 1.4rem;
+    color: var(--white-color);
+    font-weight: 500;
+}
+
+.sign__forget-pass {
+    font-size: 1.4rem;
+    color: var(--text-dark-color);
+    margin-top: 1rem;
+}
