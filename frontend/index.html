@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="vendor/SwiperSlider/swiper.css">
     <link rel="stylesheet" href="css/main.css">
     <title>آموزش برنامه نویسی</title>
 </head>
@@ -23,7 +24,8 @@
             <a class="navbar-brand order-lg-0 order-2" href="index.html">
                 <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
             </a>
-            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasLg"
                     aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -125,11 +127,14 @@
 
 <!--Main Section-->
 <main class="container">
+
     <!--Home Section-->
     <section class="home row mb-5">
         <!--Home Right Side-->
         <div class="home__content col-lg-5 text-center align-content-center">
-            <h1 class="home__content--title mx-3">مرکز آموزش برنامه نویسی</h1>
+            <h1 class="home__content--title mx-3">
+                <!-- مرکز آموزش برنامه نویسی-->
+            </h1>
             <div class="d-flex align-content-center justify-content-center my-5 gap-4">
                 <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" height="80" viewBox="0 0 512 512" width="80">
                     <g>
@@ -137,7 +142,9 @@
                     </g>
                 </svg>
                 <div>
-                    <p class="fs-2 fw-bold">1,657</p>
+                    <p id="have-user" class="fs-2 fw-bold">
+                        <!--1,657-->
+                    </p>
                     <p class="fw-bold">کاربر در وب دولوپر</p>
                 </div>
             </div>
@@ -182,7 +189,9 @@
 </g>
 </svg>
                 <div>
-                    <p class="fs-2 fw-bold">23</p>
+                    <p id="have-courses" class="fs-2 fw-bold">
+                        <!--23-->
+                    </p>
                     <p class="fw-bold">دوره های آموزشی</p>
                 </div>
             </div>
@@ -214,8 +223,10 @@
 </g>
 </svg>
                 <div>
-                    <p class="fs-2 fw-bold">1,657</p>
-                    <p class="fw-bold">کاربر در وب دولوپر</p>
+                    <p id="have-minute" class="fs-2 fw-bold">
+                        <!--2,647-->
+                    </p>
+                    <p class="fw-bold">دقیقه آموزش</p>
                 </div>
             </div>
 
@@ -225,6 +236,7 @@
             <img src="images/courses/hero-light.svg" alt="home image">
         </div>
     </section>
+
     <!--New Courses-->
     <section class="courses mb-5">
         <!--Header-->
@@ -468,6 +480,7 @@
             </div>
         </div>
     </section>
+
     <!--We Help Section-->
     <section class="we-help mb-5">
         <!--We Help Header-->
@@ -544,6 +557,7 @@
             </div>
         </div>
     </section>
+
     <!--Popular Slider Section-->
     <section class="popular mb-5">
         <!--Popular Header-->
@@ -889,6 +903,7 @@
             </div>
         </div>
     </section>
+
     <!--Blog Section-->
     <section class="blog mb-5">
         <!--Header-->
@@ -916,7 +931,9 @@
                             <div class="blog-card__content--title">
                                 <a class="blog-card__title--text" href="#">Vue JS چیست ؟</a>
                             </div>
-                            <p class="blog-card__content--description">یکی از بخش‌های مهم در توسعه یک پروژه، نحوه تعامل کاربران با پروژه است؛ جایی که اهمیت طراحی رابط کاربری یا UI Design بیشتر به چشم می‌آید. در توسعه وب،…</p>
+                            <p class="blog-card__content--description">یکی از بخش‌های مهم در توسعه یک پروژه، نحوه تعامل
+                                کاربران با پروژه است؛ جایی که اهمیت طراحی رابط کاربری یا UI Design بیشتر به چشم می‌آید.
+                                در توسعه وب،…</p>
                         </div>
                         <div class="blog-card__author">
                             <a href="#">
@@ -936,14 +953,18 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="blog-card">
                     <div class="blog-card__banner">
-                        <img class="blog-card__banner-image" src="images/blog/وسعه-دهنده-نرم-افزار-768x427.webp" alt="blog image">
+                        <img class="blog-card__banner-image" src="images/blog/وسعه-دهنده-نرم-افزار-768x427.webp"
+                             alt="blog image">
                     </div>
                     <div class="blog-card__body">
                         <div class="blog-card__content">
                             <div class="blog-card__content--title">
-                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع آن</a>
+                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع
+                                    آن</a>
                             </div>
-                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است. توسعه نرم افزار به…</p>
+                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی
+                                که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است.
+                                توسعه نرم افزار به…</p>
                         </div>
                         <div class="blog-card__author">
                             <a href="#">
@@ -968,9 +989,12 @@
                     <div class="blog-card__body">
                         <div class="blog-card__content">
                             <div class="blog-card__content--title">
-                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع آن</a>
+                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع
+                                    آن</a>
                             </div>
-                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است. توسعه نرم افزار به…</p>
+                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی
+                                که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است.
+                                توسعه نرم افزار به…</p>
                         </div>
                         <div class="blog-card__author">
                             <a href="#">
@@ -990,14 +1014,18 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="blog-card">
                     <div class="blog-card__banner">
-                        <img class="blog-card__banner-image" src="images/blog/وسعه-دهنده-نرم-افزار-768x427.webp" alt="blog image">
+                        <img class="blog-card__banner-image" src="images/blog/وسعه-دهنده-نرم-افزار-768x427.webp"
+                             alt="blog image">
                     </div>
                     <div class="blog-card__body">
                         <div class="blog-card__content">
                             <div class="blog-card__content--title">
-                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع آن</a>
+                                <a class="blog-card__title--text" href="#">بررسی کامل توسعه دهنده نرم افزار و انواع
+                                    آن</a>
                             </div>
-                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است. توسعه نرم افزار به…</p>
+                            <p class="blog-card__content--description">هر برنامه موبایل، نرم افزار ویندوز، بازی یا سایتی
+                                که هر روزه با آنها سروکار دارید، ثمره تلاش‌های یک یا چند توسعه دهنده نرم افزار است.
+                                توسعه نرم افزار به…</p>
                         </div>
                         <div class="blog-card__author">
                             <a href="#">
@@ -1016,6 +1044,7 @@
             </div>
         </div>
     </section>
+
 </main>
 
 <!--Footer Section-->
@@ -1027,7 +1056,8 @@
             <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
                 <div class="footer__about">
                     <h3 class="footer__title">درباره ما</h3>
-                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
+                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که
+                        با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
                 </div>
             </div>
             <!--Quick Access-->
@@ -1072,7 +1102,7 @@
     <!--Footer Copyright-->
     <div class="footer__copyright mx-4 py-4">
         <p class="footer__copyright--text">
-            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright  © 2024
+            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright © 2024
         </p>
     </div>
 </footer>
