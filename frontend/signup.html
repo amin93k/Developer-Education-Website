@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="vendor/sweetalet2/sweetalert2.css">
     <link rel="stylesheet" href="css/pages/sign.css">
     <title>عضویت</title>
 </head>
@@ -32,6 +33,10 @@
                 <i class="fa-regular fa-envelope sign__input--icon"></i>
             </div>
             <div class="sign__input">
+                <input class="sign__input--box" type="number" placeholder="شماره موبایل: ..09" name="phone" maxlength="11" minlength="11" pattern="[0]{1}[9]{1}[0-9]{9}" required>
+                <i class="fa-regular fa-phone sign__input--icon"></i>
+            </div>
+            <div class="sign__input">
                 <input class="sign__input--box" type="password" placeholder="رمز عبور" name="password" required>
                 <i class="fa-regular fa-lock sign__input--icon"></i>
             </div>
@@ -41,5 +46,7 @@
 </main>
 
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/sweetalet2/sweetalert2.js"></script>
+<script src="js/page/signup-register.js" type="module"></script>
 </body>
 </html>

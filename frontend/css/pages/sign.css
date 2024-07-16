@@ -42,6 +42,10 @@ main::after{
     border-radius: 50%;
 }
 
+.sign-wrapper {
+    margin-bottom: 4rem;
+}
+
 .home-link {
     margin: 3rem auto;
 }
@@ -132,4 +136,8 @@ main::after{
     font-size: 1.4rem;
     color: var(--text-dark-color);
     margin-top: 1rem;
+}
+
+input::-webkit-inner-spin-button{
+    display: none;
 }

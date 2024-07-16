@@ -64,4 +64,3 @@ function numerator(number, element) {
         counter += step
     }, 1)
 }
-

@@ -37,3 +37,8 @@ i {
 .cursor_pointer {
     cursor: pointer;
 }
+
+/*Custom SweetAlert*/
+.swal2-popup.swal2-toast {
+    font-size: 1.6rem !important;
+}
