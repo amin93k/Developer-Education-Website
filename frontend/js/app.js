@@ -1,4 +1,4 @@
-const $ = document
+import { $ } from './base.js'
 
 // swiper slider configuration
 const swiper = new Swiper(".swiper-container", {

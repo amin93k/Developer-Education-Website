@@ -2,10 +2,10 @@ import { $, url } from "../base.js"
 import {getToken} from "./localStorageManager.js"
 
 async function getUserInfo() {
-    const token = getToken()
+    const token = getToken();
 
     if (!token) {
-        return false
+        return false;
     }
 
     const res = await fetch(url + "/auth/me", {
@@ -14,14 +14,10 @@ async function getUserInfo() {
             Authorization: `Bearer ${token}`
         }
     })
-        .then(res => res.json())
-        .then(result => result)
+    const data = await res.json();
 
-    // const data = await res.json()
-    // const userInfo = data.then(result => console.log(result))
-    //
-    // return userInfo
-    // console.log(userInfo)
+    return data;
+
 }
 
 export default getUserInfo

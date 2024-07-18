@@ -26,12 +26,12 @@ async function signInRegister(userInfo) {
     }).then(res => {
         if(res.status === 200) {
             popUp("ورود با موفقیت")
-            // location.href = 'index.html'
+            location.href = 'index.html'
             setTokenToStorage()
             return res.json()
         }
         else if(res.status === 401) {
-            popUp("نام کاربری یا ایمیل یا پسورد اشتباه است!", false)
+            popUp("نام کاربری یا پسورد اشتباه است!", false)
             return res.json()
         }
     }).then(result => {
@@ -39,6 +39,3 @@ async function signInRegister(userInfo) {
     })
 }
 
-import getUserInfo from "../utilities/registerUser.js"
-
-console.log(getUserInfo())

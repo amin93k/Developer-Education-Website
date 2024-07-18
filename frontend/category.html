@@ -23,73 +23,35 @@
             <a class="navbar-brand order-lg-0 order-2" href="index.html">
                 <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
             </a>
-            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg"
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasLg"
                     aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!--Dropdown Menu-->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvasLg"
+            <div class="offcanvas offcanvas-start ps-2" tabindex="-1" id="navbarOffcanvasLg"
                  aria-labelledby="navbarOffcanvasLgLabel">
                 <div class="offcanvas-header">
                     <a class="navbar-brand" href="index.html">
                         <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
                     </a>
                 </div>
-                <ul class="navbar-nav justify-content-start flex-grow-1 px-3 gap-3">
+                <ul class="header__nav navbar-nav justify-content-start flex-grow-1 px-3 gap-3">
                     <!--DropDown Submenu Item-->
-                    <li class="header__nav--menu nav-item dropdown">
-                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">فرانت اند</a>
-                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
-                            <li class="my-2 header__nav--submenu--li">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش HTML
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش CSS
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش اصول طراحی قالب
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش CSS Grid
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش CSS Flex Box
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="header__nav--menu nav-item dropdown">
-                        <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">امنیت</a>
-                        <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش هکر قانونمند - CEH V11
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش کالی لینوکس
-                                </a>
-                            </li>
-                            <li class="header__nav--submenu--li my-2">
-                                <a class="header__nav--submenu-link dropdown-item" href="#">
-                                    آموزش Burp Suite
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    <template>
+                        <li class="header__nav--menu nav-item dropdown">
+                            <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">فرانت اند</a>
+                            <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                                <li class="my-2 header__nav--submenu--li">
+                                    <a class="header__nav--submenu-link dropdown-item" href="#">
+                                        آموزش HTML
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </template>
+
                     <!--Search Box Mobile Version-->
                     <div class="input-group flex-nowrap d-lg-none">
                         <input type="text"
@@ -114,10 +76,10 @@
                             class="fa-regular fa-search"></i></span>
                 </div>
                 <!--User Sign In-->
-                <div class="header__user cursor_pointer bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
+                <a href="signin.html" class="header__user bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
                     <i class="fa-regular fa-user mt-1"></i>
-                    <span class="header__search--text mb-2">ورود | عضویت</span>
-                </div>
+                    <span class="header__user--text">ورود | عضویت</span>
+                </a>
             </div>
         </nav>
     </div>
@@ -447,5 +409,6 @@
 </footer>
 
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+<script src="js/component/renderNavLinks.js" type="module"></script>
 </body>
 </html>

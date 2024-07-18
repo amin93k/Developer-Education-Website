@@ -48,7 +48,7 @@
 
 .header__user {
     height: 5rem;
-    width: 15rem;
+    width: 16rem;
     background-color: var(--secondary-color) !important;
     color: var(--white-color) !important;
     transition: linear 0.2s;
@@ -58,7 +58,9 @@
     background-color: rgb(9, 113, 158);
 }
 
-.header__search--text {
-    text-wrap: nowrap;
+.header__user--text {
+    white-space: nowrap;
     font-weight: 500;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
