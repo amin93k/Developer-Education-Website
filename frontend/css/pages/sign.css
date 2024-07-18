@@ -3,7 +3,7 @@
 @import "../base/font.css";
 @import "../base/reset.css";
 @import "../base/base.css";
-
+/*TODO: درست کردن اسکرول شدن صفحه */
 main {
     width: 100vw;
     height: 100vh;
@@ -11,7 +11,7 @@ main {
     align-content: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 main::before {

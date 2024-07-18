@@ -1,5 +1,6 @@
 import { $, url } from "../base.js"
 import {popUp} from "../component/sweetAlertCustome.js";
+import {setTokenToStorage} from "../utilities/localStorageManager.js"
 
 const signUpForm = $.querySelector(".sign__form")
 
@@ -38,5 +39,7 @@ async function register(userInfo) {
             return res.json()
         }
     })
-        // .then(result => console.log(result))
+        .then(result => {
+            setTokenToStorage(result.accessToken)
+        })
 }

@@ -8,7 +8,6 @@ export function popUp(text, status = true) {
         text: text,
         icon: icon,
         position: "top-start",
-        margin: "10rem",
         width: "30rem",
         timer: 4000,
         toast: true,
