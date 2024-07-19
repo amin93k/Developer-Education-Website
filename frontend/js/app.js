@@ -1,4 +1,7 @@
-import { $ } from './base.js'
+import {$, url} from './base.js'
+import {commaSeparator} from "./utilities/commaSeparator.js";
+import {fetchData} from "./utilities/fetchData.js";
+import {courseCardRender} from "./utilities/courseCardRender.js";
 
 // swiper slider configuration
 const swiper = new Swiper(".swiper-container", {
@@ -54,13 +57,34 @@ function typeWriter(elem, num) {
 function numerator(number, element) {
     let counter = 0
     const step = number < 200 ? 1 : 4
-    // TODO: add comma to the number
+
     const interval = setInterval(() => {
         if (counter > number) {
-            clearInterval(interval)
-        }
+            element.innerText = commaSeparator(counter, 3)
 
-        element.textContent = counter
-        counter += step
+            clearInterval(interval)
+        } else {
+            element.innerText = counter
+            counter += step
+        }
     }, 1)
 }
+
+// Render new course section
+const newCoursesSection = $.querySelector(".courses-wrapper")
+
+fetchData(url + "/courses", "GET").then(courses => {
+    const classes = "col-lg-3 col-md-4 col-sm-6 mb-3"
+
+    newCoursesSection.append(courseCardRender(courses, classes, 4))
+})
+
+
+// Render popular slider
+const swiperWrapper = $.querySelector(".swiper-wrapper")
+
+fetchData(url + "/courses", "GET").then(courses => {
+    const classes = "swiper-slide"
+
+    swiperWrapper.append(courseCardRender(courses, classes))
+})
