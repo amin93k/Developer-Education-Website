@@ -1,17 +1,16 @@
-import {commaSeparator} from "./commaSeparator.js";
 
-function courseCardRender(courses, parentDivElmClasses, numberItemCreated = courses.length) {
+function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses.length) {
 
     const fragment = document.createDocumentFragment()
 
-    numberItemCreated = numberItemCreated > courses.length ? courses.length : numberItemCreated
+    numberOfRender = numberOfRender > courses.length ? courses.length : numberOfRender
 
 
-    for (let i = 0; i < numberItemCreated; i++) {
+    for (let i = 0; i < numberOfRender; i++) {
         const courseInfo = courses[i]
 
         const {
-            name, description, cover, price, creator, courseAverageScore
+            name, description, cover, price, creator, registers, courseAverageScore
         } = courseInfo
 
         const newDivElm = document.createElement("div")
@@ -46,10 +45,10 @@ function courseCardRender(courses, parentDivElmClasses, numberItemCreated = cour
                         <div class="course-card__footer--user-price">
                                 <span class="course-card__footer--users">
                                     <i class="fa-regular fa-user-group"></i>
-                                    500
+                                    ${registers}
                                 </span>
                             <div class="course-card__footer--price">
-                                <span>${commaSeparator(price, 3)}</span>
+                                <span>${price.toLocaleString()}</span>
                                 <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
                                      fill="none"
                                      stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">

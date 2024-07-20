@@ -9,6 +9,20 @@
     .mb-7 {
         margin-bottom: 1rem !important;
     }
+
+    .header__nav--menu {
+        padding: 0 !important;
+    }
+
+    .header__nav--submenu {
+        position: initial !important;
+        display: none;
+    }
+
+    /*.header__nav--menu:hover .header__nav--submenu {*/
+    /*    visibility: hidden !important;*/
+    /*    opacity: 0 !important;*/
+    /*}*/
 }
 @media screen and (max-width: 768px) {
 

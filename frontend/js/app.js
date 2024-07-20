@@ -1,30 +1,31 @@
 import {$, url} from './base.js'
-import {commaSeparator} from "./utilities/commaSeparator.js";
 import {fetchData} from "./utilities/fetchData.js";
 import {courseCardRender} from "./utilities/courseCardRender.js";
+import {blogCardRender} from "./utilities/blogCardRender.js";
+// import Swiper from "../vendor/SwiperSlider/swiper.js";
 
-// swiper slider configuration
-const swiper = new Swiper(".swiper-container", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    freeMode: true,
-    autoplay: {
-        pauseOnMouseEnter: true,
-        disableOnInteraction: false
-    },
-    loop: true,
-    breakpoints: {
-        991: {
-            slidesPerView: 4
-        },
-        768: {
-            slidesPerView: 3
-        },
-        576: {
-            slidesPerView: 2
-        }
-    }
-})
+// // swiper slider configuration
+// const swiper = new Swiper(".swiper-container", {
+//         slidesPerView: 1,
+//         spaceBetween: 30,
+//         freeMode: true,
+//         autoplay: {
+//             pauseOnMouseEnter: true,
+//             disableOnInteraction: false
+//         },
+//         loop: true,
+//         breakpoints: {
+//             991: {
+//                 slidesPerView: 4
+//             },
+//             768: {
+//                 slidesPerView: 3
+//             },
+//             576: {
+//                 slidesPerView: 2
+//             }
+//         }
+//     })
 
 
 // Animate the information section of the home section
@@ -60,11 +61,10 @@ function numerator(number, element) {
 
     const interval = setInterval(() => {
         if (counter > number) {
-            element.innerText = commaSeparator(counter, 3)
-
             clearInterval(interval)
+
         } else {
-            element.innerText = counter
+            element.innerText = counter.toLocaleString()
             counter += step
         }
     }, 1)
@@ -83,8 +83,42 @@ fetchData(url + "/courses", "GET").then(courses => {
 // Render popular slider
 const swiperWrapper = $.querySelector(".swiper-wrapper")
 
-fetchData(url + "/courses", "GET").then(courses => {
+fetchData(url + "/courses/popular", "GET").then(courses => {
     const classes = "swiper-slide"
 
     swiperWrapper.append(courseCardRender(courses, classes))
+
+    // swiper slider configuration
+    const swiper = new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        freeMode: true,
+        autoplay: {
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false
+        },
+        loop: true,
+        breakpoints: {
+            991: {
+                slidesPerView: 4
+            },
+            768: {
+                slidesPerView: 3
+            },
+            576: {
+                slidesPerView: 2
+            }
+        }
+    })
+})
+
+
+// Render blog section
+const blogWrapper = $.querySelector(".blog-wrapper")
+
+fetchData(url + "/articles").then(blogs => {
+    const classes = "col-lg-3 col-md-4 col-sm-6 mb-3"
+
+    blogWrapper.append(blogCardRender(blogs, classes, 4))
+
 })

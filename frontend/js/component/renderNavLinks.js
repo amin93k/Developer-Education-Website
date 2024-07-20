@@ -1,49 +1,72 @@
 import {$, url} from "../base.js";
 import {showUserInTopNav} from "../utilities/showUserSignIn.js";
+import {fetchData} from "../utilities/fetchData.js";
 
-async function getNavLinks() {
-
-    const res = await fetch(url + "/menus")
-    const menuLinks = await res.json()
-
-    return menuLinks ? menuLinks : false
-}
 
 function renderNavLinks() {
     const navbar = $.querySelector(".header__nav")
     let fragment = $.createDocumentFragment()
 
-    getNavLinks().then(links => {
+    fetchData(url + "/menus").then(links => {
         links.forEach(menu => {
+            const hasSubmenu = menu.submenus.length
 
             let newMenuElm = $.createElement("li")
-            newMenuElm.className = "header__nav--menu nav-item dropdown"
+            newMenuElm.className = "header__nav--menu nav-item"
             newMenuElm.innerHTML += `
 
-                    <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">${menu.title}</a>
-                    <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                    <a class="header__nav__menu--title nav-link" href="category.html?cat=${menu.href}">${menu.title}
+                    <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <ul class="header__nav--submenu p-3 border-light-subtle rounded-4">
                     </ul>
                     `
 
-            menu.submenus.forEach(submenu => {
-                newMenuElm.lastElementChild.innerHTML += `
-                         <li class="my-2 header__nav--submenu--li">
-                            <a class="header__nav--submenu-link dropdown-item" href= ${submenu.href}>
+            if (hasSubmenu) {
+                menu.submenus.forEach(submenu => {
+                    newMenuElm.lastElementChild.innerHTML += `
+                         <li class="my-3 header__nav--submenu--li">
+                            <a class="header__nav--submenu-link" href= ${submenu.href}>
                                 ${submenu.title}
                             </a>
                          </li>
                 `
-            })
+                })
+            }else {
+                newMenuElm.lastElementChild.remove()
+            }
 
             fragment.append( newMenuElm)
         })
 
         navbar.append(fragment)
+
+        showSubmenu()
     })
+
+    // If user is sign in display username in navbar
+    showUserInTopNav()
 }
 
-renderNavLinks()
+function showSubmenu() {
+    const screenWidth = window.outerWidth
+    const navbarMenu = $.querySelectorAll(".header__nav--menu")
 
-// If user is sign in display username in navbar
-showUserInTopNav()
+    navbarMenu.forEach(menu => {
+        const menuTitle = menu.querySelector(".header__nav__menu--title")
+
+        menuTitle.addEventListener("click", (eve) => {
+            // prevent to change location
+            eve.preventDefault()
+            const submenuElement = menu.querySelector(".header__nav--submenu")
+
+            if (screenWidth < 991) {
+                submenuElement.classList.toggle("show")
+            }
+        })
+    })
+
+}
+
+
+renderNavLinks()
