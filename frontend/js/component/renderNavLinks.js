@@ -56,11 +56,11 @@ function showSubmenu() {
         const menuTitle = menu.querySelector(".header__nav__menu--title")
 
         menuTitle.addEventListener("click", (eve) => {
-            // prevent to change location
-            eve.preventDefault()
             const submenuElement = menu.querySelector(".header__nav--submenu")
 
             if (screenWidth < 991) {
+                // prevent to change location
+                eve.preventDefault()
                 submenuElement.classList.toggle("show")
             }
         })

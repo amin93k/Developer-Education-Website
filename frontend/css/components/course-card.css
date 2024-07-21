@@ -40,6 +40,7 @@
     opacity: 0.7;
     font-size: 1.4rem;
     margin-bottom: 1.2rem;
+    text-align: justify;
 }
 
 .course-card__footer {
@@ -93,10 +94,60 @@
     color: var(--primary-color);
     font-weight: 500;
     flex: 1 0 auto;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: flex-end;
 }
 
 .course-card__footer--toman {
     width: 1.8rem;
     height: 1.8rem;
+}
+
+/******************* Horizontal Course Card Show **********************/
+.course-card.horizontal {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0;
+    height: 20rem;
+}
+
+.course-card__banner.horizontal {
+    height: 100%;
+    margin-bottom: 0;
+    flex: 0 0 30%;
+}
+.course-card__banner--img.horizontal {
+    height: 100%;
+}
+
+.course-card__content.horizontal {
+    height: 100%;
+    flex: 1;
+    align-self: baseline;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card__teacher.horizontal {
+    margin-bottom: 0.3rem;
+}
+
+.course-card__rating-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.course-card__price {
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.course-card__price--title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
 }
