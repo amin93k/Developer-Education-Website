@@ -47,8 +47,9 @@
     border-radius: 2rem;
 }
 .top-bar__search--input {
-    padding: 1rem 1rem 1rem 2.5rem;
+    padding: 0.6rem 0.6rem 0.6rem 2.5rem;
     border-radius: 2rem;
+    height: 4.5rem;
 }
 .top-bar__search--icon {
     position: absolute;

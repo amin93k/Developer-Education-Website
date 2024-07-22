@@ -1,7 +1,7 @@
 function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses.length) {
-    if (courses.length) {
+    const fragment = document.createDocumentFragment()
 
-        const fragment = document.createDocumentFragment()
+    if (courses.length) {
 
         numberOfRender = numberOfRender > courses.length ? courses.length : numberOfRender
 
@@ -10,7 +10,7 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
             const courseInfo = courses[i]
 
             const {
-                name, description, cover, price, creator, registers, courseAverageScore
+                name, description, cover, shortName, price, creator, registers, courseAverageScore
             } = courseInfo
 
             const newDivElm = document.createElement("div")
@@ -18,21 +18,21 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
             newDivElm.innerHTML += `
                 <div class="course-card">
                     <div class="course-card__banner">
-                        <a href="#">
+                        <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img"
                                  src=${cover} alt="course">
                         </a>
                     </div>
                     <div class="course-card__content">
                         <div class="course-card__content--title">
-                            <a href="#">${name}</a>
+                            <a href="course.html?name=${shortName}">${name}</a>
                         </div>
                         <p class="course-card__content--description">${description}</p>
                     </div>
                     <div class="course-card__footer">
                         <div class="course-card__footer--teacher-rating">
                             <div class="course-card__teacher">
-                                <a href="#">
+                                <a href="course.html?name=${shortName}">
                                     <i class="fa-regular fa-chalkboard-teacher"></i>
                                     <span class="course-card__teacher--name">${creator}</span>
                                 </a>
@@ -70,15 +70,25 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
             fragment.append(newDivElm)
         }
 
-        return fragment
     }
+    else {
+        const newElm = document.createElement("div")
+        newElm.className = "col-12"
+        newElm.innerHTML = `
+        <div class="d-flex align-items-center justify-content-center mb-4">
+            <img src="images/logo/not-found.png" style="width: 50%;">
+        </div>`
+
+        fragment.append(newElm)
+    }
+    return fragment
 }
 
 
 function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender = courses.length) {
-    if (courses.length) {
+    const fragment = document.createDocumentFragment()
 
-        const fragment = document.createDocumentFragment()
+    if (courses.length) {
 
         numberOfRender = numberOfRender > courses.length ? courses.length : numberOfRender
 
@@ -87,7 +97,7 @@ function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender
             const courseInfo = courses[i]
 
             const {
-                name, description, cover, price, creator, registers, courseAverageScore
+                name, description, cover, shortName, price, creator, registers, courseAverageScore
             } = courseInfo
 
             const newDivElm = document.createElement("div")
@@ -96,17 +106,17 @@ function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender
             <div class="col-12">
                 <div class="course-card horizontal">
                     <div class="course-card__banner horizontal">
-                        <a href="#">
+                        <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img horizontal"
                                  src=${cover} alt="course">
                         </a>
                     </div>
                     <div class="course-card__content horizontal">
                         <div class="course-card__content--title">
-                            <a href="#">${name}</a>
+                            <a href="course.html?name=${shortName}">${name}</a>
                         </div>
                         <div class="course-card__teacher horizontal">
-                            <a href="#">
+                            <a href="course.html?name=${shortName}">
                                 <i class="fa-regular fa-chalkboard-teacher"></i>
                                 <span class="course-card__teacher--name">${creator}</span>
                             </a>
@@ -149,8 +159,19 @@ function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender
             fragment.append(newDivElm)
         }
 
-        return fragment
     }
+    else {
+        const newElm = document.createElement("div")
+        newElm.className = "col-12"
+        newElm.innerHTML = `
+        <div class="d-flex align-items-center justify-content-center mb-4">
+            <img src="images/logo/not-found.png" style="width: 50%;">
+        </div>`
+
+        fragment.append(newElm)
+    }
+
+    return fragment
 }
 
 
