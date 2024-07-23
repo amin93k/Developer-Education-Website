@@ -62,6 +62,18 @@
     gap: 1rem;
 }
 
+.course-header__register--price {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.course-header__register--toman {
+    color: var(--primary-color);
+    width: 2rem;
+    height: 2rem;
+}
+
 .course-header__register--icon.hidden {
     display: none;
 }

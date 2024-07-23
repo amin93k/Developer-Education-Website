@@ -75,7 +75,8 @@
                             class="fa-regular fa-search"></i></span>
                 </div>
                 <!--User Sign In-->
-                <a href="signin.html" class="header__user bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
+                <a href="signin.html"
+                   class="header__user bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
                     <i class="fa-regular fa-user mt-1"></i>
                     <span class="header__user--text">ورود | عضویت</span>
                 </a>
@@ -91,21 +92,24 @@
             <div class="breadcrumb2__item">
                 <a class="breadcrumb2__item--home" href="index.html"><i class="fa-regular fa-house"></i></a>
             </div>
-            <div class="breadcrumb2__item">
-                <a href="#" class="breadcrumb2__item--link">
-                    دوره ها
-                </a>
-            </div>
-            <div class="breadcrumb2__item">
-                <a href="#" class="breadcrumb2__item--link">
-                    فرانت اند
-                </a>
-            </div>
-            <div class="breadcrumb2__item">
-                <a href="#" class="breadcrumb2__item--link">
-                    آموزش جاوااسکریپت
-                </a>
-            </div>
+            <!--Show Breadcrumb Route-->
+            <template>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        دوره ها
+                    </a>
+                </div>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        فرانت اند
+                    </a>
+                </div>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        آموزش جاوااسکریپت
+                    </a>
+                </div>
+            </template>
         </div>
 
         <!--Course Header Section-->
@@ -115,24 +119,32 @@
                 <!--Content-->
                 <div class="col-lg-6 order-2 order-lg-1 mt-4 mt-lg-0">
                     <div class="course-header__content">
-                        <h1 class="course-header__content--title">پروژه های تخصصی با جاوا اسکریپت برای بازار کار</h1>
-                        <p class="course-header__content--description">هیچ فرقی نمیکنه شما با چه کتابخونه یا فریمورکی
-                            کار میکنین. تو این دوره یاد میگیری به عنوان یه برنامه نویس فرانت‌اند چطور یه پروژه بزرگ و
-                            واقعی رو منیج کنی. حالا این پروژه میتونه با ویو، ری‌اکت یا حتی جاوا اسکریپت خام باشه.</p>
-                        <div class="course-header__register">
-                            <div class="course-header__register--content">
-                                <i class="fa-regular fa-user course-header__register--icon"></i>
-                                <p class="course-header__register--text">شما دانشجوی این دوره هستید</p>
+                        <template>
+                            <h1 class="course-header__content--title">پروژه های تخصصی با جاوا اسکریپت برای بازار
+                                کار</h1>
+                            <p class="course-header__content--description">هیچ فرقی نمیکنه شما با چه کتابخونه یا
+                                فریمورکی
+                                کار میکنین. تو این دوره یاد میگیری به عنوان یه برنامه نویس فرانت‌اند چطور یه پروژه بزرگ
+                                و
+                                واقعی رو منیج کنی. حالا این پروژه میتونه با ویو، ری‌اکت یا حتی جاوا اسکریپت خام
+                                باشه.</p>
+                            <div class="course-header__register">
+                                <div class="course-header__register--content">
+                                    <i class="fa-regular fa-user course-header__register--icon"></i>
+                                    <p class="course-header__register--text">شما دانشجوی این دوره هستید</p>
+                                </div>
+                                <a href="#" class="course-header__register--btn">مشاهده دوره</a>
                             </div>
-                            <a href="#" class="course-header__register--btn">مشاهده دوره</a>
-                        </div>
+                        </template>
                     </div>
                 </div>
                 <!--Video Banner-->
                 <div class="col-lg-6 order-1 order-lg-2">
                     <div class="courses-header__video">
-                        <img class="courses-header__video--image"
-                             src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp" alt="course">
+                        <template>
+                            <img class="courses-header__video--image"
+                                 src="images/courses/ezgif.com-jpg-to-webp-converted-16-1-768x432.webp" alt="course">
+                        </template>
                     </div>
                 </div>
             </div>
@@ -472,14 +484,18 @@
                 <!--Related Course-->
                 <div class="course-related mb-5 d-none d-lg-block">
                     <div class="course-section__header">
-                        <svg class="course-section__header--icon" id="sparkles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clip-rule="evenodd"></path>
+                        <svg class="course-section__header--icon" id="sparkles" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                  d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z"
+                                  clip-rule="evenodd"></path>
                         </svg>
-                        <span class="course-section__header--title" >دوره های مرتبط</span>
+                        <span class="course-section__header--title">دوره های مرتبط</span>
                     </div>
 
                     <div class="course-related__card">
-                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp" class="course-related__cars--image">
+                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp"
+                             class="course-related__cars--image">
                         <a href="#" class="course-related__card--title">پیاده سازی داشبورد های حرفه ای با CSS و JS</a>
                         <a href="#" class="course-related__card--link">
                             مشاهده
@@ -487,7 +503,8 @@
                         </a>
                     </div>
                     <div class="course-related__card">
-                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp" class="course-related__cars--image">
+                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp"
+                             class="course-related__cars--image">
                         <a href="#" class="course-related__card--title">پیاده سازی داشبورد های حرفه ای با CSS و JS</a>
                         <a href="#" class="course-related__card--link">
                             مشاهده
@@ -495,7 +512,8 @@
                         </a>
                     </div>
                     <div class="course-related__card">
-                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp" class="course-related__cars--image">
+                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp"
+                             class="course-related__cars--image">
                         <a href="#" class="course-related__card--title">پیاده سازی داشبورد های حرفه ای با CSS و JS</a>
                         <a href="#" class="course-related__card--link">
                             مشاهده
@@ -503,7 +521,8 @@
                         </a>
                     </div>
                     <div class="course-related__card">
-                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp" class="course-related__cars--image">
+                        <img src="images/courses/Course-thumbnail-Dashboard2-1-768x432.webp"
+                             class="course-related__cars--image">
                         <a href="#" class="course-related__card--title">پیاده سازی داشبورد های حرفه ای با CSS و JS</a>
                         <a href="#" class="course-related__card--link">
                             مشاهده
@@ -526,8 +545,9 @@
                                 <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z"></path>
                             </svg>
                             <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"></path>
-                            </svg>
+                                  d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z">
+                            </path>
+
                             <div class="course-info__box--content">
                                 <h3 class="course-info__box--title">1500</h3>
                                 <span class="course-info__box--description">دانشجو</span>
@@ -652,5 +672,6 @@
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
 <script src="js/component/renderNavLinks.js" type="module"></script>
 <script src="js/component/accordion-btn.js"></script>
+<script src="js/page/course.js" type="module"></script>
 </body>
 </html>

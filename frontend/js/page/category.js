@@ -24,8 +24,18 @@ window.addEventListener("load", () => {
 })
 
 function getLocationURL() {
-    const param = window.location.search.split("/")
-    const URL = url + "/courses/category/" + param[param.length - 1]
+    let URL = null
+    const param = window.location.search.split("=").pop()
+
+    if(param === "courses") {
+        URL = url + "/courses"
+    }
+    else if(param === "articles") {
+        URL = url + "/articles"
+    }
+    else {
+        URL = url + "/courses/category/" + param
+    }
 
     return URL
 }
@@ -39,8 +49,7 @@ function showCategory(initialLoad, sortBase) {
 
     let parentClass = getActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
 
-    // TODO: چون اطلاعات به درستی از بک دریافت نمیشود به جای استفاده از تابع بالا از مسیر کورس ها استفاده شده برای تست
-    fetchData(url + "/courses").then(courses => {
+    fetchData(getLocationURL()).then(courses => {
         let coursesList = [...courses]
         // check search happened
         if(searchWord) {
@@ -48,7 +57,7 @@ function showCategory(initialLoad, sortBase) {
         }
 
         const sortedCourses = sortBase === "all" ? coursesList : sortCourses(coursesList, sortBase)
-
+        // TODO: بعد از ایجاد رندر کارد مقالات باید انجا تغییر کند
         if (getActiveBtn === "show-windows") {
             categoryWrapper.append(courseCardRender(sortedCourses, parentClass))
         } else {
