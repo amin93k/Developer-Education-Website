@@ -9,6 +9,7 @@
 @import "../components/course-card.css";
 @import "../components/blog-card.css";
 @import "../components/short-link.css";
+@import "../components/comment.css";
 
 /********************COSTUME BOOTSTRAP*********************/
 .container-fluid {

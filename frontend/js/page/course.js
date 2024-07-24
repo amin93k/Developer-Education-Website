@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
     const token = getToken()
     const param = window.location.search
     const locationUrl = url + "/courses/" + param.split("=")[1]
-
+    const relatedCourseUrl = url + "/courses/related/" + param.split("=")[1]
 
     fetchData(locationUrl, "GET", {Authorization: token}).then(course => {
         addBreadcrumb(course)
@@ -16,7 +16,9 @@ window.addEventListener("load", () => {
         addCourseInfo(course)
         addCourseTeacher(course.creator)
         addSessions(course.sessions, course.isUserRegisteredToThisCourse, course.shortName)
-        console.log(course)
+    })
+    fetchData(relatedCourseUrl).then(courses => {
+        addRelatedCourse(courses)
     })
 })
 
@@ -150,6 +152,29 @@ function addSessions(sessions, userRegisterToSession, courseName) {
         courseSession.innerHTML = `
             <h3 class="text-center">فعلا دوره ای ثبت نشده!</h3>    
         `
+    }
+}
+
+function addRelatedCourse(courses) {
+    if(courses.length) {
+
+        const relatedCourseElm = $.querySelector(".course-related")
+        let courseLink = ""
+
+        courses.forEach(course => {
+            courseLink = `course.html?name=${course.shortName}`
+
+            relatedCourseElm.insertAdjacentHTML("beforeend",`
+                <div class="course-related__card">
+                    <img src="${course.cover}" class="course-related__cars--image" alt="course">
+                    <a href="${courseLink}" class="course-related__card--title">${course.name}</a>
+                    <a href="${courseLink}" class="course-related__card--link">
+                        مشاهده
+                        <i class="course-related__link--icon fa-solid fa-circle-arrow-left"></i>
+                    </a>
+                </div>
+            `)
+        })
     }
 }
 
