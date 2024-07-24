@@ -14,10 +14,14 @@ window.addEventListener("load", () => {
         addBreadcrumb(course)
         addCourseHeader(course)
         addCourseInfo(course)
+        addCourseTeacher(course.creator)
+        addSessions(course.sessions, course.isUserRegisteredToThisCourse, course.shortName)
         console.log(course)
     })
 })
 
+// set sessions minute in calcCourseTime function
+let minute = null
 
 function addBreadcrumb(course) {
     const breadCrumb = $.querySelector(".breadcrumb2")
@@ -101,6 +105,54 @@ function addCourseInfo(course) {
     }
 }
 
+function addCourseTeacher(creator) {
+    const teacherInfoBox = $.querySelector(".course-teacher")
+    const img = teacherInfoBox.querySelector("img")
+    img.src = creator.profile
+
+    img.onerror = () => {
+        img.src = "images/teacher/online-education-male-teacher-and-books-internet-vector-31732020.jpg"
+    }
+
+    teacherInfoBox.querySelector(".course-teacher__name").innerText = `${creator.name} | مدرس دوره`
+}
+
+function addSessions(sessions, userRegisterToSession, courseName) {
+    const sessionLength = sessions.length
+
+    if(sessionLength) {
+
+        const sessionsCount = $.querySelector(".accordion-button__left--session-count")
+        const sessionsTime = $.querySelector(".accordion-button__left--whole-time")
+        const sessionsWrapper = $.querySelector(".session-list")
+        let sessionIconClass = ""
+
+        sessions.forEach((session, index) => {
+            sessionIconClass = (session.free || userRegisterToSession) ? "fa-play-circle" : "fa-lock"
+
+            sessionsWrapper.insertAdjacentHTML("beforeend",`
+                <a class="list-group-item lesson" href="episod.html?name=${courseName}&id=${session._id}">
+                    <span class="lesson__number">${index + 1}</span>
+                    <span class="lesson__title">${session.title}</span>
+                    <div class="lesson__time">
+                        <div class="lesson__time--time">${session.time}</div>
+                        <i class="fa-regular ${sessionIconClass}"></i>
+                    </div>
+                </a>
+            `)
+        })
+
+        sessionsCount.innerHTML = `${sessionLength} جلسه`
+        sessionsTime.innerHTML = `${minute} دقیقه`
+    }
+    else {
+        const courseSession = $.querySelector(".course-topics")
+        courseSession.innerHTML = `
+            <h3 class="text-center">فعلا دوره ای ثبت نشده!</h3>    
+        `
+    }
+}
+
 function changeDateToJalali(date) {
     const extractionDate = date.slice(0, 10).split("-")
     const formatDate = new Date(extractionDate[0], extractionDate[1], extractionDate[2])
@@ -116,14 +168,14 @@ function calcCourseTime(sessions) {
 
     let time = null
     let second = 0
-    let minute = 0
+    minute = 0
 
     sessions.forEach(session => {
         time = session.time.split(":")
         minute += parseInt(time[0])
         second += parseInt(time[1])
     })
-
-    const hour = Math.ceil(minute / 60) + Math.ceil(second / 60)
+    minute += Math.ceil(second / 60)
+    const hour = Math.ceil(minute / 60)
     return hour
 }

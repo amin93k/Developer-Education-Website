@@ -414,10 +414,13 @@
 }
 
 .course-teacher__image {
+    width: 6rem;
+    height: 6rem;
+}
+
+.course-teacher__image img {
     border-radius: 50%;
-    width: 5rem;
-    height: 5rem;
-    background-color: var(--bg-primary);
+    border: 1px solid rgba(0,0,0,0.3);
 }
 
 .course-teacher__name {
