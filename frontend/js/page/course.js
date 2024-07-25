@@ -1,25 +1,28 @@
 import {url, $} from "../base.js";
 import {fetchData} from "../utilities/fetchData.js";
 import {getToken} from "../utilities/localStorageManager.js"
+import {getParam} from "../utilities/utileFunction.js"
 import {breadcrumbRoute} from "../component/breadCrumb.js";
 
 
 window.addEventListener("load", () => {
-    const token = getToken()
+    const isCoursePage = $.querySelector(".course-header")
     const param = window.location.search
-    const locationUrl = url + "/courses/" + param.split("=")[1]
-    const relatedCourseUrl = url + "/courses/related/" + param.split("=")[1]
-
-    fetchData(locationUrl, "GET", {Authorization: token}).then(course => {
-        addBreadcrumb(course)
-        addCourseHeader(course)
-        addCourseInfo(course)
-        addCourseTeacher(course.creator)
-        addSessions(course.sessions, course.isUserRegisteredToThisCourse, course.shortName)
-    })
-    fetchData(relatedCourseUrl).then(courses => {
-        addRelatedCourse(courses)
-    })
+    const getCourseUrl = url + "/courses/" + getParam("name")
+    const relatedCourseUrl = url + "/courses/related/" + getParam("name")
+    // Condition for don't run in episode page
+    if(isCoursePage) {
+        fetchData(getCourseUrl, "GET", {Authorization: `Bearer ${getToken()}`}).then(course => {
+            addBreadcrumb(course)
+            addCourseHeader(course)
+            addCourseInfo(course)
+            addCourseTeacher(course.creator)
+            addSessions(course.sessions, course.isUserRegisteredToThisCourse, course.shortName)
+        })
+        fetchData(relatedCourseUrl).then(courses => {
+            addRelatedCourse(courses)
+        })
+    }
 })
 
 // set sessions minute in calcCourseTime function
@@ -42,6 +45,7 @@ function addCourseHeader(course) {
         <h1 class="course-header__content--title">${course.name}</h1>
         <p class="course-header__content--description">${course.description}</p>
     `
+    //TODO: لینک دادن به دکمه مشاهده و ثبت نام در دوره
     if (isUserRegistered) {
         courseHeaderContentElm.innerHTML += `
             <div class="course-header__register">
@@ -131,9 +135,9 @@ function addSessions(sessions, userRegisterToSession, courseName) {
 
         sessions.forEach((session, index) => {
             sessionIconClass = (session.free || userRegisterToSession) ? "fa-play-circle" : "fa-lock"
-
+            //TODO: زمانی که کاربر به ویدیو دسترسی ندارد به صفحه خرید منتقل شود
             sessionsWrapper.insertAdjacentHTML("beforeend",`
-                <a class="list-group-item lesson" href="episod.html?name=${courseName}&id=${session._id}">
+                <a class="list-group-item lesson" href="episode.html?name=${courseName}&id=${session._id}">
                     <span class="lesson__number">${index + 1}</span>
                     <span class="lesson__title">${session.title}</span>
                     <div class="lesson__time">
@@ -204,3 +208,6 @@ function calcCourseTime(sessions) {
     const hour = Math.ceil(minute / 60)
     return hour
 }
+
+// use function on episode page
+export {addBreadcrumb, addCourseTeacher, addSessions, calcCourseTime}

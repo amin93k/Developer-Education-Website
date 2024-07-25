@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendor/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="css/pages/course-landing.css">
+    <title>دوره جاوااسکریپت</title>
+</head>
+<body>
+<!--Main Header-->
+<header class="header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <!-- Right Section (Menu & Logo) -->
+            <a class="navbar-brand order-lg-0 order-2" href="index.html">
+                <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarOffcanvasLg"
+                    aria-controls="navbarOffcanvasLg" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Dropdown Menu-->
+            <div class="offcanvas offcanvas-start ps-2" tabindex="-1" id="navbarOffcanvasLg"
+                 aria-labelledby="navbarOffcanvasLgLabel">
+                <div class="offcanvas-header">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="navbar__logo" src="images/logo/logo.png" alt="logo">
+                    </a>
+                </div>
+                <ul class="header__nav navbar-nav justify-content-start flex-grow-1 px-3 gap-3">
+                    <!--DropDown Submenu Item-->
+                    <template>
+                        <li class="header__nav--menu nav-item dropdown">
+                            <a class="header__nav__menu--title nav-link dropdown-toggle" href="#" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">فرانت اند</a>
+                            <ul class="header__nav--submenu dropdown-menu p-3 mt-4 border-light-subtle rounded-4">
+                                <li class="my-2 header__nav--submenu--li">
+                                    <a class="header__nav--submenu-link dropdown-item" href="#">
+                                        آموزش HTML
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </template>
+
+                    <!--Search Box Mobile Version-->
+                    <div class="input-group flex-nowrap d-lg-none">
+                        <input type="text"
+                               class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                               placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                               aria-describedby="addon-wrapping1">
+                        <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0"
+                              id="addon-wrapping1"><i class="fa-regular fa-search"></i></span>
+                    </div>
+                </ul>
+            </div>
+            <!--Left Section (Search & Dark Mode & Registration)-->
+            <div class="d-flex align-items-center justify-content-between order-3">
+                <!--Search Box-->
+                <div class="input-group flex-nowrap d-none d-lg-flex me-3">
+                    <input type="text"
+                           class="header__search form-control rounded-start-pill bg_primary fs-3 p-3 border-0"
+                           placeholder="دنبال چی میگردی؟" aria-label="دنبال چی میگردی؟"
+                           aria-describedby="addon-wrapping">
+                    <span class="input-group-text rounded-end-pill bg_primary fs-3 p-3 border-0 cursor_pointer"
+                          id="addon-wrapping"><i
+                            class="fa-regular fa-search"></i></span>
+                </div>
+                <!--User Sign In-->
+                <a href="signin.html"
+                   class="header__user bg_primary rounded-pill d-flex align-items-center gap-1 gap-sm-3 px-md-4 justify-content-center">
+                    <i class="fa-regular fa-user mt-1"></i>
+                    <span class="header__user--text">ورود | عضویت</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container-fluid my-4">
+        <!--Top Bar Breadcrumb-->
+        <div class="breadcrumb2">
+            <div class="breadcrumb2__item">
+                <a class="breadcrumb2__item--home" href="index.html"><i class="fa-regular fa-house"></i></a>
+            </div>
+            <!--Show Breadcrumb Route-->
+            <template>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        دوره ها
+                    </a>
+                </div>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        فرانت اند
+                    </a>
+                </div>
+                <div class="breadcrumb2__item">
+                    <a href="#" class="breadcrumb2__item--link">
+                        آموزش جاوااسکریپت
+                    </a>
+                </div>
+            </template>
+        </div>
+
+        <!--Episode Video-->
+        <section class="mb-7">
+            <div class="video-wrapper">
+                <video class="video-wrapper__video" poster="" controls controlsList="nodownload">
+                    <source src="video/jsExPrjcts-01-Intro-comm.mp4" type="video/mp4">
+                    مرورگر شما از پخش این ویدیو پشتیبانی نمیکند لطفا با مرورگر دیگری وارد شوید!
+                </video>
+                <i class="fa-regular fa-play-circle video-wrapper__video--icon"></i>
+            </div>
+        </section>
+
+        <!--Course Body Section-->
+        <section class="course-body row">
+            <!--Course Right Section (Sessions & Comment)-->
+            <div class="col-lg-8 pe-lg-4">
+                <!--Course Sessions-->
+                <div class="course-topics mb-5">
+                    <!--Sessions Header-->
+                    <div class="course-section__header">
+                        <svg class="course-section__header--icon topics-header__icon" id="academic-cap-fill"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.7 2.805a.75.75 0 01.6 0A60.65 60.65 0 0122.83 8.72a.75.75 0 01-.231 1.337 49.949 49.949 0 00-9.902 3.912l-.003.002-.34.18a.75.75 0 01-.707 0A50.009 50.009 0 007.5 12.174v-.224c0-.131.067-.248.172-.311a54.614 54.614 0 014.653-2.52.75.75 0 00-.65-1.352 56.129 56.129 0 00-4.78 2.589 1.858 1.858 0 00-.859 1.228 49.803 49.803 0 00-4.634-1.527.75.75 0 01-.231-1.337A60.653 60.653 0 0111.7 2.805z"></path>
+                            <path d="M13.06 15.473a48.45 48.45 0 017.666-3.282c.134 1.414.22 2.843.255 4.285a.75.75 0 01-.46.71 47.878 47.878 0 00-8.105 4.342.75.75 0 01-.832 0 47.877 47.877 0 00-8.104-4.342.75.75 0 01-.461-.71c.035-1.442.121-2.87.255-4.286A48.4 48.4 0 016 13.18v1.27a1.5 1.5 0 00-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.661a6.729 6.729 0 00.551-1.608 1.5 1.5 0 00.14-2.67v-.645a48.549 48.549 0 013.44 1.668 2.25 2.25 0 002.12 0z"></path>
+                            <path d="M4.462 19.462c.42-.419.753-.89 1-1.394.453.213.902.434 1.347.661a6.743 6.743 0 01-1.286 1.794.75.75 0 11-1.06-1.06z"></path>
+                        </svg>
+                        <span class="course-section__header--title">سرفصل ها</span>
+                    </div>
+                    <!--Topics List-->
+                    <div class="accordion accordion-flush " id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse1" aria-expanded="true"
+                                        aria-controls="flush-collapse1">
+                                    <span class="accordion-button__title">سرفصل ها</span>
+                                    <div class="accordion-button__left">
+                                        <span class="accordion-button__left--session-count"></span>
+                                        <span class="accordion-button__left--dot">.</span>
+                                        <span class="accordion-button__left--whole-time"></span>
+                                    </div>
+                                </button>
+                            </h2>
+                            <!--Sessions List-->
+                            <div id="flush-collapse1" class="accordion-collapse collapse show"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="list-group session-list">
+                                        <template>
+                                            <a class="list-group-item lesson" href="#">
+                                                <span class="lesson__number">1</span>
+                                                <span class="lesson__title">معرفی دوره - بررسی سوال</span>
+                                                <div class="lesson__time">
+                                                    <div class="lesson__time--time">10:10</div>
+                                                    <i class="fa-regular fa-play-circle"></i>
+                                                </div>
+                                            </a>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Comment Section-->
+                <div class="comment-wrapper">
+                    <div class="comment-wrapper__header">
+                        <svg class="comment-wrapper__header--icon" id="chat-bubble-left-right-fill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z"></path>
+                            <path d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z"></path>
+                        </svg>
+                        <span class="comment-wrapper__header--title" >نظرات</span>
+                    </div>
+                    <form class="create-comment mb-5">
+                        <div class="comment-creator">
+                            <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
+                            <div class="comment-creator__content">
+                                <span class="comment-creator__content--name">Amin</span>
+                                <span class="comment-creator__content--text">ثبت نظر جدید</span>
+                            </div>
+                        </div>
+                        <textarea class="create-comment__textarea" cols="80" rows="10" placeholder="نوشتن نظر ..."></textarea>
+                        <button class="create-comment__btn">ارسال</button>
+                    </form>
+                    <div class="user-comment mb-5">
+                        <div class="comment-creator">
+                            <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
+                            <div class="comment-creator__content">
+                                <span class="comment-creator__content--name">Amin</span>
+                                <span class="comment-creator__content--text">ثبت نظر جدید</span>
+                            </div>
+                        </div>
+                        <div class="user-comment__content">
+                            <p class="user-comment__content--text">ممنون از سایت خوبتون 🌹❤</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Course Left Section (Teacher & Short Link)-->
+            <div class="col-lg-4 ps-lg-4">
+
+                <!--Course Teacher-->
+                <div class="course-teacher">
+                    <div class="course-teacher__image">
+                        <img src="images/teacher/online-education-male-teacher-and-books-internet-vector-31732020.jpg"
+                             alt="teacher" class="course-teacher__image--teacher">
+                    </div>
+                    <h3 class="course-teacher__name"> | مدرس دوره</h3>
+                    <a href="#" class="course-teacher__profile">
+                        دیدن پروفایل
+                    </a>
+                </div>
+<!--                TODO: داینامیک کردن کپی کردن شورت لینک-->
+                <!--Short Link-->
+                <div class="short-link">
+                    <h3 class="short-link__title">لینک کوتاه شده آموزش</h3>
+                    <div class="short-link__content">
+                        <i class="short-link__content--icon fa-regular fa-file-clipboard"></i>
+                        <span class="short-link__content--text">webdeveloper.ir/?p=116</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!--Footer Section-->
+<footer class="footer">
+    <!--Footer Content-->
+    <div class="container">
+        <div class="row row-gap-4 mb-4">
+            <!--About We-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__about">
+                    <h3 class="footer__title">درباره ما</h3>
+                    <p class="footer__about--description">در این جا ما یک اکادمی مخصوص آموزش برنامه نویسی ساخته ایم که
+                        با هدف تحویل نیروی متخصص بر پایه تولید محتوای غیرسطحی فعالیت میکند</p>
+                </div>
+            </div>
+            <!--Quick Access-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__quick-access">
+                    <h3 class="footer__title">دسترسی سریع</h3>
+                    <ul class="footer__quick-access--links" role="list">
+                        <li class="footer__quick-access--policy"><a href="#">قوانین و مقررات</a></li>
+                        <li class="footer__quick-access--question"><a href="#">سوالات</a></li>
+                        <li class="footer__quick-access--courses"><a href="#">همه دوره ها</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Useful Links-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__useful-links">
+                    <h3 class="footer__title">لینک های مفید</h3>
+                    <ul class="footer__useful-links--links" role="list">
+                        <li class="footer__useful-links--js"><a href="#">آموزش جاوااسکریپت</a></li>
+                        <li class="footer__useful-links--python"><a href="#">آموزش پایتون</a></li>
+                        <li class="footer__useful-links--html"><a href="#">آموزش HTML</a></li>
+                        <li class="footer__useful-links--css"><a href="#">آموزش CSS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--Social Media-->
+            <div class="col-md-3 col-sm-6 mx-sm-0 mx-3 text-sm-start text-center">
+                <div class="footer__socials">
+                    <h3 class="footer__title">شبکه های اجتماعی</h3>
+                    <div>
+                        <a href="#" class="footer__socials--icons" id="instagram" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="footer__socials--icons" id="facebook" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer Copyright-->
+    <div class="footer__copyright mx-4 py-4">
+        <p class="footer__copyright--text">
+            کلیه حقوق این سایت مربوط به آموزش برنامه نویسی می باشد. copyright © 2024
+        </p>
+    </div>
+</footer>
+
+<script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+<script src="js/component/renderNavLinks.js" type="module"></script>
+<script src="js/page/episode.js" type="module"></script>
+</body>
+</html>

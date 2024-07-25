@@ -1,10 +1,9 @@
-import {url} from "../base.js";
+// import {url} from "../base.js";
 
-function getLocationURL(route) {
-    const param = window.location.search.split("/")
-    const URL = url + route + param[param.length - 1]
+function getParam(name) {
+    const params = new URLSearchParams(window.location.search)
 
-    return URL
+    return params.get(name)
 }
 
-export {getLocationURL}
+export {getParam}

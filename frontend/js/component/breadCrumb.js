@@ -1,15 +1,15 @@
 import {$} from "../base.js";
+import {getParam} from "../utilities/utileFunction.js";
 
 function breadcrumbRoute(categoryName, categoryTitle, name) {
-    const isCourseOrBlog = window.location.href.split("/").pop().includes("course")
-
+    const route = window.location.href.split("/").pop()
+    const isCourseOrBlog = route.includes("course") || route.includes("episode") ? "course" : "blog"
     const fragment = $.createDocumentFragment()
 
-    // Is course
-    if(isCourseOrBlog) {
+    if(isCourseOrBlog === "course") {
         fragment.append(creatorCrumbDiv("category.html?show=courses", "دوره ها"))
         fragment.append(creatorCrumbDiv(`category.html?cat=${categoryName}`, categoryTitle))
-        fragment.append(creatorCrumbDiv(window.location.href, name))
+        fragment.append(creatorCrumbDiv(`course.html?name=${getParam("name")}`, name))
     }
     else {
         fragment.append(creatorCrumbDiv("category.html?show=articles", "مقالات"))

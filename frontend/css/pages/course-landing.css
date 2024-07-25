@@ -108,6 +108,25 @@
     width: 100%;
 }
 
+/********************SESSION VIDEO*********************/
+.video-wrapper {
+    width: 100%;
+    position: relative;
+}
+.video-wrapper__video {
+    width: 100%;
+    border-radius: 1.5rem;
+}
+.video-wrapper__video--icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    font-size: 5rem;
+    transition: all 0.3s ease-in;
+    color: rgba(14,165,233,0.8);
+}
 /********************COURSE INFO BOX*********************/
 .course-info__box {
     background-color: var(--white-color);

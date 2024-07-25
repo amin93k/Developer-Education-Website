@@ -26,7 +26,7 @@ function renderNavLinks() {
                 menu.submenus.forEach(submenu => {
                     newMenuElm.lastElementChild.innerHTML += `
                          <li class="my-3 header__nav--submenu--li">
-                            <a class="header__nav--submenu-link" href= ${submenu.href}>
+                            <a class="header__nav--submenu-link" href= course.html?name=${submenu.href}>
                                 ${submenu.title}
                             </a>
                          </li>
