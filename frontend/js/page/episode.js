@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
 
 function addVideo(session, cover) {
     const video = $.querySelector(".video-wrapper__video")
-    video.firstElementChild.src = session.video
+    video.src = session.video
     video.poster = cover
     playPauseVideo()
 }

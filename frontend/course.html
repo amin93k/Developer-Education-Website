@@ -457,6 +457,7 @@
                         </svg>
                         <span class="comment-wrapper__header--title" >نظرات</span>
                     </div>
+                    <!--Post Comment-->
                     <form class="create-comment mb-5">
                         <div class="comment-creator">
                             <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
@@ -468,18 +469,34 @@
                         <textarea class="create-comment__textarea" cols="80" rows="10" placeholder="نوشتن نظر ..."></textarea>
                         <button class="create-comment__btn">ارسال</button>
                     </form>
-                    <div class="user-comment mb-5">
-                        <div class="comment-creator">
-                            <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
-                            <div class="comment-creator__content">
-                                <span class="comment-creator__content--name">Amin</span>
-                                <span class="comment-creator__content--text">ثبت نظر جدید</span>
+                    <!--Comment Body-->
+                    <template>
+                        <div class="user-comment mb-5">
+                            <div class="comment-creator">
+                                <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
+                                <div class="comment-creator__content">
+                                    <span class="comment-creator__content--name">Amin</span>
+                                    <span class="comment-creator__content--text">ثبت نظر جدید</span>
+                                </div>
+                            </div>
+                            <div class="user-comment__content">
+                                <p class="user-comment__content--text">ممنون از سایت خوبتون 🌹❤</p>
+                            </div>
+
+                            <div class="user-comment">
+                                <div class="comment-creator">
+                                    <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
+                                    <div class="comment-creator__content">
+                                        <span class="comment-creator__content--name">Amin</span>
+                                        <span class="comment-creator__content--text">ثبت نظر جدید</span>
+                                    </div>
+                                </div>
+                                <div class="user-comment__content">
+                                    <p class="user-comment__content--text">ممنون از سایت خوبتون 🌹❤</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="user-comment__content">
-                            <p class="user-comment__content--text">ممنون از سایت خوبتون 🌹❤</p>
-                        </div>
-                    </div>
+                    </template>
                 </div>
             </div>
 
@@ -624,6 +641,7 @@
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
 <script src="js/component/renderNavLinks.js" type="module"></script>
 <script src="js/component/accordion-btn.js"></script>
+<script src="js/component/comment.js" type="module"></script>
 <script src="js/page/course.js" type="module"></script>
 </body>
 </html>

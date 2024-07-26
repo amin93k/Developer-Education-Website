@@ -1,13 +1,12 @@
 import {url, $} from "../base.js";
 import {fetchData} from "../utilities/fetchData.js";
 import {getToken} from "../utilities/localStorageManager.js"
-import {getParam} from "../utilities/utileFunction.js"
+import {getParam, changeDateToJalali} from "../utilities/utileFunction.js"
 import {breadcrumbRoute} from "../component/breadCrumb.js";
 
 
 window.addEventListener("load", () => {
     const isCoursePage = $.querySelector(".course-header")
-    const param = window.location.search
     const getCourseUrl = url + "/courses/" + getParam("name")
     const relatedCourseUrl = url + "/courses/related/" + getParam("name")
     // Condition for don't run in episode page
@@ -180,14 +179,6 @@ function addRelatedCourse(courses) {
             `)
         })
     }
-}
-
-function changeDateToJalali(date) {
-    const extractionDate = date.slice(0, 10).split("-")
-    const formatDate = new Date(extractionDate[0], extractionDate[1], extractionDate[2])
-    const jalaliDate = new Intl.DateTimeFormat('fa-IR').format(formatDate)
-
-    return jalaliDate
 }
 
 function calcCourseTime(sessions) {
