@@ -1,19 +1,18 @@
-import getUserInfo from "./registerUser.js"
+import { $, url } from "../base.js"
+import {getToken} from "./localStorageManager.js"
+import {fetchData} from "./fetchData.js";
 
-const userBtnInNav = document.querySelector(".header__user")
 
 function showUserInTopNav() {
+    const userBtnInNav = document.querySelector(".header__user")
 
+    fetchData(url + "/auth/me", "GET",{Authorization: `Bearer ${getToken()}`})
+        .then(userInfo => {
 
-    getUserInfo().then(userInfo => {
-
-        if(userInfo) {
+        if(userInfo.message !== "توکن نامعتبر است") {
             // TODO: change href to user page
             userBtnInNav.href = 'index.html'
             userBtnInNav.querySelector(".header__user--text").textContent = userInfo.username
-        }
-        else {
-            console.log("userInfo")
         }
     })
 }
