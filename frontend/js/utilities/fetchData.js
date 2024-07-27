@@ -8,7 +8,7 @@ async function fetchData(url, method, headers, body) {
             body: JSON.stringify(body)
         })
 
-        return res.json()
+        return await res.json()
 
     }
     catch (e) {

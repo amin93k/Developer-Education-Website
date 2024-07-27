@@ -1,14 +1,30 @@
 import {url, $} from "../base.js"
 import {fetchData} from "../utilities/fetchData.js";
-import {changeDateToJalali} from "../utilities/utileFunction.js";
+import {changeDateToJalali, getParam} from "../utilities/utileFunction.js";
+import {getUserInfo} from "../utilities/userRegister.js";
+import {popUp} from "./sweetAlertCustome.js";
+import {getToken} from "../utilities/localStorageManager.js";
 
 //TODO: استفاده از دکمه نمایش بیشتر در انتهای بخش کامنت ها
-//TODO: داینامیک کردن بخش ارسال کامنت کاربر با استفاده از اهراز هویت کاربر
-fetchData(url + "/comments").then(comments => {
 
-    comments.forEach(comment => {
-        addComment(comment)
+let userCache = null
+
+window.addEventListener("load",  async () => {
+    fetchData(url + "/comments").then(comments => {
+        comments.forEach(comment => {
+            addComment(comment)
+        })
     })
+
+    await userInfo()
+
+    const postCommentForm = $.querySelector(".create-comment")
+    postCommentForm.addEventListener("submit", postComment)
+    const creator = $.querySelector("#creator")
+
+    if(userCache) {
+        creator.innerText = userCache
+    }
 })
 
 
@@ -62,4 +78,47 @@ function detectRole(user) {
     }
 
     return role
+}
+
+async function postComment(eve) {
+    eve.preventDefault()
+
+    if(userCache) {
+
+        const text = eve.target['comment-text'].value.trim()
+        const postBody = {
+            body : text,
+            courseShortName: getParam("name"),
+            score: 5
+        }
+
+        if(text) {
+            await fetchData(url + "/comments", "POST", {Authorization: `Bearer ${getToken()}`, 'Content-Type': 'application/json'}, postBody).then(res => {
+                if (res) {
+                    popUp("ارسال موفق")
+                    eve.target['comment-text'].value = ""
+                }
+                else {
+                    popUp("ارسال ناموفق", false)
+                }
+            })
+        }
+    }
+    else {
+        popUp("ابتدا وارد سایت شوید!", false)
+    }
+
+}
+
+async function userInfo() {
+
+    try {
+        const userInfo = await getUserInfo()
+        if(userInfo.message !== "توکن نامعتبر است") {
+            userCache = userInfo.username
+        }
+    }
+    catch (e) {
+        throw new Error(e)
+    }
 }

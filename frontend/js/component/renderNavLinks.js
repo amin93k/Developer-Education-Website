@@ -1,7 +1,13 @@
 import {$, url} from "../base.js";
-import {showUserInTopNav} from "../utilities/showUserSignIn.js";
 import {fetchData} from "../utilities/fetchData.js";
+import {getUserInfo} from "../utilities/userRegister.js";
 import "./globalSearch.js"
+
+window.addEventListener("load", () => {
+    renderNavLinks()
+    showUserInTopNav()
+})
+
 
 function renderNavLinks() {
     const navbar = $.querySelector(".header__nav")
@@ -43,9 +49,6 @@ function renderNavLinks() {
 
         showSubmenu()
     })
-
-    // If user is sign in display username in navbar
-    showUserInTopNav()
 }
 
 function showSubmenu() {
@@ -68,5 +71,19 @@ function showSubmenu() {
 
 }
 
+async function showUserInTopNav() {
+    const userBtnInNav = document.querySelector(".header__user")
 
-renderNavLinks()
+    try {
+        const userInfo = await getUserInfo()
+
+        if(userInfo.message !== "توکن نامعتبر است") {
+            // TODO: change href to user page
+            userBtnInNav.href = 'index.html'
+            userBtnInNav.querySelector(".header__user--text").textContent = userInfo.username
+        }
+    }
+    catch (e) {
+        throw new Error(e)
+    }
+}

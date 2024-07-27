@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="vendor/sweetalet2/sweetalert2.css">
     <link rel="stylesheet" href="css/pages/course-landing.css">
     <title>دوره جاوااسکریپت</title>
 </head>
@@ -462,12 +463,12 @@
                         <div class="comment-creator">
                             <img src="images/user/751341daa89b19c74097aad28ad3ee9e.png" alt="user" class="comment-creator__image">
                             <div class="comment-creator__content">
-                                <span class="comment-creator__content--name">Amin</span>
+                                <span class="comment-creator__content--name" id="creator">نویسنده</span>
                                 <span class="comment-creator__content--text">ثبت نظر جدید</span>
                             </div>
                         </div>
-                        <textarea class="create-comment__textarea" cols="80" rows="10" placeholder="نوشتن نظر ..."></textarea>
-                        <button class="create-comment__btn">ارسال</button>
+                        <textarea class="create-comment__textarea" name="comment-text" cols="80" rows="10" placeholder="نوشتن نظر ..."></textarea>
+                        <button class="create-comment__btn" type="submit" name="submit">ارسال</button>
                     </form>
                     <!--Comment Body-->
                     <template>
@@ -641,6 +642,7 @@
 <script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
 <script src="js/component/renderNavLinks.js" type="module"></script>
 <script src="js/component/accordion-btn.js"></script>
+<script src="vendor/sweetalet2/sweetalert2.js"></script>
 <script src="js/component/comment.js" type="module"></script>
 <script src="js/page/course.js" type="module"></script>
 </body>
