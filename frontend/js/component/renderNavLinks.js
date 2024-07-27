@@ -1,7 +1,7 @@
 import {$, url} from "../base.js";
 import {showUserInTopNav} from "../utilities/showUserSignIn.js";
 import {fetchData} from "../utilities/fetchData.js";
-
+import "./globalSearch.js"
 
 function renderNavLinks() {
     const navbar = $.querySelector(".header__nav")

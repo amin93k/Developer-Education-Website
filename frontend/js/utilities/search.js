@@ -1,5 +1,5 @@
 
-function search(list, word, property) {
+function search(list, word, searchBaseProperty) {
     if(!list) {
         return []
     }
@@ -9,7 +9,7 @@ function search(list, word, property) {
     word = word.trim().toLowerCase()
 
     if(typeOfListItem === "[object Object]") {
-        result = list.filter(item => item[property].toLowerCase().includes(word))
+        result = list.filter(item => item[searchBaseProperty].toLowerCase().includes(word))
     }
     else {
         result = list.filter(item => item.toLowerCase().includes(word))

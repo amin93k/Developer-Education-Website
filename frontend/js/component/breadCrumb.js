@@ -7,7 +7,7 @@ function breadcrumbRoute(categoryName, categoryTitle, name) {
     const fragment = $.createDocumentFragment()
 
     if(isCourseOrBlog === "course") {
-        fragment.append(creatorCrumbDiv("category.html?show=courses", "دوره ها"))
+        fragment.append(creatorCrumbDiv("category.html?all=courses", "دوره ها"))
         fragment.append(creatorCrumbDiv(`category.html?cat=${categoryName}`, categoryTitle))
         fragment.append(creatorCrumbDiv(`course.html?name=${getParam("name")}`, name))
     }

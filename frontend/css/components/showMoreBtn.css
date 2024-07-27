@@ -1,0 +1,13 @@
+.show-more {
+    background-color: var(--primary-color);
+    width: 12.5rem;
+    height: 4rem;
+    text-align: center;
+    align-content: center;
+    color: var(--white-color);
+    font-size: 1.4rem;
+}
+
+.show-more.hidden {
+    display: none;
+}

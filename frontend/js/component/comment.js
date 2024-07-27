@@ -3,8 +3,9 @@ import {fetchData} from "../utilities/fetchData.js";
 import {changeDateToJalali} from "../utilities/utileFunction.js";
 
 //TODO: استفاده از دکمه نمایش بیشتر در انتهای بخش کامنت ها
+//TODO: داینامیک کردن بخش ارسال کامنت کاربر با استفاده از اهراز هویت کاربر
 fetchData(url + "/comments").then(comments => {
-    console.log(comments)
+
     comments.forEach(comment => {
         addComment(comment)
     })

@@ -72,14 +72,17 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
 
     }
     else {
-        const newElm = document.createElement("div")
-        newElm.className = "col-12"
-        newElm.innerHTML = `
+        const notFoundImg = document.createElement("div")
+        notFoundImg.className = "col-12"
+        notFoundImg.innerHTML = `
         <div class="d-flex align-items-center justify-content-center mb-4">
             <img src="images/logo/not-found.png" style="width: 50%;">
         </div>`
 
-        fragment.append(newElm)
+        const showMoreBtn = document.querySelector(".show-more")
+        showMoreBtn.classList.add("hidden")
+
+        fragment.append(notFoundImg)
     }
     return fragment
 }

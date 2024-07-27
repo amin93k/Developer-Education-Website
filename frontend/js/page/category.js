@@ -5,7 +5,8 @@ import {setDataToStorage, getDataFromStorage} from "../utilities/localStorageMan
 import {search} from "../utilities/search.js"
 
 let searchWord = ""
-
+let routeName = null
+// TODO: مدیریت دکمه مشاهده بیشتر
 window.addEventListener("load", () => {
     const showCategoryBtn = $.querySelectorAll(".top-bar__show--btn")
     showCategoryBtn.forEach(element => {
@@ -25,16 +26,21 @@ window.addEventListener("load", () => {
 
 function getLocationURL() {
     let URL = null
-    const param = window.location.search.split("=").pop()
+    const param = new URLSearchParams(window.location.search)
+    const paramKey = param.keys()
+    routeName = paramKey.next().value
 
-    if(param === "courses") {
+    if(routeName === "all") {
         URL = url + "/courses"
     }
-    else if(param === "articles") {
+    else if(routeName === "articles") {
         URL = url + "/articles"
     }
-    else {
-        URL = url + "/courses/category/" + param
+    else if(routeName === "cat"){
+        URL = url + "/courses/category/" + param.get(routeName)
+    }
+    else if(routeName === "search"){
+        URL = url + "/search/" + param.get(routeName)
     }
 
     return URL
@@ -43,14 +49,14 @@ function getLocationURL() {
 function showCategory(initialLoad, sortBase) {
     const categoryWrapper = $.querySelector(".courses-wrapper")
     categoryWrapper.innerHTML = ""
-    const getActiveBtn = getDataFromStorage("show-category") || "show-windows"
+    const getLayoutActiveBtn = getDataFromStorage("show-category") || "show-windows"
 
-    initialLoad && setCourseLayoutActiveBtn(getActiveBtn)
+    initialLoad && setCourseLayoutActiveBtn(getLayoutActiveBtn)
 
-    let parentClass = getActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
+    let parentClass = getLayoutActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
 
     fetchData(getLocationURL()).then(courses => {
-        let coursesList = [...courses]
+        let coursesList = routeName === "search" ? [...courses.allResultCourses] : [...courses]
         // check search happened
         if(searchWord) {
             coursesList = search(coursesList, searchWord, "name")
@@ -58,7 +64,7 @@ function showCategory(initialLoad, sortBase) {
 
         const sortedCourses = sortBase === "all" ? coursesList : sortCourses(coursesList, sortBase)
         // TODO: بعد از ایجاد رندر کارد مقالات باید انجا تغییر کند
-        if (getActiveBtn === "show-windows") {
+        if (getLayoutActiveBtn === "show-windows") {
             categoryWrapper.append(courseCardRender(sortedCourses, parentClass))
         } else {
             categoryWrapper.append(courseCardHorizontalRender(sortedCourses, parentClass))

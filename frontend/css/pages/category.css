@@ -7,6 +7,7 @@
 @import "../layout/footer.css";
 @import "../components/course-card.css";
 @import "../components/blog-card.css";
+@import "../components/showMoreBtn.css";
 
 
 
@@ -58,14 +59,4 @@
     font-size: 1.8rem;
 }
 
-/********************** SHOW MORE BUTTON ***********************/
-.show-more {
-    background-color: var(--primary-color);
-    width: 12.5rem;
-    height: 4rem;
-    text-align: center;
-    align-content: center;
-    color: var(--white-color);
-    font-size: 1.4rem;
-}
 
