@@ -6,6 +6,7 @@
     align-content: center;
     color: var(--white-color);
     font-size: 1.4rem;
+    user-select: none;
 }
 
 .show-more.hidden {

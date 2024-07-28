@@ -5,16 +5,16 @@ import {getUserInfo} from "../utilities/userRegister.js";
 import {popUp} from "./sweetAlertCustome.js";
 import {getToken} from "../utilities/localStorageManager.js";
 
-//TODO: استفاده از دکمه نمایش بیشتر در انتهای بخش کامنت ها
 
 let userCache = null
+let commentPerLoad = 5
+let currentDisplayComment = 1
 
 window.addEventListener("load",  async () => {
-    fetchData(url + "/comments").then(comments => {
-        comments.forEach(comment => {
-            addComment(comment)
-        })
-    })
+    fetchComment()
+
+    const showMoreBtn = $.querySelector(".show-more")
+    showMoreBtn.addEventListener("click", loadMoreComment)
 
     await userInfo()
 
@@ -27,12 +27,31 @@ window.addEventListener("load",  async () => {
     }
 })
 
+function fetchComment() {
+    fetchData(url + "/comments").then(comments => {
+
+        if(comments) {
+            const visibleComments = [...comments].slice((currentDisplayComment - 1) * commentPerLoad, currentDisplayComment * commentPerLoad)
+
+            visibleComments.forEach(comment => {
+                addComment(comment)
+            })
+
+            if(currentDisplayComment * commentPerLoad > comments.length) {
+                hiddenShowMoreBtn()
+            }
+        }else {
+            hiddenShowMoreBtn()
+        }
+    })
+
+}
 
 function addComment(comment) {
-    const commentBox = $.querySelector(".comment-wrapper")
+    const commentBox = $.querySelector(".show-more")
     const answerContent = comment.answerContent
     const topLevelComment = renderComment(comment)
-    commentBox.append(topLevelComment)
+    commentBox.insertAdjacentElement("beforebegin", topLevelComment)
 
     if (answerContent) {
         topLevelComment.append(renderComment(answerContent))
@@ -64,6 +83,16 @@ function renderComment({creator, createdAt, body, isAnswer}) {
     `)
 
     return newComment
+}
+
+function loadMoreComment() {
+    currentDisplayComment += 1
+    fetchComment()
+}
+
+function hiddenShowMoreBtn() {
+    const showMoreBtn = $.querySelector(".show-more")
+    showMoreBtn.classList.add("hidden")
 }
 
 function detectRole(user) {

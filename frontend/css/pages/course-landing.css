@@ -10,6 +10,7 @@
 @import "../components/blog-card.css";
 @import "../components/short-link.css";
 @import "../components/comment.css";
+@import "../components/showMoreBtn.css";
 
 /********************COSTUME BOOTSTRAP*********************/
 .container-fluid {

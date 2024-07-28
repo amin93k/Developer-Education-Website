@@ -6,7 +6,10 @@ import {search} from "../utilities/search.js"
 
 let searchWord = ""
 let routeName = null
-// TODO: مدیریت دکمه مشاهده بیشتر
+let sortBase = "all"
+const displayCoursePerLoad = 4
+let currentCoursesShow = 1
+
 window.addEventListener("load", () => {
     const showCategoryBtn = $.querySelectorAll(".top-bar__show--btn")
     showCategoryBtn.forEach(element => {
@@ -21,7 +24,10 @@ window.addEventListener("load", () => {
     const searchBox = $.querySelector(".top-bar__search--input")
     searchBox.addEventListener("change", showSearchCourse)
 
-    showCategory(true, "all")
+    const showMoreBtn = $.querySelector(".show-more")
+    showMoreBtn.addEventListener("click", loadMoreCourses)
+
+    showCategory(true)
 })
 
 function getLocationURL() {
@@ -46,9 +52,9 @@ function getLocationURL() {
     return URL
 }
 
-function showCategory(initialLoad, sortBase) {
+function showCategory(initialLoad) {
     const categoryWrapper = $.querySelector(".courses-wrapper")
-    categoryWrapper.innerHTML = ""
+    // categoryWrapper.innerHTML = ""
     const getLayoutActiveBtn = getDataFromStorage("show-category") || "show-windows"
 
     initialLoad && setCourseLayoutActiveBtn(getLayoutActiveBtn)
@@ -57,22 +63,39 @@ function showCategory(initialLoad, sortBase) {
 
     fetchData(getLocationURL()).then(courses => {
         let coursesList = routeName === "search" ? [...courses.allResultCourses] : [...courses]
+
         // check search happened
         if(searchWord) {
             coursesList = search(coursesList, searchWord, "name")
         }
 
-        const sortedCourses = sortBase === "all" ? coursesList : sortCourses(coursesList, sortBase)
+        // handel show more button
+        coursesList = coursesList.slice((currentCoursesShow - 1) * displayCoursePerLoad, displayCoursePerLoad * currentCoursesShow)
+
+        // sort course use sortBase variable
+        coursesList = sortBase === "all" ? coursesList : sortCourses(coursesList)
+
         // TODO: بعد از ایجاد رندر کارد مقالات باید انجا تغییر کند
         if (getLayoutActiveBtn === "show-windows") {
-            categoryWrapper.append(courseCardRender(sortedCourses, parentClass))
+            categoryWrapper.append(courseCardRender(coursesList, parentClass))
         } else {
-            categoryWrapper.append(courseCardHorizontalRender(sortedCourses, parentClass))
+            categoryWrapper.append(courseCardHorizontalRender(coursesList, parentClass))
+        }
+
+        if(displayCoursePerLoad * currentCoursesShow > coursesList.length){
+            $.querySelector(".show-more").classList.add("hidden")
+        }
+        else {
+            $.querySelector(".show-more").classList.remove("hidden")
         }
     })
 
 }
 
+function loadMoreCourses() {
+    currentCoursesShow += 1
+    showCategory(false)
+}
 function shiftCourseLayoutBtn(eve) {
     const btnId = eve.currentTarget.id
 
@@ -102,26 +125,26 @@ function shiftSortBtn(eve) {
     })
 
     eve.target.classList.add("active")
-    const sortBase = eve.target.id
+    sortBase = eve.target.id
 
-    showCategory(false, sortBase)
+    showCategory(false)
 }
 
-function sortCourses(courses, sortBase) {
-    let sortedCourses = courses
+function sortCourses(courses) {
 
     if (sortBase === "popular") {
-        sortedCourses = courses.sort((a, b) => b.registers - a.registers)
+        courses = courses.sort((a, b) => b.registers - a.registers)
     } else if (sortBase === "cheaper") {
-        sortedCourses = courses.sort((a, b) => a.price - b.price)
+        courses = courses.sort((a, b) => a.price - b.price)
     } else if (sortBase === "expensive") {
-        sortedCourses = courses.sort((a, b) => b.price - a.price)
+        courses = courses.sort((a, b) => b.price - a.price)
     }
-    return sortedCourses
+    return courses
 }
 
 function showSearchCourse(eve) {
     searchWord = eve.target.value
-
-    showCategory(false, "all")
+    // reset show current course number
+    currentCoursesShow = 1
+    showCategory(false)
 }
