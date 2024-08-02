@@ -35,7 +35,7 @@
 }
 
 .header__nav__menu--title {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
 }
 
 .header__nav--submenu {
@@ -70,7 +70,11 @@
 }
 
 .header__search {
-    letter-spacing: .05rem;
+    font-size: 1.6rem;
+}
+
+.header__search--icon{
+    padding-right: 0 !important;
 }
 
 .header__search:focus {
@@ -79,8 +83,8 @@
 }
 
 .header__user {
-    height: 5rem;
-    width: 16rem;
+    height: 3.8rem;
+    max-width: 16rem;
     background-color: var(--secondary-color) !important;
     color: var(--white-color) !important;
     transition: linear 0.2s;
@@ -95,4 +99,38 @@
     font-weight: 500;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+/*Modify Bootstrap*/
+.navbar-toggler {
+    padding: 0.8rem;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler:hover {
+    border: solid 1px var(--secondary-color);
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.offcanvas-header .btn-close {
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 0.8rem;
+    margin: 0;
+    margin-right: auto;
+}
+
+.btn-close:focus {
+    box-shadow: none;
+    border: solid 1px var(--secondary-color);
 }

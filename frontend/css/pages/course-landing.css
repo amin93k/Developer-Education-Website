@@ -5,7 +5,7 @@
 @import "../base/base.css";
 @import "../layout/navbar.css";
 @import "../layout/footer.css";
-@import "../layout/breadcrump.css";
+@import "../layout/breadcrumb.css";
 @import "../components/course-card.css";
 @import "../components/blog-card.css";
 @import "../components/short-link.css";

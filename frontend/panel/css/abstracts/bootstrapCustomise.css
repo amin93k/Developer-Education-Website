@@ -1,0 +1,26 @@
+
+.nav-link {
+    color: inherit;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    border-left: 4px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.bg_white {
+    background-color: var(--white-color);
+}
+
+.table {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    display: none;
+}

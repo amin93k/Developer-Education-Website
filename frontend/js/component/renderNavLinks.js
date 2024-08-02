@@ -20,7 +20,6 @@ function renderNavLinks() {
             let newMenuElm = $.createElement("li")
             newMenuElm.className = "header__nav--menu nav-item"
             newMenuElm.innerHTML += `
-
                     <a class="header__nav__menu--title nav-link" href="category.html?cat=${menu.href}">${menu.title}
                     <i class="fa-solid fa-chevron-down"></i>
                     </a>
@@ -36,9 +35,9 @@ function renderNavLinks() {
                                 ${submenu.title}
                             </a>
                          </li>
-                `
-                })
-            }else {
+                `})
+            }
+            else {
                 newMenuElm.lastElementChild.remove()
             }
 
@@ -47,7 +46,7 @@ function renderNavLinks() {
 
         navbar.append(fragment)
 
-        showSubmenu()
+        // showSubmenu()
     })
 }
 

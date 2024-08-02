@@ -54,11 +54,13 @@ function getLocationURL() {
 
 function showCategory(initialLoad) {
     const categoryWrapper = $.querySelector(".courses-wrapper")
-    // categoryWrapper.innerHTML = ""
     const getLayoutActiveBtn = getDataFromStorage("show-category") || "show-windows"
 
     initialLoad && setCourseLayoutActiveBtn(getLayoutActiveBtn)
-
+    // check click on lode more or another button if another empty wrapper content
+    if(currentCoursesShow === 1) {
+        categoryWrapper.innerHTML = ""
+    }
     let parentClass = getLayoutActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
 
     fetchData(getLocationURL()).then(courses => {
@@ -96,6 +98,7 @@ function loadMoreCourses() {
     currentCoursesShow += 1
     showCategory(false)
 }
+
 function shiftCourseLayoutBtn(eve) {
     const btnId = eve.currentTarget.id
 
@@ -105,6 +108,8 @@ function shiftCourseLayoutBtn(eve) {
     showCategoryBtn.forEach(btn => {
         btn.classList.toggle("active")
     })
+    // reset show current course number
+    currentCoursesShow = 1
 
     showCategory(false)
 }
@@ -126,6 +131,8 @@ function shiftSortBtn(eve) {
 
     eve.target.classList.add("active")
     sortBase = eve.target.id
+    // reset show current course number
+    currentCoursesShow = 1
 
     showCategory(false)
 }

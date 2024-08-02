@@ -1,0 +1,54 @@
+@import "../../../css/abstracts/varible.css";
+@import "../../../css/base/font.css";
+@import "../../../css/base/reset.css";
+@import "../../../css/base/base.css";
+@import "../abstracts/bootstrapCustomise.css";
+@import "../compponent/headerAndSidebar.css";
+
+/*web details card*/
+.detail-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.detail-card__footer--percent {
+    color: #16A34A;
+    margin-left: 3rem;
+    font-weight: bold;
+}
+
+/*chart slider*/
+.swiper {
+    width: 100%;
+    height: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: var(--white-color);
+    padding: 2rem 2rem 2rem 0;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.chart {
+    height: 40rem;
+    padding-bottom: 2rem;
+}
+
+.chart__title {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
+.radius {
+    border-radius: 1.5rem;
+}
