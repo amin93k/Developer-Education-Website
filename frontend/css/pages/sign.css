@@ -30,11 +30,11 @@ main::before {
 
 main::after{
     content: "";
-    width: 50rem;
-    height: 50rem;
+    width: 35rem;
+    height: 35rem;
     background: radial-gradient(rgba(83, 14, 233, 0.3), #b3d625);
     position: absolute;
-    bottom: -20rem;
+    bottom: -10rem;
     left: -12rem;
     z-index: -1;
     opacity: 0.5;

@@ -1,5 +1,4 @@
-
-export function popUp(text, status = true) {
+function popUp(text, status = true) {
     const title = status ? "موفق" : "خطا"
     const icon = status ? "success" : "error"
 
@@ -26,3 +25,26 @@ export function popUp(text, status = true) {
         }
     })
 }
+
+async function confirmDialog(title, confirmButtonText) {
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-danger ms-3",
+            cancelButton: "btn btn-primary"
+        },
+        buttonsStyling: false
+    });
+    const result = await swalWithBootstrapButtons.fire({
+        title: title,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: confirmButtonText,
+        cancelButtonText: "انصراف",
+        reverseButtons: true
+    })
+
+    return result.isConfirmed
+}
+
+
+export {popUp, confirmDialog}

@@ -1,0 +1,17 @@
+@import "../../../css/abstracts/varible.css";
+@import "../../../css/base/font.css";
+@import "../../../css/base/reset.css";
+@import "../../../css/base/base.css";
+@import "../abstracts/bootstrapCustomise.css";
+@import "../compponent/headerAndSidebar.css";
+
+/*course table*/
+.course-table__edite--pen {
+    color: #1E90FF;
+    cursor: pointer;
+}
+
+.course-table__delete--trash {
+    color: #DC143C;
+    cursor: pointer;
+}

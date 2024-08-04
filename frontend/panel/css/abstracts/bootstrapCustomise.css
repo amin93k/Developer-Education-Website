@@ -21,6 +21,34 @@
     text-align: center;
 }
 
-.table-wrapper::-webkit-scrollbar {
-    display: none;
+.table-wrapper::-webkit-scrollbar:horizontal {
+    width: 5px;
+    height: 5px;
+}
+
+.table-wrapper::-webkit-scrollbar-track:horizontal {
+    background-color: #fff;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:horizontal {
+    background: #888;
+}
+
+.radius {
+    border-radius: 1.5rem;
+}
+
+.form-label {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.form-control, .form-select {
+    font-size: 1.6rem;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
+.form-control:focus, .form-select:focus {
+    border: none;
+    box-shadow: 0 0 8px rgba(22,163,74,0.3);
 }
