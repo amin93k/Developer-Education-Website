@@ -10,12 +10,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../vendor/favicon/favicon-16x16.png">
     <link rel="stylesheet" href="../vendor/FontAwesome/FontAwesome.css">
     <link rel="stylesheet" href="../vendor/BootStrap/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="../vendor/sweetalet2/sweetalert2.css">
-    <link rel="stylesheet" href="css/page/courses.css">
-    <title>صفحه مدیریت دوره ها</title>
+    <link rel="stylesheet" href="../vendor/SwiperSlider/swiper.css">
+    <link rel="stylesheet" href="css/page/home.css">
+    <title>صفحه اصلی مدیریت</title>
 </head>
 <body>
-
+<!--TODO: قبل از اینکه صفحه لود شود اجازه دسترسی بررسی شود-->
 <div class="row mx-0">
     <!--Sidebar page links on desktop-->
     <div class="col-lg-2 d-none d-lg-block px-0">
@@ -30,7 +30,7 @@
             <div class="nav__page-links">
                 <ul class="nav d-block mt-3 mb-auto">
                     <li class="nav-item ">
-                        <a href="home.html" class="d-flex align-items-center gap-2 nav-link">
+                        <a href="#" class="d-flex align-items-center gap-2 nav-link active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-house-door" viewBox="0 0 16 16">
                                 <path
@@ -41,7 +41,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a href="#" class="d-flex align-items-center gap-2 nav-link active">
+                        <a href="panel-courses.html" class="d-flex align-items-center gap-2 nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-book" viewBox="0 0 16 16">
                                 <path
@@ -128,7 +128,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a href="#" class="d-flex align-items-center gap-2 nav-link">
+                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"
                                  fill="none">
                                 <path d="M21.93 6.76001L18.56 20.29C18.32 21.3 17.42 22 16.38 22H3.24001C1.73001 22 0.650023 20.5199 1.10002 19.0699L5.31001 5.55005C5.60001 4.61005 6.47003 3.95996 7.45003 3.95996H19.75C20.7 3.95996 21.49 4.53997 21.82 5.33997C22.01 5.76997 22.05 6.26001 21.93 6.76001Z"
@@ -359,7 +359,7 @@
                     </li>
 
                     <li class="nav-item ">
-                        <a href="#" class="d-flex align-items-center gap-2 nav-link">
+                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"
                                  fill="none">
                                 <path d="M21.93 6.76001L18.56 20.29C18.32 21.3 17.42 22 16.38 22H3.24001C1.73001 22 0.650023 20.5199 1.10002 19.0699L5.31001 5.55005C5.60001 4.61005 6.47003 3.95996 7.45003 3.95996H19.75C20.7 3.95996 21.49 4.53997 21.82 5.33997C22.01 5.76997 22.05 6.26001 21.93 6.76001Z"
@@ -446,94 +446,218 @@
                 </ul>
             </div>
         </nav>
-        <!--Main Section-->
-        <div class="container-lg container-fluid">
-            <!--Create new course-->
-            <div class="new-course bg_white radius my-3">
-                <h3 class="new-course__title fs-3 p-3 border-bottom">افزودن دوره جدید</h3>
-                <form class="new-course__form row p-4" novalidate>
-                    <!--Course name-->
-                    <div class="mb-3 col-md-6">
-                        <label for="course-name" class="form-label">نام دوره</label>
-                        <input type="text" class="form-control" id="course-name" name="name" required>
-                    </div>
-                    <!--Course short name-->
-                    <div class="mb-3 col-md-6">
-                        <label for="course-short-name" class="form-label">نام کوتاه</label>
-                        <input type="text" class="form-control" id="course-short-name" name="shortName" required>
-                    </div>
-                    <!--Course description-->
-                    <div class="mb-3 col-12">
-                        <label for="course-description" class="form-label">توضیحات دوره</label>
-                        <textarea type="text" class="form-control" id="course-description" name="description" required></textarea>
-                    </div>
-                    <!--Course price-->
-                    <div class="mb-3 col-md-6">
-                        <label for="course-price" class="form-label">قیمت</label>
-                        <input type="number" class="form-control" id="course-price" name="price" min="0" required>
-                    </div>
-                    <!--Course cover-->
-                    <div class="mb-3 col-md-6">
-                        <label for="course-cover" class="form-label">انتخاب کاور دوره</label>
-                        <input type="file" class="form-control" id="course-cover" name="cover" accept="image/*" required>
-                    </div>
-                    <!--Course category-->
-                    <div class="mb-3 col-md-6">
-                        <label for="course-category" class="form-label">انتخاب دسته بندی</label>
-                        <select class="form-select course-category__select" aria-label="Default select example" id="course-category" name="category" required>
-                        </select>
-                    </div>
-                    <!--Course status-->
-                    <div class="mb-3 col-md-6">
-                        <h4 class="mb-3 fs-3">وضعیت دوره</h4>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="course-status-start"
-                                   value="start" required>
-                            <label class="form-check-label" for="course-status-start">در حال برگزاری</label>
+        <!--Main section-->
+        <div class="container">
+            <!--Web details cards-->
+            <div class="row row-gap-4 my-5">
+                <div class="col-md-4">
+                    <div class="detail-card shadow">
+                        <div class="detail-card__main d-flex justify-content-between gap-3">
+                            <div class="detail-card__content">
+                                <h3 class="detail-card__title mb-3">درآمد</h3>
+                                <div class="detail-card__mount d-flex gap-2">
+                                    <span class="fs-2">1,500,000</span>
+                                    <svg class="mt-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         stroke-width="4" stroke="#000" viewBox="0 0 57.988 55.588">
+                                        <g transform="translate(-4013.907 176.406)">
+                                            <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                            <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <svg class="income-diagram" xmlns="http://www.w3.org/2000/svg" width="117" height="51"
+                                 viewBox="0 0 117 51"
+                                 fill="none">
+                                <g filter="url(#filter0_f_3_639)">
+                                    <circle cx="107" cy="20" r="5" fill="#79FE78"></circle>
+                                </g>
+                                <path d="M1 49.5L8.5 26.5L17 37L22 19.5L31 37L44.5 3L57.5 26.5L72 19.5L83.5 31L93.5 6.5L101 19.5H108"
+                                      stroke="#39CD84" stroke-width="2" stroke-linecap="round"></path>
+                                <defs>
+                                    <filter id="filter0_f_3_639" x="97" y="10" width="20" height="20"
+                                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix"
+                                                 result="shape"></feBlend>
+                                        <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur_3_639">
+                                        </feGaussianBlur>
+                                    </filter>
+                                </defs>
+                            </svg>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="status" id="course-status-presell"
-                                   value="presell" required>
-                            <label class="form-check-label" for="course-status-presell">پیش فروش</label>
+                        <div class="detail-card__footer d-flex justify-content-between">
+                            <span>درآمد در یک ماه گذشته</span>
+                            <span class="detail-card__footer--percent">+5.6%</span>
                         </div>
                     </div>
-                    <!--Submit-->
-                    <div class="mb-3 mt-4 col-12 text-center">
-                        <button class="btn btn-primary fs-4 fw-bold radius" type="submit">افزودن دوره</button>
+                </div>
+                <div class="col-md-4">
+                    <div class="detail-card shadow">
+                        <div class="detail-card__main d-flex justify-content-between gap-3">
+                            <div class="detail-card__content">
+                                <h3 class="detail-card__title mb-3">فروش</h3>
+                                <div class="detail-card__mount d-flex gap-2">
+                                    <span class="fs-2">1,500,000</span>
+                                    <svg class="mt-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         stroke-width="4" stroke="#000" viewBox="0 0 57.988 55.588">
+                                        <g transform="translate(-4013.907 176.406)">
+                                            <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                            <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <svg class="income-diagram" xmlns="http://www.w3.org/2000/svg" width="117" height="51"
+                                 viewBox="0 0 117 51"
+                                 fill="none">
+                                <g filter="url(#filter0_f_3_639)">
+                                    <circle cx="107" cy="20" r="5" fill="#7dd3fc"></circle>
+                                </g>
+                                <path d="M1 49.5L8.5 26.5L17 37L22 19.5L31 37L44.5 3L57.5 26.5L72 19.5L83.5 31L93.5 6.5L101 19.5H108"
+                                      stroke="#38bdf8" stroke-width="2" stroke-linecap="round"></path>
+                                <defs>
+                                    <filter id="filter0_f_3_639" x="97" y="10" width="20" height="20"
+                                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix"
+                                                 result="shape"></feBlend>
+                                        <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur_3_639">
+                                        </feGaussianBlur>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="detail-card__footer d-flex justify-content-between">
+                            <span>فروش در یک ماه گذشته</span>
+                            <span class="detail-card__footer--percent">+5.6%</span>
+                        </div>
                     </div>
-                </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="detail-card shadow">
+                        <div class="detail-card__main d-flex justify-content-between gap-3">
+                            <div class="detail-card__content">
+                                <h3 class="detail-card__title mb-3">هزینه ها</h3>
+                                <div class="detail-card__mount d-flex gap-2">
+                                    <span class="fs-2">1,500,000</span>
+                                    <svg class="mt-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         stroke-width="4" stroke="#000" viewBox="0 0 57.988 55.588">
+                                        <g transform="translate(-4013.907 176.406)">
+                                            <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                            <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                            <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                            <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <svg class="income-diagram" xmlns="http://www.w3.org/2000/svg" width="117" height="51"
+                                 viewBox="0 0 117 51"
+                                 fill="none">
+                                <g filter="url(#filter0_f_3_639)">
+                                    <circle cx="107" cy="20" r="5" fill="#ff7979"></circle>
+                                </g>
+                                <path d="M1 49.5L8.5 26.5L17 37L22 19.5L31 37L44.5 3L57.5 26.5L72 19.5L83.5 31L93.5 6.5L101 19.5H108"
+                                      stroke="#ff0854" stroke-width="2" stroke-linecap="round"></path>
+                                <defs>
+                                    <filter id="filter0_f_3_639" x="97" y="10" width="20" height="20"
+                                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix"
+                                                 result="shape"></feBlend>
+                                        <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur_3_639">
+                                        </feGaussianBlur>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="detail-card__footer d-flex justify-content-between">
+                            <span>هزینه ها در یک ماه گذشته</span>
+                            <span class="detail-card__footer--percent">+5.6%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--Courses table-->
-            <div class="table-wrapper radius bg_white overflow-x-auto my-4">
+            <!--Chart section-->
+            <div class="swiper swiper-chart my-5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="chart">
+                            <h3 class="chart__title">جدول درآمد</h3>
+                            <div class="income-chart"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="chart">
+                            <h3 class="chart__title">جدول فروش</h3>
+                            <div class="sale-chart"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="chart">
+                            <h3 class="chart__title">جدول هزینه ها</h3>
+                            <div class="cost-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!--New user info table-->
+            <div class="table-wrapper radius bg_white overflow-x-auto mb-5">
                 <h3 class="fs-3 p-4 fw-bold">افراد ثبت نامی جدید</h3>
                 <table class="table table-borderless table-hover border-top">
                     <thead class="pt-3">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">شناسه</th>
-                        <th scope="col">نام دوره</th>
-                        <th scope="col">قیمت</th>
-                        <th scope="col">وضعیت</th>
-                        <th scope="col">ویرایش</th>
-                        <th scope="col">حذف</th>
+                        <th scope="col">نام</th>
+                        <th scope="col">نام خانوادی</th>
+                        <th scope="col">شماره</th>
+                        <th scope="col">ایمیل</th>
+                        <th scope="col">رمز عبور</th>
                     </tr>
                     </thead>
-                    <tbody class="course-table-body fs-4">
-                    <template>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>635f05d6fd9e8fcba0d2c909</td>
-                            <td>آموزش 20 کتابخانه جاوا اسکریپت</td>
-                            <td>300,000</td>
-                            <td>تکمیل شده</td>
-                            <td class="course-table__edite">
-                                <i class="fa-regular fa-pen course-table__edite--pen"></i>
-                            </td>
-                            <td class="course-table__delete">
-                                <i class="fa-regular fa-trash-alt course-table__delete--trash"></i>
-                            </td>
-                        </tr>
-                    </template>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>جاوااسکریپت</td>
+                        <td>کاربر 1</td>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
+                                <path fill-rule="evenodd"
+                                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
+                            </svg>
+                        </td>
+                        <td>1مهر</td>
+                        <td>
+                            <span class="badge rounded-pill text-bg-success fw-semibold">گذرانده شده</span>
+                        </td>
+                        <td>
+                            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="100"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar text-bg-success" style="width: 100%">100%</div>
+                            </div>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -541,8 +665,8 @@
     </div>
 </div>
 
-<script src="../vendor/BootStrap/bootstrap.bundle.min.js"></script>
-<script src="../vendor/sweetalet2/sweetalert2.js"></script>
-<script src="js/page/courses.js" type="module"></script>
+<script src="../vendor/SwiperSlider/swiper.js"></script>
+<script src="../vendor/apexChart/chart.js"></script>
+<script src="js/page/panelHome.js" type="module"></script>
 </body>
 </html>

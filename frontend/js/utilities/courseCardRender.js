@@ -20,7 +20,7 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
                     <div class="course-card__banner">
                         <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img"
-                                 src=${cover} alt="course">
+                                 src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${cover}" alt="course">
                         </a>
                     </div>
                     <div class="course-card__content">
@@ -43,13 +43,15 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
                             </div>
                         </div>
                         <div class="course-card__footer--user-price">
-                                <span class="course-card__footer--users">
+                             <span class="course-card__footer--users">
                                     <i class="fa-regular fa-user-group"></i>
                                     ${registers}
-                                </span>
+                             </span>
                             <div class="course-card__footer--price">
-                                <span>${price.toLocaleString()}</span>
-                                <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
+                                <span>
+                                    ${price === 0 ? "رایگان": 
+                                    `${price.toLocaleString()}
+                                    <svg class="course-card__footer--toman" xmlns="http://www.w3.org/2000/svg"
                                      fill="none"
                                      stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
                                     <g transform="translate(-4013.907 176.406)">
@@ -61,7 +63,9 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
                                         <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
                                         <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
                                     </g>
-                                </svg>
+                                    </svg>
+                                    `}
+                                </span> 
                             </div>
                         </div>
                     </div>
@@ -111,7 +115,7 @@ function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender
                     <div class="course-card__banner horizontal">
                         <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img horizontal"
-                                 src=${cover} alt="course">
+                                 src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${cover}" alt="course">
                         </a>
                     </div>
                     <div class="course-card__content horizontal">

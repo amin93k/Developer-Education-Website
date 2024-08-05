@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     const getCourseUrl = url + "/courses/" + getParam("name")
     const relatedCourseUrl = url + "/courses/related/" + getParam("name")
     // Condition for don't run in episode page
-    if(isCoursePage) {
+    if (isCoursePage) {
         fetchData(getCourseUrl, "GET", {Authorization: `Bearer ${getToken()}`}).then(course => {
             addBreadcrumb(course)
             addCourseHeader(course)
@@ -66,18 +66,22 @@ function addCourseHeader(course) {
                     ثبت نام در دوره
                 </a>
                 <div class="course-header__register--content">
-                    <p class="course-header__register--price">${course.price.toLocaleString()}</p>
-                    <svg class="course-header__register--toman" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;">
-                        <g transform="translate(-4013.907 176.406)">
-                            <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
-                            <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
-                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
-                            <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
-                            <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
-                            <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
-                            <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
-                        </g>
-                    </svg>
+                    <p class="course-header__register--price">
+                    ${course.price === 0 ? "رایگان" : `
+                        ${course.price.toLocaleString()}
+                        <svg class="course-header__register--toman" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;">
+                            <g transform="translate(-4013.907 176.406)">
+                                <path d="M4068.117-146.108s3,8.61,1.066,11.035-4.839,1.921-11.736,1.921-10.552.731-12.355-1.6-2.288-7.952,2.547-9.55,7.877,3.5,7.877,9.231.668,5.874-.732,8.36c-1.858,2.6-10.917,3.915-10.917,3.915"></path>
+                                <path d="M4069.56-152.461v3.969" transform="translate(0 -1.945)"></path>
+                                <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                <path d="M4069.56-152.461v3.969" transform="translate(-7 -1.945)"></path>
+                                <path d="M4027.592-128.435s5.376,4.632,8.167,3.124a5.918,5.918,0,0,0,3.034-6.158c-.446-4.24-4.144-5.625-6.783-4.418s-4.016,5.866-4.016,5.866-1.857,4.934-6.114,4.934-4.928-2.6-5-4.934-.98-19.76-.98-19.76"></path>
+                                <path d="M4069.56-152.461v3.969" transform="translate(-44 -23.945)"></path>
+                                <path d="M4017.55-171.009s-3.525,12.094,2.454,15.619c5.623,3.035,12.585-.714,12.585-.714s3.473-2.1,3.436-4.864c-.089-3.883-1.651-12.986-1.651-12.986"></path>
+                            </g>
+                        </svg>
+                    `}
+                    </p>
                 </div>
             </div>
         `
@@ -85,7 +89,7 @@ function addCourseHeader(course) {
 
     courseHeaderCoverElm.innerHTML = `
         <img class="courses-header__video--image"
-             src=${course.cover} alt="course">
+             src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${course.cover}" alt="course">
     `
 }
 
@@ -102,7 +106,7 @@ function addCourseInfo(course) {
         8: ["5.0", "رضایت"],
     }
 
-    for(let i = 0; i < infoBoxes.length; i++) {
+    for (let i = 0; i < infoBoxes.length; i++) {
         infoBoxes[i].innerHTML = `
             <h3 class="course-info__box--title">${courseInfo[i + 1][0]}</h3>
             <span class="course-info__box--description">${courseInfo[i + 1][1]}</span>
@@ -125,7 +129,7 @@ function addCourseTeacher(creator) {
 function addSessions(sessions, userRegisterToSession, courseName) {
     const sessionLength = sessions.length
 
-    if(sessionLength) {
+    if (sessionLength) {
 
         const sessionsCount = $.querySelector(".accordion-button__left--session-count")
         const sessionsTime = $.querySelector(".accordion-button__left--whole-time")
@@ -135,7 +139,7 @@ function addSessions(sessions, userRegisterToSession, courseName) {
         sessions.forEach((session, index) => {
             sessionIconClass = (session.free || userRegisterToSession) ? "fa-play-circle" : "fa-lock"
             //TODO: زمانی که کاربر به ویدیو دسترسی ندارد به صفحه خرید منتقل شود
-            sessionsWrapper.insertAdjacentHTML("beforeend",`
+            sessionsWrapper.insertAdjacentHTML("beforeend", `
                 <a class="list-group-item lesson" href="episode.html?name=${courseName}&id=${session._id}">
                     <span class="lesson__number">${index + 1}</span>
                     <span class="lesson__title">${session.title}</span>
@@ -149,8 +153,7 @@ function addSessions(sessions, userRegisterToSession, courseName) {
 
         sessionsCount.innerHTML = `${sessionLength} جلسه`
         sessionsTime.innerHTML = `${minute} دقیقه`
-    }
-    else {
+    } else {
         const courseSession = $.querySelector(".course-topics")
         courseSession.innerHTML = `
             <h3 class="text-center">فعلا دوره ای ثبت نشده!</h3>    
@@ -159,7 +162,7 @@ function addSessions(sessions, userRegisterToSession, courseName) {
 }
 
 function addRelatedCourse(courses) {
-    if(courses.length) {
+    if (courses.length) {
 
         const relatedCourseElm = $.querySelector(".course-related")
         let courseLink = ""
@@ -167,7 +170,7 @@ function addRelatedCourse(courses) {
         courses.forEach(course => {
             courseLink = `course.html?name=${course.shortName}`
 
-            relatedCourseElm.insertAdjacentHTML("beforeend",`
+            relatedCourseElm.insertAdjacentHTML("beforeend", `
                 <div class="course-related__card">
                     <img src="${course.cover}" class="course-related__cars--image" alt="course">
                     <a href="${courseLink}" class="course-related__card--title">${course.name}</a>
@@ -182,7 +185,7 @@ function addRelatedCourse(courses) {
 }
 
 function calcCourseTime(sessions) {
-    if(!sessions) {
+    if (!sessions) {
         return "0"
     }
 

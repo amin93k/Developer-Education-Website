@@ -8,20 +8,19 @@ import {getToken} from "../../../js/utilities/localStorageManager.js";
 window.addEventListener("load", async () => {
     await adminProtection()
 
-    await Promise.all([
-        fetchData(url + "/category")
-    ]).then(([categories]) => {
-        setCoursesCategories(categories)
-    })
-
-    updateCourseTable()
-
     const newCourseForm = $.querySelector(".new-course__form")
-    newCourseForm.addEventListener("submit", createNewCourse)
+
+    if (newCourseForm) {
+        await updateCourseTable()
+        await setCoursesCategories()
+        newCourseForm.addEventListener("submit", createNewCourse)
+    }
 })
 
 
-function setCoursesCategories(categories) {
+async function setCoursesCategories() {
+    const categories = await fetchData(url + "/category")
+
     if(categories) {
         const categoriesSelectElm = $.querySelector(".course-category__select")
 
@@ -99,18 +98,20 @@ function renderCoursesTable(courses) {
             <td>${course.price === 0 ? "رایگان" : course.price.toLocaleString()}</td>
             <td>${course.isComplete ? "تکمیل شده" : "در حال برگزاری"}</td>
             <td class="course-table__edite">
-                <i class="fa-regular fa-pen course-table__edite--pen" ></i>
+                <i class="fa-regular fa-pen course-table__edite--pen" data-route="courses"></i>
             </td>
             <td class="course-table__delete">
-                <i class="fa-regular fa-trash-alt course-table__delete--trash"></i>
+                <i class="fa-regular fa-trash-alt course-table__delete--trash" data-route="courses"></i>
             </td>
         `)
 
         const editeBtn = trElm.querySelector(".course-table__edite--pen")
         const deleteBtn = trElm.querySelector(".course-table__delete--trash")
 
-        editeBtn.addEventListener("click", () => editeCourse(course._id))
-        deleteBtn.addEventListener("click", () => deleteCourse(course._id))
+        editeBtn.addEventListener("click",
+            (eve) => editeCourse(eve, course._id))
+        deleteBtn.addEventListener("click",
+            (eve) => deleteItem(eve, course._id, updateCourseTable))
 
         fragment.append(trElm)
     })
@@ -118,16 +119,18 @@ function renderCoursesTable(courses) {
     return fragment
 }
 
-async function deleteCourse(courseId) {
+async function deleteItem(eve, Id, updateTable) {
     const isAgreeToDelete = await confirmDialog("آیا از حذف دوره مطمئن هستید؟", "حذف")
 
     if(isAgreeToDelete) {
-        try {
-            const deleteResponse = await fetchData(url + `/courses/${courseId}`, "DELETE", {authorization: `Bearer ${getToken()}`})
+        const route = eve.target.dataset.route
 
-            if(deleteResponse._id === courseId) {
-                popUp("حذف دوره موفق")
-                updateCourseTable()
+        try {
+            const deleteResponse = await fetchData(url + `/${route}/${Id}`, "DELETE", {authorization: `Bearer ${getToken()}`})
+
+            if(deleteResponse._id === Id) {
+                popUp("حذف با موفقیت انجام شد")
+                updateTable()
             }
             else {
                 popUp("حذف انجام نشد", false)
@@ -139,7 +142,9 @@ async function deleteCourse(courseId) {
         }
     }
 }
-
+// TODO : ساختن ادیت دوره
 function editeCourse() {
     console.log("edite")
 }
+
+export {setCoursesCategories, deleteItem}
