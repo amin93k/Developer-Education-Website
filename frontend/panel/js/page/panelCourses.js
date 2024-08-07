@@ -1,7 +1,8 @@
 import {$, url} from "../../../js/base.js";
 import {adminProtection} from "../panel utilities/adminProtection.js";
+import {deleteItem} from "../panel utilities/deleteItem.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
-import {confirmDialog, popUp} from "../../../js/component/sweetAlertCustome.js";
+import {popUp} from "../../../js/component/sweetAlertCustome.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
 
 
@@ -98,10 +99,10 @@ function renderCoursesTable(courses) {
             <td>${course.price === 0 ? "رایگان" : course.price.toLocaleString()}</td>
             <td>${course.isComplete ? "تکمیل شده" : "در حال برگزاری"}</td>
             <td class="course-table__edite">
-                <i class="fa-regular fa-pen course-table__edite--pen" data-route="courses"></i>
+                <i class="fa-regular fa-pen course-table__edite--pen edite_pen" data-route="courses"></i>
             </td>
             <td class="course-table__delete">
-                <i class="fa-regular fa-trash-alt course-table__delete--trash" data-route="courses"></i>
+                <i class="fa-regular fa-trash-alt course-table__delete--trash delete_trash" data-route="courses"></i>
             </td>
         `)
 
@@ -119,32 +120,9 @@ function renderCoursesTable(courses) {
     return fragment
 }
 
-async function deleteItem(eve, Id, updateTable) {
-    const isAgreeToDelete = await confirmDialog("آیا از حذف دوره مطمئن هستید؟", "حذف")
-
-    if(isAgreeToDelete) {
-        const route = eve.target.dataset.route
-
-        try {
-            const deleteResponse = await fetchData(url + `/${route}/${Id}`, "DELETE", {authorization: `Bearer ${getToken()}`})
-
-            if(deleteResponse._id === Id) {
-                popUp("حذف با موفقیت انجام شد")
-                updateTable()
-            }
-            else {
-                popUp("حذف انجام نشد", false)
-            }
-        }
-        catch (e) {
-            popUp("حذف انجام نشد", false)
-            throw new Error(e)
-        }
-    }
-}
 // TODO : ساختن ادیت دوره
 function editeCourse() {
     console.log("edite")
 }
 
-export {setCoursesCategories, deleteItem}
+export {setCoursesCategories}

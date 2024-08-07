@@ -3,7 +3,8 @@ import {adminProtection} from "../panel utilities/adminProtection.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
 import {popUp} from "../../../js/component/sweetAlertCustome.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
-import {deleteItem, setCoursesCategories} from "./panelCourses.js";
+import {setCoursesCategories} from "./panelCourses.js";
+import {deleteItem} from "../panel utilities/deleteItem.js";
 
 
 window.addEventListener("load", async () => {
@@ -33,12 +34,12 @@ function menuTableRender(menus) {
         menus.forEach((menu, index) => {
                 const trElm = $.createElement("tr")
                 trElm.insertAdjacentHTML("beforeend", `
-                <th scope="row">${index}</th>
+                <th scope="row">${index + 1}</th>
                 <td>${menu.title}</td>
                 <td>${menu.href}</td>
                 <td>${menu.parent ? menu.parent.title : "اصلی"}</td>
                 <td class="menu-table__delete">
-                    <i class="fa-regular fa-trash-alt menu-table__delete--trash" data-route="menus"></i>
+                    <i class="fa-regular fa-trash-alt menu-table__delete--trash delete_trash" data-route="menus"></i>
                 </td>
             `)
                 const deleteMenuIcon = trElm.querySelector(".menu-table__delete--trash")

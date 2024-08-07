@@ -1,6 +1,6 @@
 import {url, $} from "../base.js"
 import {fetchData} from "../utilities/fetchData.js";
-import {changeDateToJalali, getParam} from "../utilities/utileFunction.js";
+import {changeDateToJalali, getParam, detectRole} from "../utilities/utileFunction.js";
 import {getUserInfo} from "../utilities/userRegister.js";
 import {popUp} from "./sweetAlertCustome.js";
 import {getToken} from "../utilities/localStorageManager.js";
@@ -95,19 +95,6 @@ function hiddenShowMoreBtn() {
     showMoreBtn.classList.add("hidden")
 }
 
-function detectRole(user) {
-    let role = ""
-    switch (user) {
-        case "ADMIN":
-            role = "مدرس";
-            break
-        case "USER":
-            role = "کاربر";
-            break
-    }
-
-    return role
-}
 
 async function postComment(eve) {
     eve.preventDefault()

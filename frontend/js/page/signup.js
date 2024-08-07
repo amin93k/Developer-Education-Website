@@ -4,7 +4,7 @@ import {setTokenToStorage} from "../utilities/localStorageManager.js"
 
 const signUpForm = $.querySelector(".sign__form")
 
-signUpForm.addEventListener("submit", (eve) => {
+signUpForm.addEventListener("submit", async (eve) => {
     eve.preventDefault()
 
     const userInfo = {
@@ -16,30 +16,36 @@ signUpForm.addEventListener("submit", (eve) => {
         confirmPassword: signUpForm.password.value.trim()
     }
 
-    register(userInfo)
+    await register(userInfo)
 })
 
 
 async function register(userInfo) {
 
-    await fetch(url + "/auth/register", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userInfo)
-        }).then(res => {
-        if (res.status === 201) {
-            popUp("ثبت نام با موفقیت انجام شد.")
-            location.href = "index.html"
-            return res.json()
-        }
-        else if(res.status === 409) {
-            popUp("نام کاربری یا ایمیل قبلا استفاده شده!", false)
-            return res.json()
-        }
-    })
-        .then(result => {
-            setTokenToStorage(result.accessToken)
+    try {
+        const signUpResponse = await fetch(url + "/auth/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
         })
+
+        if (signUpResponse.status === 201) {
+            popUp("ثبت نام با موفقیت انجام شد.")
+            const result = await signUpResponse.json()
+            setTokenToStorage(result.accessToken)
+            location.href = "index.html"
+        }
+        else if(signUpResponse.status === 409) {
+            popUp("نام کاربری یا ایمیل قبلا استفاده شده!", false)
+        }
+        else if(signUpResponse.status === 403) {
+            popUp("با این شماره قادر به ثبت نام نیستید!", false)
+        }
+    }
+    catch (e) {
+        popUp("خطا در برقراری ارتباط", false)
+        throw new Error(e)
+    }
 }

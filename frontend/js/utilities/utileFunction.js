@@ -14,4 +14,18 @@ function changeDateToJalali(date) {
     return jalaliDate
 }
 
-export {getParam, changeDateToJalali}
+function detectRole(user) {
+    let role = ""
+    switch (user) {
+        case "ADMIN":
+            role = "مدیر";
+            break
+        case "USER":
+            role = "کاربر";
+            break
+    }
+
+    return role
+}
+
+export {getParam, changeDateToJalali,detectRole}

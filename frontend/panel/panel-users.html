@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../vendor/BootStrap/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="../vendor/sweetalet2/sweetalert2.css">
     <link rel="stylesheet" href="css/page/panel-menu.css">
-    <title>صفحه مدیریت منو ها</title>
+    <title>صفحه مدیریت کاربران</title>
 </head>
 <body>
 
@@ -64,7 +64,7 @@
                     </li>
                     <!--Users page link-->
                     <li class="nav-item ">
-                        <a href="panel-users.html" class="d-flex align-items-center gap-2 nav-link">
+                        <a href="#" class="d-flex align-items-center gap-2 nav-link active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-person" viewBox="0 0 16 16">
                                 <path
@@ -128,7 +128,7 @@
                     </li>
                     <!--Menu page link-->
                     <li class="nav-item ">
-                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link active">
+                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"
                                  fill="none">
                                 <path d="M21.93 6.76001L18.56 20.29C18.32 21.3 17.42 22 16.38 22H3.24001C1.73001 22 0.650023 20.5199 1.10002 19.0699L5.31001 5.55005C5.60001 4.61005 6.47003 3.95996 7.45003 3.95996H19.75C20.7 3.95996 21.49 4.53997 21.82 5.33997C22.01 5.76997 22.05 6.26001 21.93 6.76001Z"
@@ -293,7 +293,7 @@
                     </li>
                     <!--Users page link-->
                     <li class="nav-item ">
-                        <a href="panel-users.html" class="d-flex align-items-center gap-2 nav-link">
+                        <a href="#" class="d-flex align-items-center gap-2 nav-link active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-person" viewBox="0 0 16 16">
                                 <path
@@ -357,7 +357,7 @@
                     </li>
                     <!--Menu page link-->
                     <li class="nav-item ">
-                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link active">
+                        <a href="panel-menu.html" class="d-flex align-items-center gap-2 nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"
                                  fill="none">
                                 <path d="M21.93 6.76001L18.56 20.29C18.32 21.3 17.42 22 16.38 22H3.24001C1.73001 22 0.650023 20.5199 1.10002 19.0699L5.31001 5.55005C5.60001 4.61005 6.47003 3.95996 7.45003 3.95996H19.75C20.7 3.95996 21.49 4.53997 21.82 5.33997C22.01 5.76997 22.05 6.26001 21.93 6.76001Z"
@@ -446,56 +446,73 @@
         </nav>
         <!--Main Section-->
         <div class="container-lg container-fluid">
-            <!--Create new menu-->
-            <div class="new-menu bg_white radius my-3">
-                <h3 class="new-menu__title fs-3 p-3 border-bottom">افزودن منو جدید</h3>
-                <form class="new-menu__form row p-4" novalidate>
-                    <!--Menu name-->
+            <!--User edit-->
+            <div class="user-edit bg_white radius my-3">
+                <h3 class="user-edit__title fs-3 p-3 border-bottom">ویرایش کاربر</h3>
+                <form class="user-edit__form row p-4" novalidate>
+                    <!--User name-->
                     <div class="mb-3 col-md-6">
-                        <label for="menu-name" class="form-label">عنوان منو</label>
-                        <input type="text" class="form-control" id="menu-name" name="name" required>
+                        <label for="user-name" class="form-label">نام</label>
+                        <input type="text" class="form-control" id="user-name" name="name" required>
                     </div>
-                    <!--menu href-->
+                    <!--User username-->
                     <div class="mb-3 col-md-6">
-                        <label for="menu-href" class="form-label">مقصد منو</label>
-                        <input type="text" class="form-control" id="menu-href" name="href" required>
+                        <label for="user-username" class="form-label">نام کاربری</label>
+                        <input type="text" class="form-control" id="user-username" name="username" required>
                     </div>
-                    <!--menu category-->
+                    <!--User email-->
                     <div class="mb-3 col-md-6">
-                        <label for="course-category" class="form-label">انتخاب دسته بندی</label>
-                        <select class="form-select course-category__select" aria-label="Default select example" id="course-category" name="category" required>
-                            <option value=" ">دسته اصلی</option>
-                        </select>
+                        <label for="user-email" class="form-label">ایمیل</label>
+                        <input type="email" class="form-control" id="user-email" name="email" required>
+                    </div>
+                    <!--User phone-->
+                    <div class="mb-3 col-md-6">
+                        <label for="user-phone" class="form-label">شماره تلفن</label>
+                        <input type="number" class="form-control" id="user-phone" name="phone" required>
+                    </div>
+                    <!--User pass-->
+                    <div class="mb-3 col-md-6">
+                        <label for="user-password" class="form-label">رمز عبور</label>
+                        <input type="text" class="form-control" id="user-password" name="password" placeholder="رمز عبور را وارد کنید ..." required>
                     </div>
 
                     <!--Submit-->
                     <div class="mb-3 mt-4 col-12 text-center">
-                        <button class="btn btn-primary fs-4 fw-bold radius" type="submit">افزودن منو</button>
+                        <button class="btn btn-primary fs-4 fw-bold radius" type="submit">ویرایش کاربر</button>
                     </div>
                 </form>
             </div>
             <!--Menus table-->
             <div class="table-wrapper radius bg_white overflow-x-auto my-4">
-                <h3 class="fs-3 p-4 fw-bold">لیست منو ها</h3>
+                <h3 class="fs-3 p-4 fw-bold">لیست کاربران</h3>
                 <table class="table table-borderless table-hover border-top">
                     <thead class="pt-3">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">عنوان منو</th>
-                        <th scope="col">مقصد منو</th>
-                        <th scope="col">دسته بندی منو</th>
+                        <th scope="col">شناسه</th>
+                        <th scope="col">نام کاربری</th>
+                        <th scope="col">ایمیل</th>
+                        <th scope="col">شماره</th>
+                        <th scope="col">کاربری</th>
+                        <th scope="col">ویرایش</th>
+                        <th scope="col">مسدود کردن</th>
                         <th scope="col">حذف</th>
                     </tr>
                     </thead>
-                    <tbody class="menu-table-body fs-4">
+                    <tbody class="users-table-body fs-4">
                     <template>
                         <tr>
                             <th scope="row">1</th>
-                            <td>جاوا اسکریپت</td>
-                            <td>js</td>
-                            <td>فرانت اند</td>
+                            <td>id</td>
+                            <td>name</td>
+                            <td>email</td>
+                            <td>phone</td>
+                            <td>role</td>
                             <td class="menu-table__edite">
                                 <i class="fa-regular fa-pen menu-table__edite--pen"></i>
+                            </td>
+                            <td class="user-table__ban">
+                                <i class="fa-regular fa-ban user-table__ban--icon" data-route="users"></i>
                             </td>
                             <td class="menu-table__delete">
                                 <i class="fa-regular fa-trash-alt menu-table__delete--trash"></i>
@@ -511,6 +528,6 @@
 
 <script src="../vendor/BootStrap/bootstrap.bundle.min.js"></script>
 <script src="../vendor/sweetalet2/sweetalert2.js"></script>
-<script src="js/page/panelMenu.js" type="module"></script>
+<script src="js/page/panelUsers.js" type="module"></script>
 </body>
 </html>
