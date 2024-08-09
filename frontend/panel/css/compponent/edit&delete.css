@@ -7,3 +7,13 @@
     color: #DC143C;
     cursor: pointer;
 }
+
+.answered {
+    color: #16A34A;
+    cursor: pointer;
+}
+
+.does-not-answer {
+    color: #DC143C;
+    cursor: pointer;
+}

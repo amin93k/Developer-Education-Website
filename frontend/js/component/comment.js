@@ -5,7 +5,7 @@ import {getUserInfo} from "../utilities/userRegister.js";
 import {popUp} from "./sweetAlertCustome.js";
 import {getToken} from "../utilities/localStorageManager.js";
 
-
+// TODO: نشان دادن کامنت ها برای دوره خودشان و نمایش ندادن کامنت های تایید نشده
 let userCache = null
 let commentPerLoad = 5
 let currentDisplayComment = 1
