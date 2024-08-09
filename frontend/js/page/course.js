@@ -172,7 +172,7 @@ function addRelatedCourse(courses) {
 
             relatedCourseElm.insertAdjacentHTML("beforeend", `
                 <div class="course-related__card">
-                    <img src="${course.cover}" class="course-related__cars--image" alt="course">
+                    <img src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${course.cover}" class="course-related__cars--image" alt="course">
                     <a href="${courseLink}" class="course-related__card--title">${course.name}</a>
                     <a href="${courseLink}" class="course-related__card--link">
                         مشاهده

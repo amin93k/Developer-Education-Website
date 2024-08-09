@@ -24,6 +24,7 @@ async function signInRegister(userInfo) {
         },
         body: JSON.stringify(userInfo)
     }).then(res => {
+        console.log(res)
         if(res.status === 200) {
             popUp("ورود با موفقیت")
             location.href = 'index.html'
@@ -32,7 +33,6 @@ async function signInRegister(userInfo) {
         }
         else if(res.status === 401) {
             popUp("نام کاربری یا پسورد اشتباه است!", false)
-            return res.json()
         }
     }).then(result => {
         setTokenToStorage(result.accessToken)

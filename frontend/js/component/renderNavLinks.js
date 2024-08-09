@@ -3,9 +3,9 @@ import {fetchData} from "../utilities/fetchData.js";
 import {getUserInfo} from "../utilities/userRegister.js";
 import "./globalSearch.js"
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
     renderNavLinks()
-    showUserInTopNav()
+    await showUserInTopNav()
 })
 
 

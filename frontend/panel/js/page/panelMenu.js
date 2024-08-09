@@ -3,32 +3,27 @@ import {adminProtection} from "../panel utilities/adminProtection.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
 import {popUp} from "../../../js/component/sweetAlertCustome.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
-import {setCoursesCategories} from "./panelCourses.js";
 import {deleteItem} from "../panel utilities/deleteItem.js";
+import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
+
 
 
 window.addEventListener("load", async () => {
     await adminProtection()
-    await updateMenuTable()
-    await setCoursesCategories()
+    await menuTableRender()
+    await setSelectMainMenu()
 
     const newMenuForm = $.querySelector(".new-menu__form")
     newMenuForm.addEventListener("submit", createNewMenu)
 })
 
 
-async function updateMenuTable() {
-    const menuTableElm = $.querySelector(".menu-table-body")
-    menuTableElm.innerHTML = ""
-
-    const menuResponse = await fetchData(url + "/menus/all")
-
-    menuTableElm.append(menuTableRender(menuResponse))
-}
-
-function menuTableRender(menus) {
+async function menuTableRender() {
+    const menus = await fetchData(url + "/menus/all")
 
     if (menus.length) {
+        const menuTableElm = $.querySelector(".menu-table-body")
+        menuTableElm.innerHTML = ""
         const fragment = $.createDocumentFragment()
 
         menus.forEach((menu, index) => {
@@ -44,13 +39,13 @@ function menuTableRender(menus) {
             `)
                 const deleteMenuIcon = trElm.querySelector(".menu-table__delete--trash")
                 deleteMenuIcon.addEventListener("click",
-                    (eve) => deleteItem(eve, menu._id, updateMenuTable))
+                    (eve) => deleteItem(eve, menu._id, menuTableRender))
 
                 fragment.append(trElm)
             }
         )
 
-        return fragment
+        menuTableElm.append(fragment)
     }
 
 }
@@ -63,18 +58,23 @@ async function createNewMenu(eve) {
         const postBody = {
             title: form.name.value.trim(),
             href: form.href.value.trim(),
-            parent: form.category.value
+            // parent: form.category.value.trim()
+            parent: "66b4bd71cc76f0ac86099c52"
         }
-        console.log(postBody)
-        try {
-            const createResponse = await fetchData(url + "/menus","POST",
-                {Authorization: `Bearer ${getToken()}`, "content-tye": "application/json"},
-                postBody)
 
-            if(createResponse.href) {
+        try {
+            const createResponse = await fetch(url + "/menus",{
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                    "content-type": "application/json"},
+                body : JSON.stringify(postBody)
+            })
+
+            if(createResponse.ok) {
                 popUp("منو با موفقیت ایجاد شد")
                 form.reset()
-                await updateMenuTable()
+                await menuTableRender()
             }
             else {
                 popUp("خطایی رخ داده است", false)

@@ -1,3 +1,4 @@
+import {popUp} from "../component/sweetAlertCustome.js";
 
 async function fetchData(url, method, headers, body) {
 
@@ -8,10 +9,16 @@ async function fetchData(url, method, headers, body) {
             body: JSON.stringify(body)
         })
 
-        return await res.json()
+        if(res.ok) {
+            return await res.json()
+        }
+        else {
+            popUp("خطا در برقراری ارتباط", false)
+        }
 
     }
     catch (e) {
+        popUp("خطا در برقراری ارتباط", false)
         throw new Error(e)
     }
 }

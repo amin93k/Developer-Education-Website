@@ -9,28 +9,19 @@ import {detectRole} from "../../../js/utilities/utileFunction.js";
 
 window.addEventListener("load", async () => {
     await adminProtection()
-
-    await userTableUpdate()
+    await userTableRender()
 
     const userEditForm = $.querySelector(".user-edit__form")
     userEditForm.addEventListener("submit", userEditRequest)
 })
 
 // TODO: ساخت پیج نیشن برای نمایش کاربران
-async function userTableUpdate() {
+async function userTableRender() {
     const users = await fetchData(url + "/users", "GET", {Authorization: `Bearer ${getToken()}`})
 
-    if (users) {
+    if (users.length) {
         const userTableElm = $.querySelector(".users-table-body")
         userTableElm.innerHTML = ""
-
-        userTableElm.append(userTableRender(users))
-    }
-}
-
-function userTableRender(users) {
-
-    if (users) {
         const fragment = $.createDocumentFragment()
 
         users.forEach((user, index) => {
@@ -56,7 +47,7 @@ function userTableRender(users) {
 
             const deleteElm = trElm.querySelector(".user-table__delete--trash")
             deleteElm.addEventListener("click",
-                (eve) => deleteItem(eve, user._id, userTableUpdate))
+                (eve) => deleteItem(eve, user._id, userTableRender))
 
             const editElm = trElm.querySelector(".user-table__edite--pen")
             editElm.addEventListener("click",
@@ -69,7 +60,7 @@ function userTableRender(users) {
             fragment.append(trElm)
         })
 
-        return fragment
+        userTableElm.append(fragment)
     }
 }
 
@@ -110,7 +101,7 @@ async function userEditRequest(eve) {
             if (editResponse.ok) {
                 popUp("ویرایش با موفقیت انجام شد")
                 form.reset()
-                await userTableUpdate()
+                await userTableRender()
             }
             else {
                 const errorMassage = await editResponse.json()

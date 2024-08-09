@@ -1,9 +1,12 @@
 import {$, url} from "../../../js/base.js";
 import {adminProtection} from "../panel utilities/adminProtection.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
+import {getToken} from "../../../js/utilities/localStorageManager.js";
+import {detectRole} from "../../../js/utilities/utileFunction.js";
 
 window.addEventListener("load", async () => {
     await adminProtection()
+    await newUserTableRender()
 })
 
 // Initialize Swiper slider
@@ -63,3 +66,32 @@ const incomesData = salesData.map((sale, index) => {
 })
 const incomeChart = new ApexCharts(incomeChartElm, chartOption("درآمد", incomesData, '#39CD84'))
 incomeChart.render()
+
+
+async function newUserTableRender() {
+    const users = await fetchData(url + "/users", "GEt", {Authorization: `Bearer ${getToken()}`})
+
+    if(users.length) {
+        const newUserTableElm = $.querySelector(".new-user-table-body")
+        newUserTableElm.innerHTML = ""
+        const fragment = $.createDocumentFragment()
+
+        const fiveNewUsers = users.slice(users.length - 5)
+
+        fiveNewUsers.forEach((user, index) => {
+            const trElm = $.createElement("tr")
+            trElm.insertAdjacentHTML("beforeend", `
+                <th scope="row">${index + 1}</th>
+                <td>${user._id}</td>
+                <td>${user.name}</td>
+                <td>${user.username}</td>
+                <td>${user.phone}</td>
+                <td>${user.email}</td>
+                <td>${detectRole(user.role)}</td>
+            `)
+            fragment.append(trElm)
+        })
+
+        newUserTableElm.append(fragment)
+    }
+}

@@ -14,7 +14,7 @@ async function deleteItem(eve, Id, updateTable) {
 
             if(deleteResponse) {
                 popUp("حذف با موفقیت انجام شد")
-                updateTable()
+                await updateTable()
             }
             else {
                 popUp("حذف انجام نشد", false)

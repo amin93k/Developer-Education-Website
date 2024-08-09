@@ -5,3 +5,8 @@
 @import "../abstracts/bootstrapCustomise.css";
 @import "../compponent/headerAndSidebar.css";
 @import "../compponent/edit&delete.css";
+
+
+.validated-error {
+    border: 2px solid #923f42 !important;
+}
