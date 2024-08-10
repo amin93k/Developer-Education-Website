@@ -3,7 +3,6 @@ import {adminProtection} from "../panel utilities/adminProtection.js";
 import {deleteItem} from "../panel utilities/deleteItem.js";
 import {changeDateToJalali} from "../../../js/utilities/utileFunction.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
-import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
 import {confirmDialog, popUp} from "../../../js/component/sweetAlertCustome.js";
 
@@ -11,7 +10,6 @@ import {confirmDialog, popUp} from "../../../js/component/sweetAlertCustome.js";
 window.addEventListener("load", async () => {
     await adminProtection()
     await commentsTableRender()
-    await setSelectMainMenu()
 })
 
 async function commentsTableRender() {
