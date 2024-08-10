@@ -4,7 +4,12 @@ function setTokenToStorage(token) {
 }
 
 function getToken() {
-    return JSON.parse(localStorage.getItem("token"))
+    const tokenValue = localStorage.getItem("token")
+    if(tokenValue) {
+        return JSON.parse(tokenValue)
+    }
+
+    return null
 }
 
 function setDataToStorage(key, value) {

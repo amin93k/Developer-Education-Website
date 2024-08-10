@@ -10,7 +10,7 @@ let userCache = null
 let commentPerLoad = 5
 let currentDisplayComment = 1
 
-window.addEventListener("load",  async () => {
+window.addEventListener("load", async () => {
     fetchComment()
 
     const showMoreBtn = $.querySelector(".show-more")
@@ -22,7 +22,7 @@ window.addEventListener("load",  async () => {
     postCommentForm.addEventListener("submit", postComment)
     const creator = $.querySelector("#creator")
 
-    if(userCache) {
+    if (userCache) {
         creator.innerText = userCache
     }
 })
@@ -30,17 +30,17 @@ window.addEventListener("load",  async () => {
 function fetchComment() {
     fetchData(url + "/comments").then(comments => {
 
-        if(comments) {
+        if (comments) {
             const visibleComments = [...comments].slice((currentDisplayComment - 1) * commentPerLoad, currentDisplayComment * commentPerLoad)
 
             visibleComments.forEach(comment => {
                 addComment(comment)
             })
 
-            if(currentDisplayComment * commentPerLoad > comments.length) {
+            if (currentDisplayComment * commentPerLoad > comments.length) {
                 hiddenShowMoreBtn()
             }
-        }else {
+        } else {
             hiddenShowMoreBtn()
         }
     })
@@ -99,42 +99,39 @@ function hiddenShowMoreBtn() {
 async function postComment(eve) {
     eve.preventDefault()
 
-    if(userCache) {
+    if (userCache) {
 
         const text = eve.target['comment-text'].value.trim()
         const postBody = {
-            body : text,
+            body: text,
             courseShortName: getParam("name"),
             score: 5
         }
 
-        if(text) {
-            await fetchData(url + "/comments", "POST", {Authorization: `Bearer ${getToken()}`, 'Content-Type': 'application/json'}, postBody).then(res => {
+        if (text) {
+            await fetchData(url + "/comments", "POST", {
+                Authorization: `Bearer ${getToken()}`,
+                'Content-Type': 'application/json'
+            }, postBody).then(res => {
                 if (res) {
                     popUp("ارسال موفق")
                     eve.target['comment-text'].value = ""
-                }
-                else {
+                } else {
                     popUp("ارسال ناموفق", false)
                 }
             })
         }
-    }
-    else {
+    } else {
         popUp("ابتدا وارد سایت شوید!", false)
     }
 
 }
 
 async function userInfo() {
+    const userInfo = await getUserInfo()
 
-    try {
-        const userInfo = await getUserInfo()
-        if(userInfo.message !== "توکن نامعتبر است") {
-            userCache = userInfo.username
-        }
+    if (userInfo && userInfo.message !== "توکن نامعتبر است") {
+        userCache = userInfo.username
     }
-    catch (e) {
-        throw new Error(e)
-    }
+
 }

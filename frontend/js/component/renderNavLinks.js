@@ -35,13 +35,13 @@ function renderNavLinks() {
                                 ${submenu.title}
                             </a>
                          </li>
-                `})
-            }
-            else {
+                `
+                })
+            } else {
                 newMenuElm.lastElementChild.remove()
             }
 
-            fragment.append( newMenuElm)
+            fragment.append(newMenuElm)
         })
 
         navbar.append(fragment)
@@ -73,16 +73,11 @@ function showSubmenu() {
 async function showUserInTopNav() {
     const userBtnInNav = document.querySelector(".header__user")
 
-    try {
-        const userInfo = await getUserInfo()
+    const userInfo = await getUserInfo()
 
-        if(userInfo.message !== "توکن نامعتبر است") {
-            // TODO: change href to user page
-            userBtnInNav.href = 'index.html'
-            userBtnInNav.querySelector(".header__user--text").textContent = userInfo.username
-        }
-    }
-    catch (e) {
-        throw new Error(e)
+    if (userInfo && userInfo.message !== "توکن نامعتبر است") {
+        // TODO: change href to user page
+        userBtnInNav.href = 'index.html'
+        userBtnInNav.querySelector(".header__user--text").textContent = userInfo.username
     }
 }

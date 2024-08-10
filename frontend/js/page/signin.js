@@ -24,7 +24,7 @@ async function signInRegister(userInfo) {
         },
         body: JSON.stringify(userInfo)
     }).then(res => {
-        console.log(res)
+
         if(res.status === 200) {
             popUp("ورود با موفقیت")
             location.href = 'index.html'

@@ -2,21 +2,27 @@ import {url} from "../base.js"
 import {getToken} from "./localStorageManager.js"
 
 async function getUserInfo() {
-    try {
-        const userResponse = await fetch(url + "/auth/me", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${getToken()}`
-            }
-        })
+    const token = getToken()
 
-        if(userResponse.ok) {
-            return await userResponse.json()
+    if(token) {
+        try {
+            const userResponse = await fetch(url + "/auth/me", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+
+            if(userResponse.ok) {
+                return await userResponse.json()
+            }
+        }
+        catch (e) {
+            throw new Error(e)
         }
     }
-    catch (e) {
-        throw new Error(e)
-    }
+
+    return null
 }
 
 export {getUserInfo}
