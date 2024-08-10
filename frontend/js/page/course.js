@@ -3,13 +3,14 @@ import {fetchData} from "../utilities/fetchData.js";
 import {getToken} from "../utilities/localStorageManager.js"
 import {getParam, changeDateToJalali} from "../utilities/utileFunction.js"
 import {breadcrumbRoute} from "../component/breadCrumb.js";
+import {courseRegister} from "../utilities/courseRegister.js"
 
 
 window.addEventListener("load", () => {
     const isCoursePage = $.querySelector(".course-header")
     const getCourseUrl = url + "/courses/" + getParam("name")
     const relatedCourseUrl = url + "/courses/related/" + getParam("name")
-    // Condition for don't run in episode page
+    // Condition for doesn't run in episode page
     if (isCoursePage) {
         fetchData(getCourseUrl, "GET", {Authorization: `Bearer ${getToken()}`}).then(course => {
             addBreadcrumb(course)
@@ -55,7 +56,8 @@ function addCourseHeader(course) {
                 <a href="#" class="course-header__register--btn">مشاهده دوره</a>
             </div>
         `
-    } else {
+    }
+    else {
         courseHeaderContentElm.innerHTML += `
             <div class="course-header__register">
                 <a href="#" class="course-header__register--btn">
@@ -85,6 +87,10 @@ function addCourseHeader(course) {
                 </div>
             </div>
         `
+        const courseRegisterBtn = $.querySelector(".course-header__register--btn")
+        courseRegisterBtn.addEventListener("click",
+            () => courseRegister(course.price, course._id, window.location.href))
+
     }
 
     courseHeaderCoverElm.innerHTML = `
