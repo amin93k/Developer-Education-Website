@@ -57,23 +57,45 @@
 
 .course-header__register--content {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     font-weight: 500;
-    gap: 1rem;
 }
 
 .course-header__register--price {
     font-size: 3rem;
     font-weight: 500;
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.course-header__register--price.off {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #3F4340;
+    text-decoration: line-through;
 }
 
 .course-header__register--toman {
     color: var(--primary-color);
     width: 2rem;
     height: 2rem;
+}
+
+.course-header__register--toman.off {
+    color: #3F4340;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.perice-percent {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 2rem;
+    color: #327b3b;
 }
 
 .course-header__register--icon.hidden {

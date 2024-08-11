@@ -68,7 +68,7 @@ async function checkDiscountValidity(eve) {
 
             if(res.ok) {
                 const discountData = await res.json()
-                await calcFinalPrice(discountData.percent)
+                calcFinalPrice(discountData.percent)
                 console.log(discountData)
             }
             else if(res.status === 409) {
@@ -84,7 +84,7 @@ async function checkDiscountValidity(eve) {
     }
 }
 
-async function calcFinalPrice(percent) {
+function calcFinalPrice(percent) {
     let mountOfDiscount = 0
     let finalPrice = coursePrice
 
