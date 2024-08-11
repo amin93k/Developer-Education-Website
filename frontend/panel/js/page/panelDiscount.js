@@ -60,17 +60,32 @@ async function discountTableRender() {
 async function createNewCategory(eve) {
     eve.preventDefault()
     const form = eve.target
+    const isDiscountAllCourses = form.course.value.trim() === "all"
+
+    if(isDiscountAllCourses) {
+        form.code.value = "اعمال بر روی همه ی دوره ها"
+    }
 
     if(form.checkValidity()) {
-        const postBody = {
-            code: form.code.value.trim(),
-            percent: form.percent.value.trim(),
-            course: form.course.value.trim(),
-            max: form.max.value.trim()
+        let postBody = null
+        let postRoute = null
+
+        if(isDiscountAllCourses) {
+            postBody = { discount: form.percent.value.trim() }
+            postRoute = "/offs/all"
+        }
+        else {
+            postBody = {
+                code: form.code.value.trim(),
+                percent: form.percent.value.trim(),
+                course: form.course.value.trim(),
+                max: form.max.value.trim()
+            }
+            postRoute = "/offs"
         }
 
         try {
-            const createResponse = await fetch(url + "/offs",{
+            const createResponse = await fetch(url + postRoute,{
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
