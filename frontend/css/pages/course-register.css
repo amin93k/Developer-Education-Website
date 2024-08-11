@@ -1,0 +1,63 @@
+@import "../pages/sign.css";
+
+.register-wrapper {
+    border-radius: 1.5rem;
+    background-color: var(--white-color);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    gap: 1rem;
+}
+
+
+.register__discount {
+    background-color: var(--bg-primary);
+    border-radius: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register__discount--input {
+    background-color: var(--bg-primary);
+    border: none;
+    outline: none;
+    height: 2.2rem;
+}
+
+.register__price-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 2rem;
+    border-bottom: 1px dashed #778899;
+    padding-bottom: 2rem;
+}
+
+.register__price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: #778899;
+}
+
+
+.price__currency {
+    width: 2rem;
+    height: 2rem;
+}
+
+#final-price-wrapper {
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}

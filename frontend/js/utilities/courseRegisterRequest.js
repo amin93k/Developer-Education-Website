@@ -2,7 +2,7 @@ import {url} from "../base.js";
 import {getToken} from "./localStorageManager.js";
 import {popUp} from "../component/sweetAlertCustome.js";
 
-async function courseRegister(coursePrice, id, redirectPage) {
+async function courseRegisterRequest(coursePrice, id, redirectPage) {
     try {
         const registerRequest = await fetch(url + `/courses/${id}/register`, {
 
@@ -28,4 +28,4 @@ async function courseRegister(coursePrice, id, redirectPage) {
 
 }
 
-export {courseRegister}
+export {courseRegisterRequest}

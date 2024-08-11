@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="180x180" href="vendor/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="vendor/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="vendor/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="vendor/FontAwesome/FontAwesome.css">
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="vendor/sweetalet2/sweetalert2.css">
+    <link rel="stylesheet" href="css/pages/course-register.css">
+    <title>ثبت نام</title>
 </head>
 <body>
-$END$
+
+<main>
+
+    <a class="home-link" href="index.html">
+        <img class="home-link__image" src="images/logo/logo.png" alt="logo">
+    </a>
+
+    <div class="register-wrapper">
+        <h1 class="register__title">ثبت نام در دوره</h1>
+        <h3 class="register__course-name"></h3>
+        <div class="register__discount">
+            <input class="register__discount--input" type="text" placeholder="وارد کردن کد تخفیف" name="user-name"
+                   required>
+            <i class="fa-regular fa-tag register__discount--icon"></i>
+        </div>
+        <div class="register__price-section">
+            <div class="register__price">
+                <div class="">
+                    <i class="fa-regular fa-money-bill-wave"></i>
+                    <span class="register__price--title">قیمت اصلی</span>
+                </div>
+                <span class="register__price--price" id="main-price"></span>
+            </div>
+            <div class="register__price">
+                <div class="">
+                    <i class="fa-regular fa-percentage"></i>
+                    <span class="register__price--title">درصد تخفیف</span>
+                </div>
+                <span class="register__price--price" id="discount-price"> 0</span>
+            </div>
+        </div>
+
+        <div class="register__price" id="final-price-wrapper">
+            <span class="register__price--title">قیمت نهایی</span>
+            <span class="register__price--price" id="final-price"></span>
+        </div>
+
+        <button class="sign-up__btn" id="register-btn">ثبت نام</button>
+    </div>
+</main>
+<div class="right-shine"></div>
+<div class="left-shine"></div>
+
+<script src="vendor/BootStrap/bootstrap.bundle.min.js"></script>
+<script src="vendor/sweetalet2/sweetalert2.js"></script>
+<script src="js/page/pageCourseRegister.js" type="module"></script>
 </body>
 </html>
