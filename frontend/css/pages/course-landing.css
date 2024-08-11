@@ -64,6 +64,11 @@
     font-weight: 500;
 }
 
+.course-header__register--content.registered {
+    flex-direction: row;
+    gap: 0.8rem;
+}
+
 .course-header__register--price {
     font-size: 3rem;
     font-weight: 500;

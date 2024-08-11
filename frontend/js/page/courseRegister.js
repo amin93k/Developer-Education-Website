@@ -20,12 +20,12 @@ window.addEventListener("load", async () => {
         () => courseRegisterRequest(coursePrice, courseId, redirectRoute))
 })
 
-async function setCourseInfo () {
+async function setCourseInfo() {
     const courseUrl = url + "/courses/" + getParam("name")
     const course = await fetchData(courseUrl,
         "GET", {Authorization: `Bearer ${getToken()}`})
 
-    if(course) {
+    if (course) {
         const courseNameElm = $.querySelector(".register__course-name")
         const coursePriceElm = $.querySelector("#main-price")
         courseNameElm.innerText = course.name
@@ -48,14 +48,14 @@ async function setCourseInfo () {
 
         coursePriceElm.insertAdjacentHTML("beforeend", `${coursePriceElmContent}`)
 
-        $.querySelector("#final-price").insertAdjacentHTML("beforeend", `${coursePriceElmContent}`)
+        calcFinalPrice(course.discount)
     }
 }
 
 async function checkDiscountValidity(eve) {
     const discountText = eve.target.value.trim()
 
-    if(discountText) {
+    if (discountText) {
         try {
             const res = await fetch(url + "/offs/" + discountText, {
                 method: "POST",
@@ -66,19 +66,16 @@ async function checkDiscountValidity(eve) {
                 body: JSON.stringify({course: courseId})
             })
 
-            if(res.ok) {
+            if (res.ok) {
                 const discountData = await res.json()
                 calcFinalPrice(discountData.percent)
                 console.log(discountData)
-            }
-            else if(res.status === 409) {
+            } else if (res.status === 409) {
                 popUp("مهلت استفاده از کد تخفیف تمام شده", false)
-            }
-            else if(res.status === 404) {
+            } else if (res.status === 404) {
                 popUp("کد تخفیف نامعتبر است", false)
             }
-        }
-        catch (e) {
+        } catch (e) {
             popUp("خطا در برقراری ارتباط", false)
         }
     }
@@ -86,9 +83,9 @@ async function checkDiscountValidity(eve) {
 
 function calcFinalPrice(percent) {
     let mountOfDiscount = 0
-    let finalPrice = coursePrice
+    let finalPrice
 
-    if(percent > 0) {
+    if (percent > 0) {
         const discountPriceElm = $.querySelector("#discount-price")
         mountOfDiscount = coursePrice * parseInt(percent) / 100
 
@@ -107,10 +104,11 @@ function calcFinalPrice(percent) {
             </g>
         </svg>
         `
-        finalPrice = coursePrice - mountOfDiscount
+    }
+    finalPrice = coursePrice - mountOfDiscount
 
-        const finalPriceElm = $.querySelector("#final-price")
-        finalPriceElm.innerHTML = `
+    const finalPriceElm = $.querySelector("#final-price")
+    finalPriceElm.innerHTML = `
             ${finalPrice.toLocaleString()}
             <svg class="price__currency" xmlns="http://www.w3.org/2000/svg" fill="none"
                  stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588">
@@ -125,6 +123,5 @@ function calcFinalPrice(percent) {
                 </g>
             </svg>
         `
-    }
 }
 

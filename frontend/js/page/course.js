@@ -48,7 +48,7 @@ function addCourseHeader(course) {
     if (isUserRegistered) {
         courseHeaderContentElm.innerHTML += `
             <div class="course-header__register">
-                <div class="course-header__register--content">
+                <div class="course-header__register--content registered">
                     <i class="fa-regular fa-user course-header__register--icon"></i>
                     <p>شما دانشجوی این دوره هستید</p>
                 </div>
