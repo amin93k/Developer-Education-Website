@@ -2,7 +2,7 @@ import {$, url} from "../../../js/base.js";
 import {getUserInfo} from "../../../js/utilities/userRegister.js";
 
 const userNameElm = $.querySelector(".top-header__user-profile--name")
-const signInPageUrl = "http://localhost:63342/learn.txt/Sabz%20Learn%20Project/frontend/signin.html"
+const signInPageUrl = "../signin.html"
 
 async function adminProtection() {
     try {
