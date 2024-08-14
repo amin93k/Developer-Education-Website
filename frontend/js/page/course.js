@@ -6,6 +6,9 @@ import {breadcrumbRoute} from "../component/breadCrumb.js";
 
 
 window.addEventListener("load", () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     const isCoursePage = $.querySelector(".course-header")
     const getCourseUrl = url + "/courses/" + getParam("name")
     const relatedCourseUrl = url + "/courses/related/" + getParam("name")
@@ -22,6 +25,9 @@ window.addEventListener("load", () => {
             addRelatedCourse(courses)
         })
     }
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 // set sessions minute in calcCourseTime function
@@ -57,7 +63,8 @@ function addCourseHeader(course) {
         `
     }
     else {
-        const finalPrice = course.discount > 0 ? course.price - (course.price * course.discount / 100)
+        const hasDiscount = course.discount > 0
+        const finalPrice = hasDiscount ? course.price - (course.price * course.discount / 100)
             : course.price
 
         courseHeaderContentElm.innerHTML += `
@@ -73,7 +80,7 @@ function addCourseHeader(course) {
 
                 <div class="course-header__register--content">
                 
-                    ${course.discount > 0 ? `<div class="course-header__register--price off">
+                    ${hasDiscount ? `<div class="course-header__register--price off">
                         ${course.price.toLocaleString()}
                         <svg class="course-header__register--toman off" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;">
                             <g transform="translate(-4013.907 176.406)">
@@ -89,10 +96,12 @@ function addCourseHeader(course) {
                     </div>` : ""}
                     
                     <div class="course-header__register--price">
-                        <div class="perice-percent">
-                            <span>${course.discount}</span>
-                            <i class="fa-solid fa-percent"></i>
-                        </div>
+                        ${hasDiscount ? `
+                            <div class="perice-percent">
+                                <span>${course.discount}</span>
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                        `: ""}
                         <span>${finalPrice === 0 ? "رایگان" : finalPrice.toLocaleString()}</span>
                         <svg class="course-header__register--toman" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4" stroke="currentColor" viewBox="0 0 57.988 55.588" data-darkreader-inline-stroke="" style="--darkreader-inline-stroke: currentColor;">
                             <g transform="translate(-4013.907 176.406)">
@@ -161,10 +170,13 @@ function addSessions(sessions, userRegisterToSession, courseName) {
         let sessionIconClass = ""
 
         sessions.forEach((session, index) => {
+            const sessionRoute = userRegisterToSession ? `episode.html?name=${courseName}&id=${session._id}` :
+                `course-register.html?name=${courseName}`
+            // set icon based access to session
             sessionIconClass = (session.free || userRegisterToSession) ? "fa-play-circle" : "fa-lock"
-            //TODO: زمانی که کاربر به ویدیو دسترسی ندارد به صفحه خرید منتقل شود
+
             sessionsWrapper.insertAdjacentHTML("beforeend", `
-                <a class="list-group-item lesson" href="episode.html?name=${courseName}&id=${session._id}">
+                <a class="list-group-item lesson" href=${sessionRoute}>
                     <span class="lesson__number">${index + 1}</span>
                     <span class="lesson__title">${session.title}</span>
                     <div class="lesson__time">
@@ -180,7 +192,7 @@ function addSessions(sessions, userRegisterToSession, courseName) {
     } else {
         const courseSession = $.querySelector(".course-topics")
         courseSession.innerHTML = `
-            <h3 class="text-center">فعلا دوره ای ثبت نشده!</h3>    
+            <h3 class="text-center">فعلا ویدیوئی قرار داده نشده!</h3>    
         `
     }
 }
@@ -229,10 +241,3 @@ function calcCourseTime(sessions) {
 
 // use function on episode page
 export {addBreadcrumb, addCourseTeacher, addSessions, calcCourseTime}
-
-// ${course.discount > 0 ? `
-//                    <div class="perice-percent">
-//                        <span>${course.discount}</span>
-// <i class="fa-solid fa-percent"></i>
-// </div>
-// ` : ""}

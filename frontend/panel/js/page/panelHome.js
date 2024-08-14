@@ -5,8 +5,13 @@ import {getToken} from "../../../js/utilities/localStorageManager.js";
 import {detectRole} from "../../../js/utilities/utileFunction.js";
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await newUserTableRender()
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 // Initialize Swiper slider

@@ -9,12 +9,18 @@ import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
 
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await menuTableRender()
     await setSelectMainMenu()
 
     const newMenuForm = $.querySelector(".new-menu__form")
     newMenuForm.addEventListener("submit", createNewMenu)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 

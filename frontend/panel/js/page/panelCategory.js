@@ -8,11 +8,17 @@ import {deleteItem} from "../panel utilities/deleteItem.js";
 
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await categoryTableRender()
 
     const newMenuForm = $.querySelector(".new-menu__form")
     newMenuForm.addEventListener("submit", createNewCategory)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 

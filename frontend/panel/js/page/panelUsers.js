@@ -8,14 +8,19 @@ import {detectRole} from "../../../js/utilities/utileFunction.js";
 
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await userTableRender()
 
     const userEditForm = $.querySelector(".user-edit__form")
     userEditForm.addEventListener("submit", userEditRequest)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
-// TODO: ساخت پیج نیشن برای نمایش کاربران
 async function userTableRender() {
     const users = await fetchData(url + "/users", "GET", {Authorization: `Bearer ${getToken()}`})
 

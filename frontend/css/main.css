@@ -1,4 +1,5 @@
 @import "abstracts/varible.css";
+@import "components/loader.css";
 @import "abstracts/responcive.css";
 @import "base/font.css";
 @import "base/reset.css";

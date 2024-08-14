@@ -6,6 +6,9 @@ import {getParam} from "../utilities/utileFunction.js";
 
 
 window.addEventListener("load", () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     const token = getToken()
     const getSessionUrl = url + `/courses/${getParam("name")}/${getParam("id")}`
     const getCourseUrl = url + `/courses/${getParam("name")}`
@@ -22,12 +25,15 @@ window.addEventListener("load", () => {
         addSessions(course.sessions, course.isUserRegisteredToThisCourse, course.shortName);
         addVideo(sessionInfo.session, poster);
     })
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 function addVideo(session, cover) {
     const video = $.querySelector(".video-wrapper__video")
     video.src = session.video
-    video.poster = cover
+    video.poster = `../backend-v0.3.0/public/courses/covers/${cover}`
     playPauseVideo()
 }
 

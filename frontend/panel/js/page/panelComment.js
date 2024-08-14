@@ -8,8 +8,14 @@ import {confirmDialog, popUp} from "../../../js/component/sweetAlertCustome.js";
 
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await commentsTableRender()
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 async function commentsTableRender() {

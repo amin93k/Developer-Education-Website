@@ -10,6 +10,9 @@ import {popUp} from "../../../js/component/sweetAlertCustome.js";
 let articleBodyEditor = null
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await articlesTableRender()
     await setSelectMainMenu()
@@ -22,6 +25,9 @@ window.addEventListener("load", async () => {
     })
         .then(editor => articleBodyEditor = editor)
         .catch(error => { console.error(error)})
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 async function articlesTableRender() {

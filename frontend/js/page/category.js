@@ -10,7 +10,10 @@ let sortBase = "all"
 const displayCoursePerLoad = 4
 let currentCoursesShow = 1
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     const showCategoryBtn = $.querySelectorAll(".top-bar__show--btn")
     showCategoryBtn.forEach(element => {
         element.addEventListener("click", shiftCourseLayoutBtn)
@@ -27,7 +30,10 @@ window.addEventListener("load", () => {
     const showMoreBtn = $.querySelector(".show-more")
     showMoreBtn.addEventListener("click", loadMoreCourses)
 
-    showCategory(true)
+    await showCategory(true)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 function getLocationURL() {
@@ -52,7 +58,7 @@ function getLocationURL() {
     return URL
 }
 
-function showCategory(initialLoad) {
+async function showCategory(initialLoad) {
     const categoryWrapper = $.querySelector(".courses-wrapper")
     const getLayoutActiveBtn = getDataFromStorage("show-category") || "show-windows"
 
@@ -63,7 +69,7 @@ function showCategory(initialLoad) {
     }
     let parentClass = getLayoutActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
 
-    fetchData(getLocationURL()).then(courses => {
+    await fetchData(getLocationURL()).then(courses => {
         let coursesList = routeName === "search" ? [...courses.allResultCourses] : [...courses]
 
         // check search happened

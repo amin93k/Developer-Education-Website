@@ -9,12 +9,18 @@ import {changeDateToJalali} from "../../../js/utilities/utileFunction.js";
 
 
 window.addEventListener("load", async () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
     await adminProtection()
     await discountTableRender()
     await setSelectCourseList()
 
     const newDiscountForm = $.querySelector(".new-discount__form")
     newDiscountForm.addEventListener("submit", createNewCategory)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 

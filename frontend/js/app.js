@@ -4,6 +4,9 @@ import {courseCardRender} from "./utilities/courseCardRender.js";
 import {blogCardRender} from "./utilities/blogCardRender.js";
 
 window.addEventListener("load", () => {
+    const loaderElm = $.querySelector(".loader")
+    const bodyElm = $.querySelector("body")
+
 // Animate the information section of the home section
     const homeTitle = $.querySelector(".home__content--title")
     const haveUser = $.getElementById("have-user")
@@ -14,6 +17,9 @@ window.addEventListener("load", () => {
     numerator(1657, haveUser)
     numerator(23, haveCourses)
     numerator(2647, haveMinute)
+
+    bodyElm.classList.add("onload")
+    loaderElm.classList.add("hidden")
 })
 
 function typeWriter(elem, num) {

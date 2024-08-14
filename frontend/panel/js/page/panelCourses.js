@@ -11,10 +11,16 @@ window.addEventListener("load", async () => {
     const newCourseForm = $.querySelector(".new-course__form")
 
     if (newCourseForm) {
+        const loaderElm = $.querySelector(".loader")
+        const bodyElm = $.querySelector("body")
+
         await adminProtection()
         await renderCoursesTable()
         await setSelectMainMenu()
         newCourseForm.addEventListener("submit", createNewCourse)
+
+        bodyElm.classList.add("onload")
+        loaderElm.classList.add("hidden")
     }
 })
 
@@ -101,7 +107,6 @@ async function renderCoursesTable() {
     }
 }
 
-// TODO : ساختن ادیت دوره
 function editeCourse() {
     console.log("edite")
 }
