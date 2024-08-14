@@ -5,13 +5,12 @@ import {getUserInfo} from "../utilities/userRegister.js";
 import {popUp} from "./sweetAlertCustome.js";
 import {getToken} from "../utilities/localStorageManager.js";
 
-// TODO: نشان دادن کامنت ها برای دوره خودشان و نمایش ندادن کامنت های تایید نشده
 let userCache = null
 let commentPerLoad = 5
 let currentDisplayComment = 1
 
 window.addEventListener("load", async () => {
-    fetchComment()
+    await fetchComment()
 
     const showMoreBtn = $.querySelector(".show-more")
     showMoreBtn.addEventListener("click", loadMoreComment)
@@ -27,17 +26,17 @@ window.addEventListener("load", async () => {
     }
 })
 
-function fetchComment() {
-    fetchData(url + "/comments").then(comments => {
+async function fetchComment() {
+     await fetchData(url + "/courses/" + getParam("name")).then(course => {
 
-        if (comments) {
-            const visibleComments = [...comments].slice((currentDisplayComment - 1) * commentPerLoad, currentDisplayComment * commentPerLoad)
+        if (course) {
+            const visibleComments = course.comments.slice((currentDisplayComment - 1) * commentPerLoad, currentDisplayComment * commentPerLoad)
 
             visibleComments.forEach(comment => {
                 addComment(comment)
             })
 
-            if (currentDisplayComment * commentPerLoad > comments.length) {
+            if (currentDisplayComment * commentPerLoad > course.comments.length) {
                 hiddenShowMoreBtn()
             }
         } else {
