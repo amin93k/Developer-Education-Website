@@ -2,6 +2,7 @@ import {$, url} from "../base.js";
 import {fetchData} from "../utilities/fetchData.js";
 import {getUserInfo} from "../utilities/userRegister.js";
 import "./globalSearch.js"
+import {logout} from "../utilities/logout.js";
 
 window.addEventListener("load", async () => {
     renderNavLinks()
@@ -76,8 +77,40 @@ async function showUserInTopNav() {
     const userInfo = await getUserInfo()
 
     if (userInfo && userInfo.message !== "توکن نامعتبر است") {
-        // TODO: change href to user page
-        userBtnInNav.href = 'index.html'
-        userBtnInNav.querySelector(".header__user--text").textContent = userInfo.username
+        // change user sign button style
+        userBtnInNav.removeAttribute("href")
+        userBtnInNav.querySelector(".header__user--text").remove()
+        userBtnInNav.insertAdjacentHTML("afterbegin", `
+        <i class= "fa-regular fa-user"></i>
+        `)
+        // show sub contextmenu
+        userBtnInNav.insertAdjacentHTML("afterend", `
+            <div class="user-contexmenu">
+                <div class="user-contexmenu__name px-4">
+                    <i class="fa-regular fa-user"></i>
+                    <span class="user-contexmenu__name--text">${userInfo.name}</span>
+                </div>
+                ${userInfo.role === "ADMIN" ? `
+                    <a href="Panel/panel-home.html" class="user-contexmenu__title px-4">
+                        <i class="fa-regular fa-home"></i>
+                        <span class="user-contexmenu__title--text">پنل ادمین</span>
+                    </a>
+                `: ""}
+                <div class="user-contexmenu__logout px-4">
+                    <i class="fa-regular fa-sign-out"></i>
+                    <span class="user-contexmenu__title--text">خروج</span>
+                </div>
+            </div>
+        `)
+
+        const logoutBtn = $.querySelector(".user-contexmenu__logout")
+
+        userBtnInNav.addEventListener("click", showHiddenContextMenu)
+        logoutBtn.addEventListener("click", logout)
     }
+}
+
+
+function showHiddenContextMenu() {
+    $.querySelector(".user-contexmenu").classList.toggle("show")
 }

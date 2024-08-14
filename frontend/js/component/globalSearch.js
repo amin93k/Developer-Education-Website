@@ -4,7 +4,7 @@ const setupGlobalSearch = () => {
     window.addEventListener("load", () =>  {
         const search = $.querySelectorAll(".header__search")
         const searchIcon = $.querySelectorAll(".header__search--icon")
-
+        // set searching event on both search box on desktop and mobile
         for(let i = 0; i < 2; i++) {
             search[i].addEventListener("keypress", globalSearch)
             searchIcon[i].addEventListener("click", globalSearch)
