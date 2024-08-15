@@ -12,7 +12,7 @@ function breadcrumbRoute(categoryName, categoryTitle, name) {
         fragment.append(creatorCrumbDiv(`course.html?name=${getParam("name")}`, name))
     }
     else {
-        fragment.append(creatorCrumbDiv("category.html?name=articles", "مقالات"))
+        fragment.append(creatorCrumbDiv("category.html?cat=articles", "مقالات"))
         fragment.append(creatorCrumbDiv("#", name))
     }
 

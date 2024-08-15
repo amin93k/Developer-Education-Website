@@ -3,6 +3,8 @@ import {fetchData} from "../utilities/fetchData.js"
 import {courseCardHorizontalRender, courseCardRender} from "../utilities/courseCardRender.js"
 import {setDataToStorage, getDataFromStorage} from "../utilities/localStorageManager.js"
 import {search} from "../utilities/search.js"
+import {blogCardRender} from "../utilities/blogCardRender.js";
+import {getParam} from "../utilities/utileFunction.js";
 
 let searchWord = ""
 let routeName = null
@@ -45,11 +47,10 @@ function getLocationURL() {
     if(routeName === "all") {
         URL = url + "/courses"
     }
-    else if(routeName === "articles") {
-        URL = url + "/articles"
-    }
     else if(routeName === "cat"){
-        URL = url + "/courses/category/" + param.get(routeName)
+        const categoryParam = param.get(routeName)
+        URL = url
+        URL += categoryParam === "articles" ? "/articles" : `/courses/category/${param.get(routeName)}`
     }
     else if(routeName === "search"){
         URL = url + "/search/" + param.get(routeName)
@@ -70,31 +71,39 @@ async function showCategory(initialLoad) {
     let parentClass = getLayoutActiveBtn === "show-windows" ? "col-lg-3 col-md-4 col-sm-6 mb-3" : "col-12 mb-3"
 
     await fetchData(getLocationURL()).then(courses => {
-        let coursesList = routeName === "search" ? [...courses.allResultCourses] : [...courses]
 
-        // check search happened
-        if(searchWord) {
-            coursesList = search(coursesList, searchWord, "name")
-        }
+        if(courses) {
+            let coursesList = routeName === "search" ? [...courses.allResultCourses] : [...courses]
 
-        // handel show more button
-        coursesList = coursesList.slice((currentCoursesShow - 1) * displayCoursePerLoad, displayCoursePerLoad * currentCoursesShow)
+            // check search happened
+            if(searchWord) {
+                coursesList = search(coursesList, searchWord, "name")
+            }
 
-        // sort course use sortBase variable
-        coursesList = sortBase === "all" ? coursesList : sortCourses(coursesList)
+            // handel show more button
+            coursesList = coursesList.slice((currentCoursesShow - 1) * displayCoursePerLoad, displayCoursePerLoad * currentCoursesShow)
 
-        // TODO: بعد از ایجاد رندر کارد مقالات باید انجا تغییر کند
-        if (getLayoutActiveBtn === "show-windows") {
-            categoryWrapper.append(courseCardRender(coursesList, parentClass))
-        } else {
-            categoryWrapper.append(courseCardHorizontalRender(coursesList, parentClass))
-        }
+            // sort course use sortBase variable
+            coursesList = sortBase === "all" ? coursesList : sortCourses(coursesList)
 
-        if(displayCoursePerLoad * currentCoursesShow > coursesList.length){
-            $.querySelector(".show-more").classList.add("hidden")
-        }
-        else {
-            $.querySelector(".show-more").classList.remove("hidden")
+            if(getParam("cat") === "articles") {
+                categoryWrapper.append(blogCardRender(coursesList, parentClass))
+            }
+            else {
+
+                if (getLayoutActiveBtn === "show-windows") {
+                    categoryWrapper.append(courseCardRender(coursesList, parentClass))
+                } else {
+                    categoryWrapper.append(courseCardHorizontalRender(coursesList, parentClass))
+                }
+            }
+
+            if(displayCoursePerLoad * currentCoursesShow > coursesList.length){
+                $.querySelector(".show-more").classList.add("hidden")
+            }
+            else {
+                $.querySelector(".show-more").classList.remove("hidden")
+            }
         }
     })
 
