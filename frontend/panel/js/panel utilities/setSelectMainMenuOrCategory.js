@@ -1,8 +1,9 @@
 import {fetchData} from "../../../js/utilities/fetchData.js";
 import {$, url} from "../../../js/base.js";
 
-async function setSelectMainMenu() {
-    const Menus = await fetchData(url + "/menus/all")
+async function setSelectMainMenuOrCategory(type) {
+    const route = type === "menu" ? "/menus/all" : "/category"
+    const Menus = await fetchData(url + route)
 
     if (Menus.length) {
         const SelectElm = $.querySelector(".course-category__select")
@@ -20,4 +21,4 @@ async function setSelectMainMenu() {
     }
 }
 
-export {setSelectMainMenu};
+export {setSelectMainMenuOrCategory};

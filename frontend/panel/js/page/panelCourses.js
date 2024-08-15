@@ -4,7 +4,7 @@ import {deleteItem} from "../panel utilities/deleteItem.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
 import {popUp} from "../../../js/component/sweetAlertCustome.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
-import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
+import {setSelectMainMenuOrCategory} from "../panel utilities/setSelectMainMenuOrCategory.js";
 
 
 window.addEventListener("load", async () => {
@@ -16,7 +16,7 @@ window.addEventListener("load", async () => {
 
         await adminProtection()
         await renderCoursesTable()
-        await setSelectMainMenu()
+        await setSelectMainMenuOrCategory("category")
         newCourseForm.addEventListener("submit", createNewCourse)
 
         bodyElm.classList.add("onload")

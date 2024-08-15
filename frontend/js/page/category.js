@@ -100,12 +100,12 @@ async function showCategory(initialLoad) {
 
 }
 
-function loadMoreCourses() {
+async function loadMoreCourses() {
     currentCoursesShow += 1
-    showCategory(false)
+    await showCategory(false)
 }
 
-function shiftCourseLayoutBtn(eve) {
+async function shiftCourseLayoutBtn(eve) {
     const btnId = eve.currentTarget.id
 
     setDataToStorage("show-category", btnId)
@@ -117,7 +117,7 @@ function shiftCourseLayoutBtn(eve) {
     // reset show current course number
     currentCoursesShow = 1
 
-    showCategory(false)
+    await showCategory(false)
 }
 
 function setCourseLayoutActiveBtn(activeBtn) {
@@ -129,7 +129,7 @@ function setCourseLayoutActiveBtn(activeBtn) {
     })
 }
 
-function shiftSortBtn(eve) {
+async function shiftSortBtn(eve) {
     const sortButtons = $.querySelectorAll(".top-bar__sort--type")
     sortButtons.forEach(sortBtn => {
         sortBtn.classList.remove("active")
@@ -140,7 +140,7 @@ function shiftSortBtn(eve) {
     // reset show current course number
     currentCoursesShow = 1
 
-    showCategory(false)
+    await showCategory(false)
 }
 
 function sortCourses(courses) {
@@ -155,9 +155,9 @@ function sortCourses(courses) {
     return courses
 }
 
-function showSearchCourse(eve) {
+async function showSearchCourse(eve) {
     searchWord = eve.target.value
     // reset show current course number
     currentCoursesShow = 1
-    showCategory(false)
+    await showCategory(false)
 }

@@ -49,6 +49,10 @@
     letter-spacing: -1px;
 }
 
+.blog-body__image {
+    border-radius: 1.5rem;
+}
+
 /****************** BLOG BODY TOPICS TABLE *******************/
 .blog-body__topics {
     border: 1px solid rgba(0, 0, 0, 0.3);

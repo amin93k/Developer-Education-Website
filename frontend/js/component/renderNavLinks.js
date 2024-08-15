@@ -5,16 +5,16 @@ import "./globalSearch.js"
 import {logout} from "../utilities/logout.js";
 
 window.addEventListener("load", async () => {
-    renderNavLinks()
+    await renderNavLinks()
     await showUserInTopNav()
 })
 
 
-function renderNavLinks() {
+async function renderNavLinks() {
     const navbar = $.querySelector(".header__nav")
     let fragment = $.createDocumentFragment()
 
-    fetchData(url + "/menus").then(links => {
+    await fetchData(url + "/menus").then(links => {
         links.forEach(menu => {
             const hasSubmenu = menu.submenus.length
 
@@ -47,7 +47,7 @@ function renderNavLinks() {
 
         navbar.append(fragment)
 
-        // showSubmenu()
+        showSubmenu()
     })
 }
 

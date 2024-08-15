@@ -3,7 +3,7 @@ import {adminProtection} from "../panel utilities/adminProtection.js";
 import {deleteItem} from "../panel utilities/deleteItem.js";
 import {changeDateToJalali} from "../../../js/utilities/utileFunction.js";
 import {fetchData} from "../../../js/utilities/fetchData.js";
-import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
+import {setSelectMainMenuOrCategory} from "../panel utilities/setSelectMainMenuOrCategory.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
 import {popUp} from "../../../js/component/sweetAlertCustome.js";
 
@@ -15,14 +15,12 @@ window.addEventListener("load", async () => {
 
     await adminProtection()
     await articlesTableRender()
-    await setSelectMainMenu()
+    await setSelectMainMenuOrCategory("category")
 
     const createArticleForm = $.querySelector(".new-article__form")
     createArticleForm.addEventListener("submit", createNewArticle)
 
-    ClassicEditor.create($.querySelector("#editor"), {
-        // language: "fa"
-    })
+    ClassicEditor.create($.querySelector("#editor"))
         .then(editor => articleBodyEditor = editor)
         .catch(error => { console.error(error)})
 

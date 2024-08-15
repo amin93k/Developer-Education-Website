@@ -4,7 +4,7 @@ import {fetchData} from "../../../js/utilities/fetchData.js";
 import {popUp} from "../../../js/component/sweetAlertCustome.js";
 import {getToken} from "../../../js/utilities/localStorageManager.js";
 import {deleteItem} from "../panel utilities/deleteItem.js";
-import {setSelectMainMenu} from "../panel utilities/setSelectMainMenu.js";
+import {setSelectMainMenuOrCategory} from "../panel utilities/setSelectMainMenuOrCategory.js";
 
 
 
@@ -14,7 +14,7 @@ window.addEventListener("load", async () => {
 
     await adminProtection()
     await menuTableRender()
-    await setSelectMainMenu()
+    await setSelectMainMenuOrCategory("menu")
 
     const newMenuForm = $.querySelector(".new-menu__form")
     newMenuForm.addEventListener("submit", createNewMenu)
