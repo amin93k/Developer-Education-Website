@@ -38,7 +38,7 @@ async function userTableRender() {
                 <td>${user.username}</td>
                 <td>${user.email}</td>
                 <td>${user.phone}</td>
-                <td>${detectRole(user.role)}</td>
+                <td ${user.role === "ADMIN" ? "class='admin-color'" : ""}>${detectRole(user.role)}</td>
                 <td class="user-table__edite">
                     <i class="fa-regular fa-pen user-table__edite--pen edite_pen"></i>
                 </td>

@@ -53,7 +53,7 @@ function blogBodyRender(article) {
             <span class="blog-body__info--date">${changeDateToJalali(article.updatedAt)}</span>
         </div>
         <!--Blog Top Image-->  
-        <img src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${article.cover}" alt="blog" class="blog-body__image my-5">
+        <img src="../backend-v0.3.0/public/courses/covers/${article.cover}" alt="blog" class="blog-body__image my-5">
         <!--Topics Table-->
         <div class="blog-body__topics">
                         <div class="blog-body__topics__header">

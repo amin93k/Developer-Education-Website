@@ -12,7 +12,7 @@ function blogCardRender(blogs, parentElmClasses, numberOfRender = blogs.length) 
         newDivElm.innerHTML = `
                 <div class="blog-card">
                     <div class="blog-card__banner">
-                        <img class="blog-card__banner-image" src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${cover}" alt="blog image">
+                        <img class="blog-card__banner-image" src="../backend-v0.3.0/public/courses/covers/${cover}" alt="blog image">
                     </div>
                     <div class="blog-card__body">
                         <div class="blog-card__content">

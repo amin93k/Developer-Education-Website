@@ -19,9 +19,9 @@ function courseCardRender(courses, parentDivElmClasses, numberOfRender = courses
                     <div class="course-card__banner">
                         <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img"
-                                 src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${cover}" alt="course">
+                                 src="../backend-v0.3.0/public/courses/covers/${cover}" alt="course">
                         </a>
-                        ${discount > 0 ? `
+                        ${(discount > 0) && (price > 0) ? `
                             <div class="course-card__off-budget">
                                 <span class="course-card__off-budget--percent">${discount}</span>
                                 <i class="fa-solid fa-percent course-card__off-budget--icon"></i>
@@ -118,9 +118,9 @@ function courseCardHorizontalRender(courses, parentDivElmClasses, numberOfRender
                     <div class="course-card__banner horizontal">
                         <a href="course.html?name=${shortName}">
                             <img class="course-card__banner--img horizontal"
-                                 src="http://localhost:63342/learn.txt/Sabz%20Learn%20Project/backend-v0.3.0/public/courses/covers/${cover}" alt="course">
+                                 src="../backend-v0.3.0/public/courses/covers/${cover}" alt="course">
                         </a>
-                        ${discount > 0 ? `
+                        ${(discount > 0) && (price > 0) ? `
                             <div class="course-card__off-budget">
                                 <span class="course-card__off-budget--percent">${discount}</span>
                                 <i class="fa-solid fa-percent course-card__off-budget--icon"></i>

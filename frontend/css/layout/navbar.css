@@ -88,6 +88,7 @@
     background-color: var(--secondary-color) !important;
     color: var(--white-color) !important;
     transition: linear 0.2s;
+    cursor: pointer;
 }
 
 .header__user:hover {

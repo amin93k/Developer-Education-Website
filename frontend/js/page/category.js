@@ -80,11 +80,13 @@ async function showCategory(initialLoad) {
                 coursesList = search(coursesList, searchWord, "name")
             }
 
+            // sort course use sortBase variable
+            if(sortBase !== "all") {
+                coursesList = sortCourses(coursesList)
+            }
+
             // handel show more button
             coursesList = coursesList.slice((currentCoursesShow - 1) * displayCoursePerLoad, displayCoursePerLoad * currentCoursesShow)
-
-            // sort course use sortBase variable
-            coursesList = sortBase === "all" ? coursesList : sortCourses(coursesList)
 
             if(getParam("cat") === "articles") {
                 categoryWrapper.append(blogCardRender(coursesList, parentClass))

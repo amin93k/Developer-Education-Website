@@ -17,7 +17,7 @@ window.addEventListener("load", async () => {
     await setSelectCourseList()
 
     const newDiscountForm = $.querySelector(".new-discount__form")
-    newDiscountForm.addEventListener("submit", createNewCategory)
+    newDiscountForm.addEventListener("submit", createNewDiscount)
 
     bodyElm.classList.add("onload")
     loaderElm.classList.add("hidden")
@@ -63,7 +63,7 @@ async function discountTableRender() {
     }
 }
 
-async function createNewCategory(eve) {
+async function createNewDiscount(eve) {
     eve.preventDefault()
     const form = eve.target
     const isDiscountAllCourses = form.course.value.trim() === "all"

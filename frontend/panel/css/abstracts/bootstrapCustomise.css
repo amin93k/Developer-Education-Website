@@ -56,3 +56,7 @@
 .cursor_pointer {
     cursor: pointer;
 }
+
+.offcanvas {
+    overflow-y: auto;
+}
